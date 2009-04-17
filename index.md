@@ -2,7 +2,7 @@
 title: Visor by BlackTree
 layout: wikistyle
 repo: http://github.com/darwin/visor
-support: http://code.google.com/p/blacktree-visor/issues/list
+support: http://github.com/darwin/visor/issues
 download: http://cloud.github.com/downloads/darwin/visor/Visor-1.9.1-98b773.zip
 version: Version 1.9.1
 ---
