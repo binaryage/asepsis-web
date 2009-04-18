@@ -7,9 +7,9 @@ download: http://cloud.github.com/downloads/darwin/visor/Visor-1.9.1-98b773.zip
 version: Version 1.9.1
 ---
 
-# Visor by [BlackTree](http://blacktree.com/)
+# Visor for OSX provides a systemwide terminal window accessible via a hot-key
 
-**Visor for OSX** provides a systemwide terminal window accessible via a hot-key, much like the consoles found in games (Quake)
+much like the consoles found in games (Quake)
 
 ![screenshot](http://cloud.github.com/downloads/darwin/visor/visor-screenshot-1.8.png)
 

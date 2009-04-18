@@ -6,10 +6,6 @@
   width: 59em;
 }
 
-h1 {
-    display: none;
-}
-
 #header {
     background-image: url(/images/header_bg.png);
 }
