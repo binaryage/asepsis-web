@@ -9,7 +9,7 @@ version: Version 1.9.1
 
 # Visor provides a systemwide terminal window accessible via a hot-key
 
-much like the consoles found in games (Quake)
+... much like the consoles found in games, such as Quake.
 
 ![screenshot](http://cloud.github.com/downloads/darwin/visor/visor-screenshot-1.8.png)
 
@@ -153,9 +153,7 @@ Feel free to fork and contribute.
 * **v1.0**
   * Initial release
 
-## Original Visor 1.5 brought to you by [BlackTree](http://blacktree.com), kudos man!
-
-Please see the [original website](http://code.google.com/p/blacktree-visor/) for more information, the issue tracker and so on.
+## Original Visor 1.5 brought to you by [Blacktree](http://blacktree.com), kudos man!
 
 ## License
 
