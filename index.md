@@ -13,6 +13,10 @@ subdownload:
 subdownloadlink:
 mainshot: /shared/img/visor-mainshot.png
 mainshotfull: /shared/img/visor-mainshot-full.png
+overlaysx: 880px
+overlaysy: 608px
+overlaycx: 25px
+overlaycy: 10px
 ---
 
 <div class="advertisement">
