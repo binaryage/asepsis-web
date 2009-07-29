@@ -1,6 +1,6 @@
 ---
-title: Visor by Blacktree
-subtitle: a system-wide terminal window accessible via a hot-key
+title: Visor for OSX
+subtitle: a system-wide terminal accessible via a hot-key
 layout: product
 icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
