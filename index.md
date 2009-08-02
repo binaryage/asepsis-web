@@ -100,6 +100,10 @@ Feel free to fork and contribute.
 
 ## History
 
+* **v2.0** (to be released)
+  * [[darwin][darwin]] Visor uses profile "Visor" or creates a new one if it does not exist ([Issue 57](http://code.google.com/p/blacktree-visor/issues/detail?id=71), [Issue #19](http://github.com/darwin/visor/issues/closed#issue/19)).
+  * [[genki][genki]] "Copy on Select" feature
+
 * **v1.9.1** (14.04.2009)
   * [[darwin][darwin]] Fixed missing "Visor Preferences..." menu item (thanks [gestes](http://github.com/gestes)).
 
@@ -191,3 +195,4 @@ Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/L
 [blinks]: http://github.com/blinks
 [cglee]: http://github.com/cglee
 [kleinman]: http://github.com/kleinman
+[genki]: http://github.com/genki
