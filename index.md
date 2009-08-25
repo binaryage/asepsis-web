@@ -74,6 +74,9 @@ Feel free to fork and contribute.
 #### I like the idea, but I want to use Terminal.app features. Do you plan to support tabs/unicode/whatever?
 > Visor is just a light-weight wrapper of Terminal.app (SIMBL). You should be able to use all Terminal.app features with Visor.
 
+#### Does Visor work on OSX Snow Leopard?
+> I haven't tried it personally yet. But you may want to check [article by Ken Collins](http://metaskills.net/2009/8/18/visor-terminal-on-snow-leopard). Visor 2.0 is expected to be compatible with Snow Leopard.
+
 #### My Visor menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
 > There can be only one visor-ed terminal window in the system. If you close this terminal window (for example Control+D or typing exit in shell), Visor gets into disabled state you are describing. Just open a new terminal window and it gets visor-ed again. You can do it for example by clicking on Terminal.app icon in Dock.
 
