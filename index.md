@@ -20,16 +20,16 @@ overlaycy: 10px
 ---
 
 <div class="advertisement">
-	<div class="plug">Recommended reading:</div>
-	<a href="http://www.amazon.com/gp/product/0596005954?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596005954"><img border="0" src="/shared/img/amazon/51iwZqWOH1L._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596005954" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-	
-	<a href="http://www.amazon.com/gp/product/0596009658?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596009658"><img border="0" src="/shared/img/amazon/51VHq29iQML._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596009658" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-	
-	<a href="http://www.amazon.com/gp/product/0596526784?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596526784"><img border="0" src="/shared/img/amazon/41ud8mqgtML._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596526784" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-	
-	<a href="http://www.amazon.com/gp/product/0596100299?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596100299"><img border="0" src="/shared/img/amazon/41NnPdI3nJL._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596100299" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-	
-	<div class="offer"><a href="mailto:antonin@binaryage.com">advertise here</a></div>
+    <div class="plug">Recommended reading:</div>
+    <a href="http://www.amazon.com/gp/product/0596005954?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596005954"><img border="0" src="/shared/img/amazon/51iwZqWOH1L._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596005954" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+    
+    <a href="http://www.amazon.com/gp/product/0596009658?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596009658"><img border="0" src="/shared/img/amazon/51VHq29iQML._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596009658" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+    
+    <a href="http://www.amazon.com/gp/product/0596526784?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596526784"><img border="0" src="/shared/img/amazon/41ud8mqgtML._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596526784" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+    
+    <a href="http://www.amazon.com/gp/product/0596100299?ie=UTF8&tag=visor-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596100299"><img border="0" src="/shared/img/amazon/41NnPdI3nJL._SL110_.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=visor-20&l=as2&o=1&a=0596100299" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+    
+    <div class="offer"><a href="mailto:antonin@binaryage.com">advertise here</a></div>
 </div>
 <script type="text/javascript" src="http://www.assoc-amazon.com/s/link-enhancer?tag=visor-20&o=1">
 </script>
