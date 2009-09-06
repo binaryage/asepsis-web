@@ -6,7 +6,7 @@ icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
 support: http://github.com/darwin/visor/issues
 downloadtitle: Download v2.0
-download: http://cloud.github.com/downloads/darwin/visor/Visor-2.0-TODO.zip
+download: http://cloud.github.com/downloads/darwin/visor/Visor-2.0-60cc9f.zip
 downloadboxwidth: 140px
 donate:
 subdownload: 
