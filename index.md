@@ -5,8 +5,8 @@ layout: product
 icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
 support: http://github.com/darwin/visor/issues
-downloadtitle: Download v1.9.1
-download: http://cloud.github.com/downloads/darwin/visor/Visor-1.9.1-98b773.zip
+downloadtitle: Download v2.0
+download: http://cloud.github.com/downloads/darwin/visor/Visor-2.0-TODO.zip
 downloadboxwidth: 140px
 donate:
 subdownload: 
@@ -36,18 +36,19 @@ overlaycy: 10px
 
 ## Installation
 
-  * [Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)
-  * Place Visor.bundle in ~/Library/Application Support/SIMBL/Plugins
-  * (Re)launch Terminal.app - You should now see the Visor menu item ![icon](http://github.com/darwin/visor/blob/master/src/res/VisorActive.png?raw=true)
-  * Configure your keyboard trigger by selecting the Visor menu item -> preferences and editing your keyboard hot-key
+  * **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)**
+  * Place Visor.bundle into `~/Library/Application Support/SIMBL/Plugins` (create this directory if it does not exist)
+  * <span style="background-color: #fff; font-weight: bold; padding: 0px 6px;">Snow Leopard</span> In Finder go to `/Applications/Utilities/Terminal.app` and right-click it, open "Get Info" dialog and check in <span style="color:#f00">"Open in 32-bit mode"</span>
+  * (Re)launch Terminal.app - You should now see the Visor Menu Item <img style="width:20px; height:20px; position: relative; top:4px; margin:0; padding:0; border:0;" src="http://github.com/darwin/visor/blob/master/src/res/VisorActive.png?raw=true">
+  * Configure your keyboard trigger by selecting the Visor Menu Item -> `Visor Preferences ...` and edit your keyboard `hot-key`
 
-You can now trigger Visor with your hotkey from any application to get an instant terminal session. 
+#### You can now trigger Visor with your hotkey from any application to get an instant terminal session. 
 
 To hide Visor, you can either:
 
   * re-trigger with your key-combo
   * optionally you can click off of the Visor window
-  * or you can also enable "Visor hiding on Esc" in preferences
+  * or you can also enable "Hide on Escape" in Visor Preferences
   * use the logout key-combo (control+d) to close the Visor window
   * type "exit" in running shell to close it
 
@@ -57,55 +58,76 @@ To hide Visor, you can either:
 
   * [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)
   * ruby + rubygems
-  * XCode 3.0+
+  * XCode 3.2+
   * zip/unzip
 
-Installation steps:
+Custom installation steps:
 
     git clone git://github.com/darwin/visor.git
     cd visor
     rake
     rake install
 
-Feel free to fork and contribute.
+Feel free to [fork and contribute][contribute].
 
 ## FAQ
 
 #### I like the idea, but I want to use Terminal.app features. Do you plan to support tabs/unicode/whatever?
-> Visor is just a light-weight wrapper of Terminal.app (SIMBL). You should be able to use all Terminal.app features with Visor.
+> Visor is just a light-weight wrapper of Terminal.app (SIMBL). You should be able to use most of Terminal.app features with Visor. The only broken feature is "Windows Groups".
 
-#### Does Visor work on OSX Snow Leopard?
-> I haven't tried it personally yet. But you may want to check [article by Ken Collins](http://metaskills.net/2009/8/18/visor-terminal-on-snow-leopard). Visor 2.0 is expected to be compatible with Snow Leopard.
+#### Does Visor work on OSX 10.6 (Snow Leopard)?
+> Snow Leopard is supported by Visor 2.0 and later.
+
+#### Does Visor work on OSX 10.5 (Leopard)?
+> Leopard is supported by Visor 1.5 and later.
+
+#### Does Visor work on OSX 10.4 (Tiger)?
+> Tiger was supported by early Visors (pre 1.5). It was in the days when I was young Windows hacker. Will never look back, so your only chance is to upgrade to Leopard.
 
 #### My Visor menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
-> There can be only one visor-ed terminal window in the system. If you close this terminal window (for example Control+D or typing exit in shell), Visor gets into disabled state you are describing. Just open a new terminal window and it gets visor-ed again. You can do it for example by clicking on Terminal.app icon in Dock.
+> There can be only one visor-ed terminal window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), Visor gets into disabled state you are describing. Just open a new terminal window and it gets visor-ed again. You can do it for example by clicking on Terminal.app icon in the Dock.
 
 #### How can I open a new terminal window the old way as a classic OSX window?
-> If there is a visor-ed terminal window (Visor menu-bar icon is active) every new terminal window gets opened as a classic OSX window. In other words, open at least two terminal windows. Second one will be classic for sure.
+> If there is a visor-ed terminal window (Visor menu-bar icon is active) every new terminal window gets opened as a classic OSX window. In other words, open at least two terminal windows. Second one will be classic terminal window for sure.
 
 #### How can I change a height of Visor?
-> Go to Terminal.app preferences -> Window -> Rows
+> Go to Terminal.app's Preferences -> Window -> Rows
 
 #### How can I stick Visor to left screen edge?
 > Look for "Position" option in Visor Preferences and pick "Left-Stretch" window placement.
 
 #### How can I change a width of Visor?
-> By default Visor window does stretch to full screen width. Set some non-stretching positioning for Visor window in Visor Preferences, then Go to Terminal.app preferences -> Window -> Columns.
+> By default Visor window does stretch to full screen width. Set some non-stretching positioning for Visor window in Visor Preferences, then Go to Terminal.app's Preferences -> Window -> Columns.
 
 #### Is it possible to show Visor only on secondary monitor?
 > Go to Visor Preferences -> Screen
 
-#### Is it possible to see Visor on every space?
-> Visor 1.6 does not respect spaces settings ([Issue 52](http://code.google.com/p/blacktree-visor/issues/detail?id=52)). Visor 1.7+ forces it's window to be visible on every space. You may disable it in Visor Preferences. Note: spaces configuration about Terminal.app doesn't apply to visor-ed terminal window, it is effective only for other (classic) terminal windows.
+#### Is it possible to see Visor on every Space?
+> Visor 1.6 does not respect Spaces settings ([Issue 52](http://code.google.com/p/blacktree-visor/issues/detail?id=52)). Visor 1.7+ forces it's window to be visible on every space. 
+You may disable it in Visor Preferences. Note: Spaces configuration about Terminal.app doesn't apply to visor-ed terminal window, it is effective only for other (classic) terminal windows.
 
 #### I want to keep different preferences for Visor and other (classic) terminal windows. What is the best way how manage it?
-> Well, Terminal.app has preference sets called profiles and you can run new terminal windows with different profiles. Original version of Visor took "VisorTerminal" profile in case it was available. This was removed in latest version. Simply use Terminal.app ways how to start terminal window with preferred profile like you normally would. Visor doesn't touch your profile neither has special logic how to pick one.
+> Well this was quite a pain point in older Visor releases. From Visor 2.0 there must exist Terminal.app's profile called "Visor". Visor-ed window always uses "Visor" profile for opening new tabs 
+(regardless of "default profile setting" in Terminal.app). To make your life easier Visor creates this profile for you if it does not exist and fills in Darwin's preferred Visor settings (black background with fine colors, 90% opacity).
+
+#### How can I revert to Darwin's Visor profile?
+> You can always delete (or better rename) profile called "Visor" and relaunch Terminal.app. Visor will create new "Visor" profile from scratch with Darwin's preferred settings.
+
+#### Do I need to install TerminalColours SIMBL with Visor?
+> No, TerminalColours is integrated into Visor 2.0 and later. My motivation was to allow people get cool Visor colors out of the box (by getting Darwin's Visor profile).
+
+#### Do I need to install CopyOnSelect SIMBL with Visor?
+> No, CopyOnSelect is integrated into Visor 2.0 and later. It is configurable option in Visor Preferences (disabled by default).
 
 ## History
 
-* **v2.0** (to be released)
+* **v2.0** (06.09.2009) code name: **Snow Visor**
+  * [[darwin][darwin]] Compatibility with OSX 10.6 (Snow Leopard)
+  * [[ciaran][ciaran]+[evanphx][evanphx]+[darwin][darwin]] integrated [Terminal Colours SIMBL](http://ciaranwal.sh/2007/11/01/customising-colours-in-leopard-terminal)
   * [[darwin][darwin]] Visor uses profile "Visor" or creates a new one if it does not exist ([Issue 57](http://code.google.com/p/blacktree-visor/issues/detail?id=71), [Issue #19](http://github.com/darwin/visor/issues/closed#issue/19)).
-  * [[genki][genki]] "Copy on Select" feature
+  * [[darwin][darwin]] "Visor" profile is created with finest settings from Darwin's Visor profile including setup for Terminal Colours (black background with fine colors, 90% opacity)
+  * [[darwin][darwin]] Visor stays hidden after Terminal.app launch (seamless experience when including Terminal.app into startup items)
+  * [[genki][genki]+[darwin][darwin]] integrated [CopyOnSelect SIMBL](http://github.com/genki/terminalcopyonselect)
 
 * **v1.9.1** (14.04.2009)
   * [[darwin][darwin]] Fixed missing "Visor Preferences..." menu item (thanks [gestes](http://github.com/gestes)).
@@ -199,3 +221,6 @@ Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/L
 [cglee]: http://github.com/cglee
 [kleinman]: http://github.com/kleinman
 [genki]: http://github.com/genki
+[ciaran]: http://github.com/ciaran
+[evanphx]: http://github.com/evanphx
+[contribute]: http://github.com/darwin/visor
