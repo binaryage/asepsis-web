@@ -36,7 +36,7 @@ overlaycy: 10px
 
 ## Installation
 
-  * **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)**
+  * **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)** <span style="color:red">install SIMBL-0.8.2.tbz, Visor2.0 does not work with latest 0.9.2b!</span>
   * Place Visor.bundle into `~/Library/Application Support/SIMBL/Plugins` (create this directory if it does not exist)
   * <span style="background-color: #fff; font-weight: bold; padding: 0px 6px;">Snow Leopard</span> In Finder go to `/Applications/Utilities/Terminal.app` and right-click it, open "Get Info" dialog and check in <span style="color:#f00">"Open in 32-bit mode"</span>
   * (Re)launch Terminal.app - You should now see the Visor Menu Item <img style="width:20px; height:20px; position: relative; top:4px; margin:0; padding:0; border:0;" src="http://github.com/darwin/visor/blob/master/src/res/VisorActive.png?raw=true">
