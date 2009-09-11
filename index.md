@@ -5,8 +5,8 @@ layout: product
 icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
 support: http://github.com/darwin/visor/issues
-downloadtitle: Download v2.0
-download: http://cloud.github.com/downloads/darwin/visor/Visor-2.0-60cc9f.zip
+downloadtitle: Download v2.0.1
+download: http://cloud.github.com/downloads/darwin/visor/Visor-2.0.1-09d789.zip
 downloadboxwidth: 140px
 donate:
 subdownload: 
@@ -120,6 +120,12 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 > No, CopyOnSelect is integrated into Visor 2.0 and later. It is configurable option in Visor Preferences (disabled by default).
 
 ## History
+
+* **v2.1** (to be released)
+  * 64-bit version for 64-bit Terminal.app in Snow Leopard (using new SIMBL 0.9.x)
+
+* **v2.0.1** (11.09.2009)
+  * [[darwin][darwin]] Fixed resizing issue ([Issue #22](http://github.com/darwin/visor/issues/closed#issue/22))
 
 * **v2.0** (06.09.2009) code name: **Snow Visor**
   * [[darwin][darwin]] Compatibility with OSX 10.6 (Snow Leopard)
