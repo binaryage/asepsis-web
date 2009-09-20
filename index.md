@@ -5,8 +5,8 @@ layout: product
 icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
 support: http://github.com/darwin/visor/issues
-downloadtitle: Download v2.0.1
-download: http://cloud.github.com/downloads/darwin/visor/Visor-2.0.1-09d789.zip
+downloadtitle: Download v2.1
+download: http://cloud.github.com/downloads/darwin/visor/Visor-2.1-todo.zip
 downloadboxwidth: 140px
 donate:
 subdownload: 
@@ -36,21 +36,34 @@ overlaycy: 10px
 
 ## Installation
 
-  * **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)** <span style="color:red">install SIMBL-0.8.2.tbz, Visor2.0 does not work with latest 0.9.2b!</span>
-  * Place Visor.bundle into `~/Library/Application Support/SIMBL/Plugins` (create this directory if it does not exist)
-  * <span style="background-color: #fff; font-weight: bold; padding: 0px 6px;">Snow Leopard</span> In Finder go to `/Applications/Utilities/Terminal.app` and right-click it, open "Get Info" dialog and check in <span style="color:#f00">"Open in 32-bit mode"</span>
-  * (Re)launch Terminal.app - You should now see the Visor Menu Item <img style="width:20px; height:20px; position: relative; top:4px; margin:0; padding:0; border:0;" src="http://github.com/darwin/visor/blob/master/src/res/VisorActive.png?raw=true">
-  * Configure your keyboard trigger by selecting the Visor Menu Item -> `Visor Preferences ...` and edit your keyboard `hot-key`
+  1. **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)** and <span style="color:#d22">make sure you have latest SIMBL 0.9.x</span>
+  2. Place Visor.bundle into `~/Library/Application Support/SIMBL/Plugins` (create this directory if it does not exist)
+  3. Relaunch Terminal.app - You should now see the Visor Status Menu Item
+  4. Configure your keyboard trigger by selecting the Visor Status Menu Item -> `Visor Preferences ...` and edit your keyboard `hot-key`
 
-#### You can now trigger Visor with your hotkey from any application to get an instant terminal session. 
+#### You can now trigger Visor with your hot-key from any application to get an instant terminal session. 
 
 To hide Visor, you can either:
 
   * re-trigger with your key-combo
   * optionally you can click off of the Visor window
-  * or you can also enable "Hide on Escape" in Visor Preferences
-  * use the logout key-combo (control+d) to close the Visor window
-  * type "exit" in running shell to close it
+
+### Compatibility
+
+  * **Visor 2.1** is tested to work with 
+    * SIMBL 0.9.x on Snow Leopard (both 32-bit and 64-bit)
+    * SIMBL 0.8.x on Leopard (32-bit)
+    
+  * **Visor 2.0** is tested to work with
+    * SIMBL 0.8.x on Snow Leopard but Terminal.app has to be forced to run in 32-bit mode
+    * SIMBL 0.8.x on Leopard
+    
+  * **Visor 1.9** is tested to work with
+    * SIMBL 0.8.x on Leopard
+
+**[Where can I get older versions?](http://github.com/darwin/visor/downloads)**
+
+## Sources
 
 ### Installation from sources
 
@@ -61,7 +74,7 @@ To hide Visor, you can either:
   * XCode 3.2+
   * zip/unzip
 
-Custom installation steps:
+#### Custom installation steps:
 
     git clone git://github.com/darwin/visor.git
     cd visor
@@ -70,19 +83,25 @@ Custom installation steps:
 
 Feel free to [fork and contribute][contribute].
 
+Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
 ## FAQ
 
 #### I like the idea, but I want to use Terminal.app features. Do you plan to support tabs/unicode/whatever?
 > Visor is just a light-weight wrapper of Terminal.app (SIMBL). You should be able to use most of Terminal.app features with Visor. The only broken feature is "Windows Groups".
 
 #### Does Visor work on OSX 10.6 (Snow Leopard)?
-> Snow Leopard is supported by Visor 2.0 and later.
+> 64-bit Terminal.app in Snow Leopard is supported by Visor 2.1 and later.
 
 #### Does Visor work on OSX 10.5 (Leopard)?
-> Leopard is supported by Visor 1.5 and later.
+> Leopard is supported by Visor 1.5 and later, the best version is Visor 2.1.
 
 #### Does Visor work on OSX 10.4 (Tiger)?
-> Tiger was supported by early Visors (pre 1.5). It was in the days when I was young Windows hacker. Will never look back, so your only chance is to upgrade to Leopard.
+> Tiger was supported by early Visors (pre 1.5). It was in the days when I was young Windows hacker. Will never look back, so your only chance is to upgrade to (Snow) Leopard.
+
+#### Where is stored Visor settings?
+> Visor settings is stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak it's values (better when Terminal.app is not running). 
+If you have troubles with Visor settings or generated Visor profile, delete this file and rester Terminal.app. This file will be recreated with default values.
 
 #### My Visor menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
 > There can be only one visor-ed terminal window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), Visor gets into disabled state you are describing. Just open a new terminal window and it gets visor-ed again. You can do it for example by clicking on Terminal.app icon in the Dock.
@@ -108,21 +127,29 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 
 #### I want to keep different preferences for Visor and other (classic) terminal windows. What is the best way how manage it?
 > Well this was quite a pain point in older Visor releases. From Visor 2.0 there must exist Terminal.app's profile called "Visor". Visor-ed window always uses "Visor" profile for opening new tabs 
-(regardless of "default profile setting" in Terminal.app). To make your life easier Visor creates this profile for you if it does not exist and fills in Darwin's preferred Visor settings (black background with fine colors, 90% opacity).
+(regardless of "default profile" or "startup profile" settings in Terminal.app). To make your life easier Visor creates this profile for you if it does not exist and fills in Darwin's preferred Visor settings (black background with fine colors, 90% opacity).
 
 #### How can I revert to Darwin's Visor profile?
 > You can always delete (or better rename) profile called "Visor" and relaunch Terminal.app. Visor will create new "Visor" profile from scratch with Darwin's preferred settings.
 
 #### Do I need to install TerminalColours SIMBL with Visor?
-> No, TerminalColours is integrated into Visor 2.0 and later. My motivation was to allow people get cool Visor colors out of the box (by getting Darwin's Visor profile).
+> No, TerminalColours is integrated into Visor 2.0 and later. My motivation was to allow people get cool Visor colors out of the box (with generated Visor profile).
 
 #### Do I need to install CopyOnSelect SIMBL with Visor?
 > No, CopyOnSelect is integrated into Visor 2.0 and later. It is configurable option in Visor Preferences (disabled by default).
 
 ## History
 
-* **v2.1** (to be released)
-  * 64-bit version for 64-bit Terminal.app in Snow Leopard (using new SIMBL 0.9.x)
+* **v2.1** (21.09.2009) code name: **Lovely Visor** <= [Google's QSB](http://code.google.com/p/qsb-mac/) codebase made this release possible!
+  * [[darwin][darwin]] support for SIMBL 0.9.x
+  * [[darwin][darwin]] 64-bit version for 64-bit Terminal.app in Snow Leopard
+  * [[darwin][darwin]] embedded Visor preferences pane into Terminal.app Preferences Window
+  * [[darwin][darwin]] you can activate Visor by double tapping Control key (disabled by default)
+  * [[darwin][darwin]] generated Visor profile does not use bold bright fonts
+  * [[darwin][darwin]] resetting window size is performed only in rare cases of visor reconfiguration (fixed [headaches with 'jumping lines'](http://github.com/darwin/visor/issues/closed#issue/27), also fixed [performance issue](http://github.com/darwin/visor/issues/closed/#issue/13))
+  * [[darwin][darwin]] 'restore app key focus' applescript checks if app which has to be restored is still alive (prevents [reopening closed app when leaving Visor](http://github.com/darwin/visor/issues/closed#issue/8))
+  * [[darwin][darwin]] removed dependency on QuartzCore.framework
+  * [[darwin][darwin]] XCode project cleanup, executable now includes binaries for x86_64, i386 and ppc architectures
 
 * **v2.0.1** (11.09.2009)
   * [[darwin][darwin]] Fixed resizing issue ([Issue #22](http://github.com/darwin/visor/issues/closed#issue/22))
@@ -207,17 +234,18 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 
 #### Original Visor 1.5 brought to you by [Blacktree](http://blacktree.com), kudos man!
 
-Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
 ## Links
 
-### Source code
+#### Source code
   * [sources are hosted at GitHub](http://github.com/darwin/visor)
 
-### Original Visor 1.5
+#### Original Visor 1.5
   * [Blacktree Homepage](http://blacktree.com)
 
 ### Articles
+  * **[Visor Terminal on Snow Leopard](http://www.metaskills.net/2009/8/18/visor-terminal-on-snow-leopard)** by Ken Collins
+  * **[Getting Terminal Visor for OSX working with Snow Leopard](http://aralbalkan.com/2366)** by Aral Balkan
+  * **[Re-enabling Visor in Snow Leopard](http://terrychay.com/blog/article/visor-in-snow-leopard.shtml)** by Terry Chay
   * Featured Project in **[Rebase #13](http://github.com/blog/346-github-rebase-13)**, thanks [qrush](http://github.com/qrush)!
 
 [darwin]: http://github.com/darwin
