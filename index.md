@@ -5,8 +5,8 @@ layout: product
 icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
 support: http://github.com/darwin/visor/issues
-downloadtitle: Download v2.1
-download: http://cloud.github.com/downloads/darwin/visor/Visor-2.1-5281f7c.zip
+downloadtitle: Download v2.2
+download: http://cloud.github.com/downloads/darwin/visor/Visor-2.2-aaf3045.zip
 downloadboxwidth: 140px
 donate:
 subdownload: 
@@ -49,6 +49,10 @@ To hide Visor, you can either:
   * optionally you can click off of the Visor window
 
 ### Compatibility
+ 
+  * **Visor 2.2** is tested to work with 
+    * SIMBL 0.9.x on Snow Leopard (both 32-bit and 64-bit)
+    * SIMBL 0.8.x on Leopard (32-bit)
 
   * **Visor 2.1** is tested to work with 
     * SIMBL 0.9.x on Snow Leopard (both 32-bit and 64-bit)
@@ -139,6 +143,12 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 > No, CopyOnSelect is integrated into Visor 2.0 and later. It is configurable option in Visor Preferences (disabled by default).
 
 ## History
+
+* **v2.2** (26.09.2009) code name: **Stable Visor**
+  * [[darwin][darwin]] fixed crash when [changing display settings](http://github.com/darwin/visor/issues/closed#issue/37) or [fast-switching user](http://github.com/darwin/visor/issues/closed#issue/38)
+  * [[darwin][darwin]] fixed some [redrawing issues](http://github.com/darwin/visor/issues/closed#issue/33)
+  * [[darwin][darwin]] using new API on Snow Leopard for returning focus to previous application (not using applescript => faster!)
+  * [[darwin][darwin]] fixed rake tasks, xcodebuild might fail in some rare situations
 
 * **v2.1** (21.09.2009) code name: **Lovely Visor** <= [Google's QSB](http://code.google.com/p/qsb-mac/) codebase made this release possible!
   * [[darwin][darwin]] support for SIMBL 0.9.x
@@ -231,6 +241,8 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 
 * **v1.0**
   * Initial release
+  
+  ... hic sunt leones ...
 
 #### Original Visor 1.5 brought to you by [Blacktree](http://blacktree.com), kudos man!
 
@@ -252,7 +264,7 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 
 ### Ben Stiglitz about Terminal.app
 
-Ben is the author of Terminal.app. He has created a great app and indirectly made Visor possible. Kudos!
+Ben is the author of Terminal.app. Kudos!
 <embed src='http://rubyconf2008.confreaks.com/player.swf' height='260' width='640' allowscriptaccess='always' allowfullscreen='true' flashvars='file=http%3A%2F%2Frubyconf2008.confreaks.com%2Fvideos%2Fterminalapp-small.mp4&image=images%2Fterminalapp-preview.jpg&plugins=viral-1'/>
 
 [darwin]: http://github.com/darwin
