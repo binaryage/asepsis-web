@@ -245,6 +245,7 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
   ... hic sunt leones ...
 
 
+
 #### Original Visor 1.5 brought to you by [Blacktree](http://blacktree.com), kudos man!
 
 ## Links
