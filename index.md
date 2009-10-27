@@ -1,5 +1,5 @@
 ---
-title: Visor for OSX - a system-wide terminal on hot-key
+title: Visor for OSX = a system-wide terminal accessible via a hot-key
 product_title: Visor for OSX
 subtitle: a system-wide terminal accessible via a hot-key
 layout: product
