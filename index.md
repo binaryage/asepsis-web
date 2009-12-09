@@ -18,8 +18,13 @@ overlaycx: 25px
 overlaycy: 10px
 retweet: 1
 facebook: 1
-#digg: 1
 ---
+
+<div class="more-box more-box-align">
+    <div class="tf-ad-1">Already happy Visor user?</div>
+    <div class="tf-ad-2">What about visor-like Finder.app?</div>
+    <div class="tf-ad-3">Meet <img src="http://totalfinder.binaryage.com/shared/img/totalfinder-icon.png"><a href="http://totalfinder.binaryage.com">TotalFinder</a></div>
+</div>
 
 ## Installation
 
