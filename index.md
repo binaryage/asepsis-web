@@ -249,6 +249,8 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
   * [Blacktree Homepage](http://blacktree.com)
 
 ### Articles
+  * **[Donnez du style à votre terminal avec Visor](http://maxime.sh/2010/01/donnez-du-style-a-votre-terminal-avec-visor)** by Maxime
+  * **[Quake like Terminal on Mac OS X: Visor Plugin](http://www.rngtng.com/2009/08/14/quake-like-terminal-on-mac-os-x-visor-plugin/)** by Tobi
   * **[Visor Terminal on Snow Leopard](http://www.metaskills.net/2009/8/18/visor-terminal-on-snow-leopard)** by Ken Collins
   * **[Getting Terminal Visor for OSX working with Snow Leopard](http://aralbalkan.com/2366)** by Aral Balkan
   * **[Re-enabling Visor in Snow Leopard](http://terrychay.com/blog/article/visor-in-snow-leopard.shtml)** by Terry Chay
