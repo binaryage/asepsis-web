@@ -5,7 +5,6 @@ subtitle: a system-wide terminal accessible via a hot-key
 layout: product
 icon: /shared/img/visor-icon.png
 repo: http://github.com/darwin/visor
-support: http://github.com/darwin/visor/issues
 downloadtitle: Download v2.2
 download: http://cloud.github.com/downloads/darwin/visor/Visor-2.2-84d1873.zip
 subdownload: 
