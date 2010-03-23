@@ -1,29 +1,21 @@
 ---
-title: Visor for OSX is a system-wide terminal accessible via a hot-key
-product_title: Visor for OSX
-subtitle: a system-wide terminal accessible via a hot-key
+title: Visor is a system-wide terminal accessible via a hot-key
+product_title: Visor
+product_subtitle: a system-wide terminal on a hot-key
 layout: product
-icon: /shared/img/visor-icon.png
-repo: http://github.com/darwin/visor
-downloadtitle: Download v2.2
 download: http://cloud.github.com/downloads/darwin/visor/Visor-2.2-84d1873.zip
-subdownload: 
-subdownloadlink:
-mainshot: /shared/img/visor-mainshot.png
-mainshotfull: /shared/img/visor-mainshot-full.png
-overlaysx: 880px
-overlaysy: 608px
-overlaycx: 25px
-overlaycy: 10px
-retweet: 1
+downloadtitle: Download 2.2
+repo: http://github.com/darwin/visor
+advert: Already a happy Visor user? Want visorized Finder? <a href="http://totalfinder.binaryage.com"><b>Meet TotalFinder!</b></a>
 facebook: 1
+retweet: 1
+nothumbs: 1
+shots: [{
+    title: "Visor Terminal with nice colors!",
+    thumb: "/shared/img/visor-mainshot.png",
+    full: "/shared/img/visor-mainshot-full.png"
+}]
 ---
-
-<div class="more-box more-box-align">
-    <div class="tf-ad-1">Already happy Visor user?</div>
-    <div class="tf-ad-2">What about visor-like Finder.app?</div>
-    <div class="tf-ad-3">Meet <img src="http://totalfinder.binaryage.com/shared/img/totalfinder-icon.png"><a href="http://totalfinder.binaryage.com">TotalFinder</a></div>
-</div>
 
 ## Installation
 
@@ -133,7 +125,11 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
 #### Do I need to install CopyOnSelect SIMBL with Visor?
 > No, CopyOnSelect is integrated into Visor 2.0 and later. It is configurable option in Visor Preferences (disabled by default).
 
-## History
+## Changelog
+
+#### The original Visor 1.5 brought to you by Alcor ([Blacktree](http://blacktree.com)), kudos man!
+
+### History
 
 * **v2.2** (26.09.2009) code name: **Stable Visor**
   * [[darwin][darwin]] fixed crash when [changing display settings](http://github.com/darwin/visor/issues/closed#issue/37) or [fast-switching user](http://github.com/darwin/visor/issues/closed#issue/38)
@@ -234,10 +230,6 @@ You may disable it in Visor Preferences. Note: Spaces configuration about Termin
   * Initial release
   
   ... hic sunt leones ...
-
-
-
-#### Original Visor 1.5 brought to you by [Blacktree](http://blacktree.com), kudos man!
 
 ## Links
 
