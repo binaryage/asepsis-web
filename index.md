@@ -10,6 +10,17 @@ advert: Already a happy Visor user? Want visorized Finder? <a href="http://total
 facebook: 1
 retweet: 1
 nothumbs: 1
+buzz: 1
+fbsdk: 1
+ogmeta: {
+    site_name: "BinaryAge website",
+    description: "Visor is a system-wide terminal for OSX available on a hot-key",
+    email: "antonin@binaryage.com",
+    type: "product",
+    title: "Visor",
+    url: "http://visor.binaryage.com",
+    image: "http://www.binaryage.com/shared/img/icons/visor-64.png"
+}
 shots: [{
     title: "Visor Terminal with nice colors!",
     thumb: "/shared/img/visor-mainshot.png",
