@@ -19,7 +19,7 @@ ogmeta: {
     type: "product",
     title: "Visor",
     url: "http://visor.binaryage.com",
-    image: "http://www.binaryage.com/shared/img/icons/visor-128.png"
+    image: "http://www.binaryage.com/shared/img/icons/visor-256.png"
 }
 shots: [{
     title: "Visor Terminal with nice colors!",
