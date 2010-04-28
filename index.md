@@ -7,6 +7,10 @@ download: http://cloud.github.com/downloads/darwin/visor/Visor-2.2-84d1873.zip
 downloadtitle: Download 2.2
 repo: http://github.com/darwin/visor
 advert: Already a happy Visor user? Want visorized Finder? <a href="http://totalfinder.binaryage.com"><b>Meet TotalFinder!</b></a>
+meta_title: Visor is a system-wide terminal accessible via a hot-key
+meta_keywords: visor,terminal,osx,simbl,binaryage,productivity,software
+meta_description: Visor is just a light-weight plugin for Terminal.app (SIMBL)
+meta_image: http://www.binaryage.com/shared/img/icons/visor-256.png
 facebook: 1
 retweet: 1
 nothumbs: 1
@@ -86,7 +90,7 @@ Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/L
 ## FAQ
 
 #### I like the idea, but I want to use Terminal.app features. Do you plan to support tabs/unicode/whatever?
-> Visor is just a light-weight wrapper of Terminal.app (SIMBL). You should be able to use most of Terminal.app features with Visor. The only broken feature is "Windows Groups".
+> Visor is just a light-weight plugin for Terminal.app (SIMBL). You should be able to use most of Terminal.app features with Visor. The only broken feature is "Windows Groups".
 
 #### Does Visor work on OSX 10.6 (Snow Leopard)?
 > 64-bit Terminal.app in Snow Leopard is supported by Visor 2.1 and later.
