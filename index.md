@@ -11,9 +11,10 @@ meta_title: Visor is a system-wide terminal accessible via a hot-key
 meta_keywords: visor,terminal,osx,simbl,binaryage,productivity,software
 meta_description: Visor is just a light-weight plugin for Terminal.app (SIMBL)
 meta_image: http://www.binaryage.com/shared/img/icons/visor-256.png
+leftshift: 68px
+likeshift: 68px
 facebook: 1
 retweet: 1
-nothumbs: 1
 buzz: 1
 fbsdk: 1
 ogmeta: {
