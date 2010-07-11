@@ -17,6 +17,7 @@ facebook: 1
 retweet: 1
 buzz: 1
 fbsdk: 1
+flattr: http://visor.binaryage.com
 ogmeta: {
     site_name: "BinaryAge website",
     description: "Visor is a system-wide terminal for OSX available on a hot-key",
