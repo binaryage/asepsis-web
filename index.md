@@ -34,6 +34,7 @@ shots: [{
 }]
 ---
 
+
 ## Installation
 
   1. **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)** and <span style="color:#d22">make sure you have latest SIMBL 0.9.x</span>
