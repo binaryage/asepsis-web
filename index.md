@@ -2,11 +2,11 @@
 title: Visor is a system-wide terminal accessible via a hot-key
 product_title: Visor
 product_subtitle: a system-wide terminal on a hot-key
+note: If you like Visor, check out also <a href="http://totalfinder.binaryage.com">TotalFinder</a>
 layout: product
 download: http://cloud.github.com/downloads/darwin/visor/Visor-2.2-84d1873.zip
 downloadtitle: Download 2.2
 repo: http://github.com/darwin/visor
-advert: Already a happy Visor user? Want visorized Finder? <a href="http://totalfinder.binaryage.com"><b>Meet TotalFinder!</b></a>
 meta_title: Visor is a system-wide terminal accessible via a hot-key
 meta_keywords: visor,terminal,osx,simbl,binaryage,productivity,software
 meta_description: Visor is just a light-weight plugin for Terminal.app (SIMBL)
