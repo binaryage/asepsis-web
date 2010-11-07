@@ -38,7 +38,7 @@ shots: [{
 ## Installation
 
   1. **[Install SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)** and <span style="color:#d22">make sure you have latest SIMBL 0.9.x</span>
-  2. Place Visor.bundle into `~/Library/Application Support/SIMBL/Plugins` (create this directory if it does not exist)
+  2. Place Visor.bundle into `~/Library/Application Support/SIMBL/Plugins` (create this directory if it does not already exist)
   3. Relaunch Terminal.app - You should now see the Visor Status Menu Item
   4. Configure your keyboard trigger by selecting the Visor Status Menu Item -> `Visor Preferences ...` and edit your keyboard `hot-key`
 
@@ -47,7 +47,7 @@ shots: [{
 To hide Visor, you can either:
 
   * re-trigger with your key-combo
-  * optionally you can click off of the Visor window
+  * optionally, you can click off the Visor window
 
 ### Compatibility
  
@@ -68,9 +68,9 @@ To hide Visor, you can either:
 
 **[Where can I get older versions?](http://github.com/darwin/visor/downloads)**
 
-## Sources
+## Source
 
-### Installation from sources
+### Installation from source
 
 #### Prerequisities:
 
@@ -102,46 +102,46 @@ Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/L
 > Leopard is supported by Visor 1.5 and later, the best version is Visor 2.1.
 
 #### Does Visor work on OSX 10.4 (Tiger)?
-> Tiger was supported by early Visors (pre 1.5). It was in the days when I was young Windows hacker. Will never look back, so your only chance is to upgrade to (Snow) Leopard.
+> Tiger was supported by early Visors (pre 1.5). It was in the days when I was a young Windows hacker. I will never look back, so your only chance is to upgrade to (Snow) Leopard.
 
-#### Where is stored Visor settings?
-> Visor settings is stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak it's values (better when Terminal.app is not running). 
-If you have troubles with Visor settings or generated Visor profile, delete this file and rester Terminal.app. This file will be recreated with default values.
+#### Where are Visor settings stored?
+> Visor settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (best to do this when Terminal.app is not running). 
+If you have troubles with Visor settings or the generated Visor profile, delete this file and restart Terminal.app. The file will be recreated with default values.
 
 #### My Visor menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
-> There can be only one visor-ed terminal window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), Visor gets into disabled state you are describing. Just open a new terminal window and it gets visor-ed again. You can do it for example by clicking on Terminal.app icon in the Dock.
+> There can be only one visor-ed terminal window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), Visor gets into the disabled state you are describing. Just open a new terminal window and it gets visor-ed again. You can do this for example by clicking on Terminal.app icon in the Dock.
 
-#### How can I open a new terminal window the old way as a classic OSX window?
-> If there is a visor-ed terminal window (Visor menu-bar icon is active) every new terminal window gets opened as a classic OSX window. In other words, open at least two terminal windows. Second one will be classic terminal window for sure.
+#### How can I open a new terminal window the old way, as a classic OSX window?
+> If there is a visor-ed terminal window (Visor menu-bar icon is active) every new terminal window will be opened as a classic OSX window. In other words, open at least two terminal windows. The second one will be classic terminal window for sure.
 
-#### How can I change a height of Visor?
+#### How can I change the height of Visor?
 > Go to Terminal.app's Preferences -> Window -> Rows
 
 #### How can I stick Visor to left screen edge?
-> Look for "Position" option in Visor Preferences and pick "Left-Stretch" window placement.
+> Look for the "Position" option in Visor Preferences and pick "Left-Stretch" window placement.
 
-#### How can I change a width of Visor?
-> By default Visor window does stretch to full screen width. Set some non-stretching positioning for Visor window in Visor Preferences, then Go to Terminal.app's Preferences -> Window -> Columns.
+#### How can I change the width of Visor?
+> By default Visor window stretches to the full screen width. Set some non-stretching positioning for Visor window in Visor Preferences, then Go to Terminal.app's Preferences -> Window -> Columns.
 
-#### Is it possible to show Visor only on secondary monitor?
+#### Is it possible to show Visor only on a secondary monitor?
 > Go to Visor Preferences -> Screen
 
 #### Is it possible to see Visor on every Space?
-> Visor 1.6 does not respect Spaces settings ([Issue 52](http://code.google.com/p/blacktree-visor/issues/detail?id=52)). Visor 1.7+ forces it's window to be visible on every space. 
-You may disable it in Visor Preferences. Note: Spaces configuration about Terminal.app doesn't apply to visor-ed terminal window, it is effective only for other (classic) terminal windows.
+> Visor 1.6 does not respect Spaces settings ([Issue 52](http://code.google.com/p/blacktree-visor/issues/detail?id=52)). Visor 1.7+ forces its window to be visible on every space. 
+You may disable this in Visor Preferences. Note: Spaces configuration for Terminal.app doesn't apply to the visor-ed terminal window, it is effective only for other (classic) terminal windows.
 
-#### I want to keep different preferences for Visor and other (classic) terminal windows. What is the best way how manage it?
-> Well this was quite a pain point in older Visor releases. From Visor 2.0 there must exist Terminal.app's profile called "Visor". Visor-ed window always uses "Visor" profile for opening new tabs 
+#### I want to keep different preferences for Visor and other (classic) terminal windows. What is the best way manage this?
+> Well this was quite a pain point in older Visor releases. From Visor 2.0 there must be a profile in Terminal.app called "Visor". Visor-ed window always use the "Visor" profile for opening new tabs 
 (regardless of "default profile" or "startup profile" settings in Terminal.app). To make your life easier Visor creates this profile for you if it does not exist and fills in Darwin's preferred Visor settings (black background with fine colors, 90% opacity).
 
 #### How can I revert to Darwin's Visor profile?
-> You can always delete (or better rename) profile called "Visor" and relaunch Terminal.app. Visor will create new "Visor" profile from scratch with Darwin's preferred settings.
+> You can always delete (or better rename) the "Visor" profile and relaunch Terminal.app. Visor will then create a new "Visor" profile from scratch with Darwin's preferred settings.
 
 #### Do I need to install TerminalColours SIMBL with Visor?
-> No, TerminalColours is integrated into Visor 2.0 and later. My motivation was to allow people get cool Visor colors out of the box (with generated Visor profile).
+> No, TerminalColours is integrated into Visor 2.0 and later. My motivation was to allow people to get cool Visor colors out of the box (with generated Visor profile).
 
 #### Do I need to install CopyOnSelect SIMBL with Visor?
-> No, CopyOnSelect is integrated into Visor 2.0 and later. It is configurable option in Visor Preferences (disabled by default).
+> No, CopyOnSelect is integrated into Visor 2.0 and later. It is a configurable option in Visor Preferences (disabled by default).
 
 ## Changelog
 
