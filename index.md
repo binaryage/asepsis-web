@@ -104,8 +104,15 @@ Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/L
 #### Does Visor work on OSX 10.4 (Tiger)?
 > Tiger was supported by early Visors (pre 1.5). It was in the days when I was a young Windows hacker. I will never look back, so your only chance is to upgrade to (Snow) Leopard.
 
+#### How do I uninstall Visor?
+> Visor is a standard SIMBL plugin. Remove `Visor.bundle` from `~/Library/Application Support/SIMBL/Plugins`:
+
+    rm -rf ~/Library/Application\ Support/SIMBL/Plugins/Visor.bundle
+
+> Or alternatively you may run `rake uninstall` task if you have cloned git repo.
+
 #### Where are Visor settings stored?
-> Visor settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (best to do this when Terminal.app is not running). 
+> Visor settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (better to do this when Terminal.app is not running). 
 If you have troubles with Visor settings or the generated Visor profile, delete this file and restart Terminal.app. The file will be recreated with default values.
 
 #### My Visor menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
