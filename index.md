@@ -109,7 +109,7 @@ Source code licensed under [Apache License 2.0](http://www.apache.org/licenses/L
 
     rm -rf ~/Library/Application\ Support/SIMBL/Plugins/Visor.bundle
 
-> Or alternatively you may run `rake uninstall` task if you have cloned git repo.
+> Or alternatively you can run `rake uninstall` task if you have a cloned git repo.
 
 #### Where are Visor settings stored?
 > Visor settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (better to do this when Terminal.app is not running). 
