@@ -19,7 +19,7 @@ flattr: http://visor.binaryage.com
 ogmeta: {
     site_name: "BinaryAge website",
     description: "Visor is a system-wide terminal for OSX available on a hot-key",
-    email: "antonin@binaryage.com",
+    email: "support@binaryage.com",
     type: "product",
     title: "Visor",
     url: "http://visor.binaryage.com",
