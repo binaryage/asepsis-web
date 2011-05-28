@@ -1,9 +1,10 @@
 ---
+layout: product2
 title: Visor is a system-wide terminal accessible via a hot-key
+product: visor
 product_title: Visor
 product_subtitle: a system-wide terminal on a hot-key
 note: If you like Visor, check out also <a href="http://totalfinder.binaryage.com">TotalFinder</a>
-layout: product
 download: http://cloud.github.com/downloads/darwin/visor/Visor-2.2-84d1873.zip
 downloadtitle: Download 2.2
 repo: http://github.com/darwin/visor
