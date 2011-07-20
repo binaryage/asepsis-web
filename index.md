@@ -63,10 +63,10 @@ To hide Visor, you can either:
 > It should work, but I no longer support Leopard.
 
 #### Does TotalTerminal work on OSX 10.4 (Tiger)?
-> Tiger was supported by early TotalTerminals (pre 1.5).
+> Tiger was supported by early Visor (pre 1.5).
 
 #### How do I uninstall TotalTerminal?
-> You may use Status Menu Item and select `Uninstall TotalTerminal`. Alternatively you may download TotalTerminal DMG again and use Uninstaller which is present there.
+> You may use Status Menu Item and select `Uninstall TotalTerminal`. Alternatively you may [download TotalTerminal DMG](#changelog) again and use Uninstaller which is present there.
 
 #### Where are TotalTerminal settings stored?
 > TotalTerminal settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (better to do this when Terminal.app is not running). 
