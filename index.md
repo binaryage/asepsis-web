@@ -51,7 +51,7 @@ To hide Visor, you can either:
 ## FAQ
 
 #### I like the idea, but I want to use Terminal.app features. Do you plan to support tabs/unicode/whatever?
-> TotalTerminal is just a light-weight plugin for Terminal.app (SIMBL). You should be able to use most of Terminal.app features with TotalTerminal. The only broken feature is "Windows Groups".
+> TotalTerminal is a plugin for Terminal.app. You should be able to use most of Terminal.app features with TotalTerminal. The only broken feature is "Windows Groups".
 
 #### Does TotalTerminal work on OSX 10.7 (Lion)?
 > Yes, since 1.0.
