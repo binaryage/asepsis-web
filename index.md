@@ -3,7 +3,7 @@ layout: product2
 title: TotalTerminal is a system-wide terminal accessible via a hot-key
 product: totalterminal
 product_title: TotalTerminal
-product_subtitle: a Quake-style system-wide terminal on a hot-key
+product_subtitle: a system-wide terminal on a hot-key
 note: If you like TotalTerminal, check out also <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
 download: http://downloads.binaryage.com/TotalTerminal-1.0.dmg
 downloadtitle: Download v1.0
