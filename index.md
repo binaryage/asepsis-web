@@ -36,7 +36,7 @@ shots: [{
 
 ## Installation
 
-TotalTerminal is a plugin for Terminal.app. It provides Visor Window which slides down when you press a hot-key.
+TotalTerminal is a plugin for Terminal.app. It provides persistent Visor Window which slides down when you press a hot-key. Remember Quake Console?
 
   1. Run installer
   2. Configure your keyboard trigger by selecting the `Preferences...` -> `TotalTerminal` and edit your keyboard hot-key. By default it is `CTRL+~`
