@@ -3,7 +3,7 @@ layout: product2
 title: TotalTerminal is a system-wide terminal accessible via a hot-key
 product: totalterminal
 product_title: TotalTerminal
-product_subtitle: a system-wide terminal on a hot-key
+product_subtitle: a system-wide terminal available on a hot-key
 note: If you like TotalTerminal, check out also <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
 download: http://downloads.binaryage.com/TotalTerminal-1.0.dmg
 downloadtitle: Download v1.0
@@ -17,7 +17,7 @@ facebook: 1
 retweet: 1
 buzz: 1
 fbsdk: 1
-flattr: http://totalterminal.binaryage.com
+#flattr: http://totalterminal.binaryage.com
 ogmeta: {
     site_name: "BinaryAge website",
     description: "TotalTerminal is a system-wide terminal for OS X available on a hot-key",
@@ -36,22 +36,28 @@ shots: [{
 
 ## Installation
 
-Installation is easy.
+TotalTerminal is a plugin for Terminal.app. It provides Visor Window which slides down when you press a hot-key.
 
   1. Run installer
-  2. Configure your keyboard trigger by selecting the TotalTerminal Status Menu Item -> `Preferences ...` and edit your keyboard hot-key. By default it is `CTRL+~`
+  2. Configure your keyboard trigger by selecting the `Preferences...` -> `TotalTerminal` and edit your keyboard hot-key. By default it is `CTRL+~`
 
-Then you can trigger Visor with your hot-key from any application to get an instant terminal session.
+Then you can trigger Visor Window with your hot-key from any application to get an instant terminal session.
 
-To hide Visor, you can either:
+To hide Visor Window, you can either:
 
   * re-trigger with your key-combo
   * optionally, you can click off the TotalTerminal window
 
 ## FAQ
 
-#### I like the idea, but I want to use Terminal.app features. Do you plan to support tabs/unicode/whatever?
-> TotalTerminal is a plugin for Terminal.app. You should be able to use most of Terminal.app features with TotalTerminal. The only broken feature is "Windows Groups".
+#### What is the difference between Visor.bundle and TotalTerminal.app?
+> TotalTerminal supersedes Visor. Visor.bundle is a SIMBL plugin which was originally written by Nicholas Jitkoff from [Blacktree](http://blacktree.com). Original Visor was introduced for OS X - Tiger. I have been developing it since Leopard. I've decided to rename it to TotalTerminal with OS X Lion release. TotalTerminal has installer, sparkle updater and does not depend on [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php). In the future it will get more bug fixes and hopefully some new features.
+
+#### Why have you renamed it?
+> There are several reasons. First, Visor Window is also a feature of [TotalFinder](http://totalfinder.binaryage.com), my other application plugin. This was causing confusion. Second, TotalFinder and TotalTerminal make up nicer branding. It is immediately obvious they are related and TotalTerminal has something to do with Terminal.app. Also searching for TotalTerminal through social media is easier for me. Visor is a general term.
+
+#### Do I need to uninstall Visor.bundle prior TotalTerminal installation?
+> Not necessary. TotalTerminal installer will remove it automatically. Visor and TotalTerminal conflict so you cannot install them both.
 
 #### Does TotalTerminal work on OSX 10.7 (Lion)?
 > Yes, since 1.0.
@@ -66,17 +72,17 @@ To hide Visor, you can either:
 > Tiger was supported by early Visor (pre 1.5).
 
 #### How do I uninstall TotalTerminal?
-> You may use Status Menu Item and select `Uninstall TotalTerminal`. Alternatively you may [download TotalTerminal DMG](#changelog) again and use Uninstaller which is present there.
+> You may use Status Menu Icon and select `Uninstall TotalTerminal`. Alternatively you may [download TotalTerminal DMG](#changelog) again and use `TotalTerminal Uninstaller` which is present there.
 
 #### Where are TotalTerminal settings stored?
 > TotalTerminal settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (better to do this when Terminal.app is not running). 
-If you have troubles with TotalTerminal settings or the generated TotalTerminal profile, delete this file and restart Terminal.app. The file will be recreated with default values.
+If you have troubles with TotalTerminal settings, delete this file and restart Terminal.app. The file will be recreated with default values.
 
 #### My TotalTerminal menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
-> There can be only one Visor-ed terminal window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), TotalTerminal gets into the disabled state you are describing. Just open a new terminal window and it gets Visor-ed again. You can do this for example by clicking on Terminal.app icon in the Dock.
+> There can be only one Visor Window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), TotalTerminal gets into the disabled state you are describing. Just open a new terminal window and it gets Visor-ed again. You can do this for example by clicking on Terminal.app icon in the Dock.
 
 #### How can I open a new terminal window the old way, as a classic OSX window?
-> If there is a Visor-ed terminal window (TotalTerminal menu-bar icon is active) every new terminal window will be opened as a classic OSX window. In other words, open at least two terminal windows. The second one will be classic terminal window for sure.
+> If there is a Visor Window (the status menu icon is active) every new terminal window will be opened as a classic OS X window. In other words, open at least two terminal windows. The second one will be a classic terminal window for sure.
 
 #### How can I change the height of Visor?
 > Go to Terminal.app's Preferences -> Window -> Rows
@@ -85,19 +91,19 @@ If you have troubles with TotalTerminal settings or the generated TotalTerminal 
 > Look for the "Position" option in TotalTerminal Preferences and pick "Left-Stretch" window placement.
 
 #### How can I change the width of Visor?
-> By default TotalTerminal window stretches to the full screen width. Set some non-stretching positioning for TotalTerminal window in TotalTerminal Preferences, then Go to Terminal.app's Preferences -> Window -> Columns.
+> By default Visor Window stretches to the full screen width. Set some non-stretching positioning for Visor Window in TotalTerminal Preferences, then Go to Terminal.app's Preferences -> Window -> Columns.
 
 #### Is it possible to show Visor only on a secondary monitor?
 > Go to TotalTerminal Preferences -> Screen
 
 #### Is it possible to see Visor on every Space?
-> TotalTerminal forces its window to be visible on every space. You may disable this in TotalTerminal Preferences. Note: Spaces configuration for Terminal.app doesn't apply to the visor-ed terminal window, it is effective only for other (classic) terminal windows.
+> TotalTerminal forces Visor window to be visible on every space. You may disable this in TotalTerminal Preferences. Note: Spaces configuration for Terminal.app doesn't apply to the Visor Window, it is effective only for other (classic) terminal windows.
 
 #### I want to keep different preferences for Visor and other (classic) terminal windows. What is the best way manage this?
-> There should be a profile in Terminal.app called "Visor". Visor-ed window attempts to use the "Visor" profile for opening new tabs (regardless of "default profile" or "startup profile" settings in Terminal.app).
+> There may be a profile in Terminal.app called "Visor". Visor Window attempts to use the "Visor" profile when opening new tabs in Visor Window (regardless of "default profile" or "startup profile" settings in Terminal.app). In case "Visor" profile is not present, it uses currently selected default profile.
 
 #### Do I need to install TerminalColours SIMBL with TotalTerminal?
-> No, TerminalColours is integrated into TotalTerminal 1.0 and later.
+> No, TerminalColours is integrated into TotalTerminal 1.0 and later. Actually it conflicts with TotalTerminal if installed as SIMBL plugin.
 
 #### Do I need to install CopyOnSelect SIMBL with TotalTerminal?
 > No, CopyOnSelect is integrated into TotalTerminal 1.0 and later. It is a configurable option in TotalTerminal Preferences (disabled by default).
