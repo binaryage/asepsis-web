@@ -120,7 +120,7 @@ If you have troubles with TotalTerminal settings, delete this file and restart T
 
 <script type="text/javascript" charset="utf-8">
     $(function() {
-        $('.changelogx').load('changelog.html?x='+((Math.random()+"").substring(2))+' #page');
+        $('.changelogx').load('changelog-beta.html?x='+((Math.random()+"").substring(2))+' #page');
     });
     
     function showBetaHint() {
