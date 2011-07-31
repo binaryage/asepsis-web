@@ -52,6 +52,20 @@ To hide Visor Window, you can either:
   
 <span style="color: #a00">For original Visor 2.2 users: TotalTerminal plugin is not injected into Terminal.app automatically like with SIMBL. You have to launch TotalTerminal.app to inject the plugin into Terminal.app. You might want to put TotalTerminal.app into Startup Items.</span>
 
+---
+  
+<span style="color: #a00">Duplicate Dock icons problem.</span>
+
+This affects people who put TotalTerminal.app icon in the Dock as a permanent icon.
+
+Let me explain what happens in detail. When you click TotalTerminal.app icon in the Dock, the system launches this app. But [TotalTerminal.app just a lightweight launcher](https://github.com/binaryage/totalterminal-installer/tree/master/TotalTerminal.app) which launches Terminal.app (if it is not running) and then injects TotatTerminal plugin into it. You end up with two Terminal icons in the Dock: one for running Terminal.app and second for pinned TotalTerminal.app (which is not running anymore after injecting the plugin).
+
+You can hide an app from the Dock, but not dynamically. You have to tweak its Info.plist and set LSUIElement to true. TotalTerminal will never modify your Terminal.app files so it cannot force running Terminal to hide icon in the Dock. On the other hand it cannot hide its own icon from the Dock, because it is not running and you have pinned it explicitly, which is not affected by LSUIElement set on TotalTerminal.app.
+
+I would recommend to use some other means of launching TotalTerminal.app for example via Spotlight or some launcher like Alfred.app, or put it into Startup Items. Maybe I will come up with some better solution in the future.
+
+Other option is to `open /Applications/Utilities/Terminal.app/Contents/Info.plist` and add LSUIElement entry and set it to true (in Property List Editor is displays as "Application is agent (UIElement)").
+
 ## FAQ
 
 #### What is the difference between Visor.bundle and TotalTerminal.app?
