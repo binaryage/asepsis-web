@@ -1,138 +1,163 @@
 ---
 layout: product2
-title: TotalTerminal is a system-wide terminal accessible via a hot-key
-product: totalterminal
-product_title: TotalTerminal
-product_subtitle: a system-wide terminal available on a hot-key
-note: If you like TotalTerminal, check out also <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
-download: http://downloads.binaryage.com/TotalTerminal-1.1.3.dmg
-downloadtitle: Download v1.1.3
-downloadsubtitle: Requires OS X 10.6 or 10.7
-repo: http://github.com/binaryage/totalterminal
-meta_title: TotalTerminal is a system-wide terminal accessible via a hot-key
-meta_keywords: totalterminal,terminal,osx,simbl,binaryage,productivity,software,visor
-meta_description: TotalTerminal is a plugin for Terminal.app which provides Quake-style terminal window available on keyboard shortcut
-meta_image: http://www.binaryage.com/shared/img/icons/totalterminal-256.png
+title: Asepsis is a system utility for prevention of .DS_Store files
+product: asepsis
+product_title: Asepsis
+product_subtitle: the final solution for .DS_Store pollution
+note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
+download: http://downloads.binaryage.com/Asepsis-1.0.dmg
+downloadtitle: Download v1.0
+downloadsubtitle: Requires OS X 10.7 (Lion)
+repo: http://github.com/binaryage/asepsis
+meta_title: Asepsis is a system utility for prevention of .DS_Store files
+meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
+meta_description: Asepsis is a system utility for prevention of .DS_Store files created by Finder and other applications
+meta_image: http://www.binaryage.com/shared/img/icons/asepsis-256.png
 facebook: 1
 retweet: 1
-buzz: 1
+buzz: 0
 fbsdk: 1
-#flattr: http://totalterminal.binaryage.com
 ogmeta: {
     site_name: "BinaryAge website",
-    description: "TotalTerminal is a system-wide terminal for OS X available on a hot-key",
+    description: "Asepsis is a system utility for prevention of .DS_Store files",
     email: "support@binaryage.com",
     type: "product",
-    title: "TotalTerminal",
-    url: "http://totalterminal.binaryage.com",
-    image: "http://www.binaryage.com/shared/img/icons/totalterminal-256.png"
+    title: "Asepsis",
+    url: "http://asepsis.binaryage.com",
+    image: "http://www.binaryage.com/shared/img/icons/asepsis-256.png"
 }
 shots: [{
-    title: "TotalTerminal's Visor window with nice colors!",
-    thumb: "/shared/img/totalterminal-mainshot.png",
-    full: "/shared/img/totalterminal-mainshot-full.png"
+    title: ".DS_Store files are like ghost chasing you in every folder you visit",
+    thumb: "/shared/img/asepsis-mainshot.png"
 }]
 ---
 
+## About
+
+### What is .DS_Store?
+
+This is pretty famous file which even got its [own page on wikipedia](http://en.wikipedia.org/wiki/.DS_Store).
+
+### Why is .DS_Store a problem?
+
+Well it is really not a problem for 99.99% users. Even Apple folks think it is not worth solving. I'm a developer and I run Finder with [TotalFinder](http://totalfinder.binaryage.com) and with displayed hidden files. Also I run a lot of command-line tools via terminal. The problem is that .DS_Store files get into a way sometimes. I hate when my clean new folders get polluted by those small files holding mostly unimportant garbage to me. I hate when I zip folder using a unix command-line tool and it includes .DS_Store files in the archive. I hate when I visit a network volume or a flash drive and that pollutes its content with those tiny files. I don't want my geeky Windows friends to laugh at me because this makes me look incompetent. 
+
+That is why I decided to solve this for myself and I'm sharing my solution for other Mac geeks out there to help them protect their egos :-)
+
+### Asepsis does .DS_Store redirection. How does it work technically?
+
+Apple implemented a private system framework `DesktopServicesPriv` which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I'm looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files (this is new in Lion).
+
+At core Asepsis provides a dynamic library `libAsepsis.dylib` which gets loaded into every launching process thanks to `DYLD_INSERT_LIBRARIES`. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.
+
+Additionally Asepsis implements a kernel extension and an user-space system-wide daemon `asepsisd` whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on folder structure in the prefix directory.
+
+### The prefix folder is **`/usr/local/.dscage`**
+
+  1. `libAsepsis.dylib` - a shared library for interposing file manipulation calls
+  2. `Asepsis.kext` - a kernel extension for watching folder operations
+  3. `asepsisd` - a system-wide daemon for mirroring folder renames and deletes in the prefix folder
+  4. `asepsisctl` - a command-line utility for controlling Asepsis operation
+
 ## Installation
 
-TotalTerminal is a plugin for Terminal.app. It provides persistent Visor Window which slides down when you press a hot-key. Remember Quake Console?
+### Installation
 
-  1. Run installer
-  2. Configure your keyboard trigger by selecting the `Preferences...` -> `TotalTerminal` and edit your keyboard hot-key. By default it is `CTRL+~`
+To install the software:
 
-Then you can trigger Visor Window with your hot-key from any application to get an instant terminal session.
+  1. Run the installer
+  2. Restart your computer
 
-To hide Visor Window, you can either:
+After reboot .DS_Store files are no longer created when you open Finder and browse folders (in case .DS_Store files were not already present there).
 
-  * re-trigger with your key-combo
-  * optionally, you can click off the TotalTerminal window
-  
----
-  
-<span style="color: #a00">For original Visor 2.2 users: TotalTerminal plugin is not injected into Terminal.app automatically like with SIMBL. You have to launch TotalTerminal.app to inject the plugin into Terminal.app. You might want to put TotalTerminal.app into Startup Items.</span>
+### Uninstallation
 
----
-  
-<span style="color: #a00">Duplicate Dock icons problem.</span>
+Just run provided uninstaller from the DMG archive or in Terminal.app enter: 
+    
+    open /System/Library/Extensions/Asepsis.kext/Contents/Resources/Asepsis\ Uninstaller.app
 
-This affects people who put TotalTerminal.app icon in the Dock as a permanent icon.
+### Installing from sources
 
-Let me explain what happens in detail. When you click TotalTerminal.app icon in the Dock, the system launches TotalTerminal.app. But [TotalTerminal.app is just a lightweight launcher](https://github.com/binaryage/totalterminal-installer/tree/master/TotalTerminal.app) which:
-  
-  1. launches Terminal.app (if it is not running) 
-  2. injects TotalTerminal plugin into it.
-  3. quits
+You may want to review the source code and install it by compiling it from sources. Please follow instructions in [GitHub repository](http://github.com/binaryage/asepsis). 
 
-You end up with two Terminal icons in the Dock: one for running Terminal.app and second for pinned TotalTerminal.app (which is not running anymore after injecting the plugin).
+## Control
 
-You can hide an app from the Dock but not dynamically. You have to tweak its Info.plist and set LSUIElement to true. TotalTerminal will never modify your Terminal.app files so it cannot force running Terminal to hide icon in the Dock. On the other hand it cannot hide its own icon from the Dock, because it is not running and you have pinned it explicitly, which is not affected by LSUIElement set on TotalTerminal.app.
+### You may control asepsis operation via asepsisctl
 
-I would recommend you to use some other means of launching TotalTerminal.app for example via Spotlight or some launcher like Alfred.app, or put it into Startup Items. Maybe I will come up with some better solution in the future. Any ideas?
+During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so it should be visible from the command-line.
 
-Other option is to `open /Applications/Utilities/Terminal.app/Contents/Info.plist` and add LSUIElement entry and set it to true (in Property List Editor is displays as "Application is agent (UIElement)").
+    > asepsisctl --help
+    The control script for asepsis operations.
+
+    Usage:
+       asepsisctl [command] [options]
+
+    Commands:
+       suspend                           Suspends immediate asepsis operations.
+       disable                           Disables asepsis.
+       enable                            Enables asepsis.
+       neton                             Enables DS_Store files on newtork volumes.
+       netoff                            Disables ... (http://support.apple.com/kb/ht1629).
+
+    Where options are:
+        -h, --help                       Show this message
+        -v, --version                    Print version
+
+## Known issues
+
+### The list of known issues
+
+  * when copying folders, DS_Store settings are not copied over (daemon is unable to distinguish this class of file operations)
+
+Please [report any issues](mailto:support@binaryage.com). A similar technical approach was used in TotalFinder for more than 2 years without significant troubles. I'm aware that it is not a perfect solution but still it improves my situation because I don't care about .DS_Store files that much and can afford losing them from time to time.
 
 ## FAQ
 
-#### What is the difference between Visor.bundle and TotalTerminal.app?
-> TotalTerminal supersedes Visor. Visor.bundle is a SIMBL plugin which was originally written by Nicholas Jitkoff from [Blacktree](http://blacktree.com). Original Visor was introduced for OS X - Tiger. I have been developing it since Leopard. I decided to rename it to TotalTerminal with OS X Lion release. TotalTerminal has installer, Sparkle updater and does not depend on [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php). In the future it will get more bug fixes and hopefully some new features.
+#### Sounds scary. Is this safe?
+
+> Well uhmmm, use it at your own risk :-) It sounds scary but it should be a pretty lightweight solution. You should [review the code](http://github.com/binaryage/asepsis) to see what it does. I have been running Asepsis on my own machine for some time and I didn't encounter any problems so far.
+
+#### After the installation my computer no longer restarts back into Lion. What should I do?
+
+> Calm down. Don't panic. You will be able to restart into single-user mode and remove boot-time Asepsis initialization to recover.
 > 
-> The main technical difference is that TotalTerminal is not launched automatically. You have to launch TotalTerminal.app to inject plugin into Terminal.app (if it is not running the launcher will launch it)
+> 1. Restart to enter into [singe-user mode](http://support.apple.com/kb/ht1492) by holding CMD+S during the reboot.
+> 2. Follow the on-screen instruction to mount your main disk as writable: `/sbin/mount -uw /`
+> 3. Delete or rename the launchd.conf: `mv /etc/launchd.conf /etc/launchd-conf.backup`
+> 4. Type `reboot` and restart back into Lion in normal mode
+> 5. Uninstall Asepsis using uninstaller: `open /System/Library/Extensions/Asepsis.kext/Contents/Resources/Asepsis\ Uninstaller.app`
+>
+> Note: this should never happen, but it happened to me during the development when libAsepsis.dylib was corrupted in a very bad way. I'm describing it here for you to see that a recovery from fatal case of Asepsis hiccup is pretty simple.
 
-#### Why have you renamed it?
-> There are several reasons. First, Visor Window is also a feature of [TotalFinder](http://totalfinder.binaryage.com), my other application plugin. This was causing confusion. Second, TotalFinder and TotalTerminal make up nicer branding. It is immediately obvious they are related and TotalTerminal has something to do with Terminal.app. Also searching for TotalTerminal through social media is easier for me. Visor is a general term.
+#### Why is this better than [TotalFinder](http://totalfinder.binaryage.com)?
 
-#### Do I need to uninstall Visor.bundle prior TotalTerminal installation?
-> Not necessary. TotalTerminal installer will remove it automatically. Visor and TotalTerminal conflict so you cannot install them both.
+> Thanks to DYLD_INSERT_LIBRARIES this solution is applied system-wide (it affects all processes linking DesktopServicesPriv, not only Finder). Also there was a timing problem with TotalFinder. Due to a nature how Input Managers work, the plugin gets usually injected into the Finder after some delay. Prior an injection the Finder is running and can arbitrarily touch some .DS_Store files. More than that! After the injection it could cause an internal state confusion because the Finder has already cached some of .DS_Store files in-memory. For example ~/Desktop/.DS_Store was a common pain-point. DYLD_INSERT_LIBRARIES is a stable solution, because dydl interposes libc calls immediately at the point of dynamic linking prior any code is executed, so there is no chance for Asepsis to miss some calls.
 
-#### Does TotalTerminal work on OSX 10.7 (Lion)?
-> Yes, since 1.0.
+#### Could this be ported to Snow Leopard?
 
-#### Does TotalTerminal work on OSX 10.6 (Snow Leopard)?
-> Yes, since 1.0.
+> Probably yes. Pre-Lion DesktopServicesPriv calls File Manager APIs from CoreServices. Technically the same approach could be done to File Manager. Actually this is what TotalFinder (prior to version 1.3) did under Snow Leopard using mach_override. I'm not going to implement it for Snow Leopard because I've already switched to Lion personally.
 
-#### Does TotalTerminal work on OSX 10.5 (Leopard)?
-> It should work, but I no longer support Leopard.
+#### What if DS_Store file is already present in a folder?
 
-#### Does TotalTerminal work on OSX 10.4 (Tiger)?
-> Tiger was supported by early Visor (pre 1.5).
+> Asepsis will use it. It won't redirect it in this case. This way Asepsis works seamlessly with DMG archives or folders you browse on a network. If you delete the .DS_Store file, the next time it will be created in the prefix folder. This is pretty simple approach how to adopt Asepsis incrementally on folder-by-folder basis.
 
-#### How do I uninstall TotalTerminal?
-> You may use Status Menu Icon and select `Uninstall TotalTerminal`. Alternatively you may [download TotalTerminal DMG](#changelog) again and use `TotalTerminal Uninstaller` which is present there.
+#### How could I migrate existing DS_Store files?
 
-#### Where are TotalTerminal settings stored?
-> TotalTerminal settings are stored with Terminal.app settings. You can `open ~/Library/Preferences/com.apple.Terminal.plist` and tweak the values (better to do this when Terminal.app is not running). 
-If you have troubles with TotalTerminal settings, delete this file and restart Terminal.app. The file will be recreated with default values.
+> I don't provide any migration tools at this point. Some people wrote simple scripts which are able to move all existing DS_Store files into prefix folder or vice versa. Most people just delete DS_Store files and start again from scratch with Asepsis enabled.
+>
+> Note: when running some migration utility you probably want to suspend Asepsis operation prior launching it: `asepsisctl suspend`. See [Control section](#control) for more info.
 
-#### My TotalTerminal menu-bar icon is dimmed out. My hot-key doesn't work and just beeps. What's wrong?
-> There can be only one Visor Window in the system. If you close this terminal window (for example `Control+D` or typing exit in shell), TotalTerminal gets into the disabled state you are describing. Just open a new terminal window and it gets Visor-ed again. You can do this for example by clicking on Terminal.app icon in the Dock.
+#### Are there any processes which don't work well with Asepsis?
 
-#### How can I open a new terminal window the old way, as a classic OSX window?
-> If there is a Visor Window (the status menu icon is active) every new terminal window will be opened as a classic OS X window. In other words, open at least two terminal windows. The second one will be a classic terminal window for sure.
+> Yes. For example `backupd`. There is [a hard-coded list of processes](https://github.com/binaryage/asepsis/blob/master/dylib/init.c#L22) which are known to operate globally. For example backup utilities should probably see the disk as a whole without any redirection.
 
-#### How can I change the height of Visor?
-> Go to Terminal.app's Preferences -> Window -> Rows
+#### What about using resource forks for hiding DS_Store files?
 
-#### How can I stick Visor to left screen edge?
-> Look for the "Position" option in TotalTerminal Preferences and pick "Left-Stretch" window placement.
+> Good question! This would be probably a more elegant approach but it would work only for HFS+ volumes. I haven't tried to implement it via resource forks. I decided to run with this prefix-folder approach which seemed to me as a more predictable approach. Feel free to [fork and experiment](https://github.com/binaryage/asepsis).
 
-#### How can I change the width of Visor?
-> By default Visor Window stretches to the full screen width. Set some non-stretching positioning for Visor Window in TotalTerminal Preferences, then Go to Terminal.app's Preferences -> Window -> Columns.
+#### Do you use DYLD_FORCE_FLAT_NAMESPACE?
 
-#### Is it possible to show Visor only on a secondary monitor?
-> Go to TotalTerminal Preferences -> Screen
-
-#### Is it possible to see Visor on every Space?
-> TotalTerminal forces Visor window to be visible on every space. You may disable this in TotalTerminal Preferences. Note: Spaces configuration for Terminal.app doesn't apply to the Visor Window, it is effective only for other (classic) terminal windows.
-
-#### I want to keep different preferences for Visor and other (classic) terminal windows. What is the best way manage this?
-> There may be a profile in Terminal.app called "Visor". Visor Window attempts to use the "Visor" profile when opening new tabs in Visor Window (regardless of "default profile" or "startup profile" settings in Terminal.app). In case "Visor" profile is not present, it uses currently selected default profile.
-
-#### Do I need to install TerminalColours SIMBL with TotalTerminal?
-> No, TerminalColours is integrated into TotalTerminal 1.0 and later. Actually it conflicts with TotalTerminal if installed as SIMBL plugin.
-
-#### Do I need to install CopyOnSelect SIMBL with TotalTerminal?
-> No, CopyOnSelect is integrated into TotalTerminal 1.0 and later. It is a configurable option in TotalTerminal Preferences (disabled by default).
+> No! DYLD_FORCE_FLAT_NAMESPACE would probably cause bad incompatibilities. DYLD_INSERT_LIBRARIES with dyld interposing works just fine with two-level-namespaces. This is pretty clean solution I believe.
 
 ## Changelog
 
@@ -140,37 +165,10 @@ If you have troubles with TotalTerminal settings, delete this file and restart T
 
 <script type="text/javascript" charset="utf-8">
     $(function() {
-        $('.changelogx').load('changelog-beta.html?x='+((Math.random()+"").substring(2))+' #page');
+        $('.changelogx').load('changelog.html?x='+((Math.random()+"").substring(2))+' #page');
     });
     
     function showBetaHint() {
         $('.betahint').toggle();
     }
 </script>
-
-## Links
-
-#### Source code
-  * [sources are hosted on GitHub](http://github.com/binaryage/totalterminal)
-
-#### The original TotalTerminal called "Visor" was brought to you by Alcor ([Blacktree](http://blacktree.com)), kudos man!
-
-**[Where can I get older versions?](http://visor.binaryage.com)**
-
-## Special Guest
-
-### Ben Stiglitz about Terminal.app
-
-<div>Ben is the author of Terminal.app. Kudos!</div>
-<embed src='http://rubyconf2008.confreaks.com/player.swf' height='260' width='640' allowscriptaccess='always' allowfullscreen='true' flashvars='file=http%3A%2F%2Frubyconf2008.confreaks.com%2Fvideos%2Fterminalapp-small.mp4&image=images%2Fterminalapp-preview.jpg&plugins=viral-1'/>
-
-[darwin]: http://github.com/darwin
-[torsten]: http://github.com/torsten
-[pumpkin]: http://github.com/pumpkin
-[blinks]: http://github.com/blinks
-[cglee]: http://github.com/cglee
-[kleinman]: http://github.com/kleinman
-[genki]: http://github.com/genki
-[ciaran]: http://github.com/ciaran
-[evanphx]: http://github.com/evanphx
-[contribute]: http://github.com/binaryage/totalterminal
