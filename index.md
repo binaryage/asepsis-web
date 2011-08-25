@@ -3,7 +3,7 @@ layout: product2
 title: Asepsis is a system utility for prevention of .DS_Store files
 product: asepsis
 product_title: Asepsis
-product_subtitle: the final solution for .DS_Store pollution
+product_subtitle: smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
 download: http://downloads.binaryage.com/Asepsis-1.0.dmg
 downloadtitle: Download v1.0
