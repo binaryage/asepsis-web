@@ -5,8 +5,8 @@ product: asepsis
 product_title: Asepsis
 product_subtitle: smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
-download: http://downloads.binaryage.com/Asepsis-1.0.dmg
-downloadtitle: Download v1.0
+download: http://downloads.binaryage.com/Asepsis-1.1.dmg
+downloadtitle: Download v1.1
 downloadsubtitle: Requires OS X 10.7 (Lion)
 repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
@@ -79,6 +79,12 @@ Just run provided uninstaller from the DMG archive or in Terminal.app enter:
 ### Installing from sources
 
 You may want to review the source code and install it by compiling it from sources. Please follow instructions in [GitHub repository](http://github.com/binaryage/asepsis). 
+
+## Migration
+
+### Migration from TotalFinder 1.3
+
+    mv /usr/local/.dscache /usr/local/.dscage
 
 ## Control
 
