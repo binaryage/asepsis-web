@@ -96,24 +96,42 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
     The control script for asepsis operations.
 
     Usage:
-       asepsisctl [command] [options]
+        asepsisctl [command] [options]
 
     Commands:
-       suspend                           Suspends immediate asepsis operations.
-       disable                           Disables asepsis.
-       enable                            Enables asepsis.
-       neton                             Enables DS_Store files on newtork volumes.
-       netoff                            Disables ... (http://support.apple.com/kb/ht1629).
+        suspend                          Suspends immediate asepsis operations.
+        disable                          Disables asepsis.
+        enable                           Enables asepsis.
+        neton                            Enables DS_Store files on network volumes.
+        netoff                           Disables ... (http://support.apple.com/kb/ht1629).
+        diagnose                         Diagnoses asepsis setup
+        migratein                        Migrates .DS_Store files in /usr/local/.dscage
+        migrateout                       Migrates .DS_Store files from /usr/local/.dscage
+        prune                            Removes empty directories from /usr/local/.dscage
+        clean                            Deletes all content from /usr/local/.dscage
 
     Where options are:
+        -r, --root /Users/darwin         Root folder for migration
+        -d, --[no-]dry                   Run migration in dry mode
+        -v, --[no-]verbose               Be more verbose
         -h, --help                       Show this message
-        -v, --version                    Print version
-
+        -V, --version                    Print version
+        
 ## Known issues
 
 ### The list of known issues
 
+#### General
+
   * when copying folders, DS_Store settings are not copied over (daemon is unable to distinguish this class of file operations)
+
+#### Bugs
+
+  * sometimes you may see something about lost messages in Console.app - this is not a fatal issue, I will fix it in version 1.2
+  
+#### Glims
+  
+  * Glims uses the same method of injecting code by setting `DYLD_INSERT_LIBRARIES`. Glims overrides Asepsis. This will be fixable but it needs more investigation from my side. Please [comment on it here](http://getsatisfaction.com/binaryage/topics/asepsis_not_working_if_glims_is_installed).
 
 Please [report any issues](mailto:support@binaryage.com). A similar technical approach was used in TotalFinder for more than 2 years without significant troubles. I'm aware that it is not a perfect solution but still it improves my situation because I don't care about .DS_Store files that much and can afford losing them from time to time.
 
