@@ -133,6 +133,11 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
   
   * Glims uses the same method of injecting code by setting `DYLD_INSERT_LIBRARIES`. Glims overrides Asepsis. This will be fixable but it needs more investigation from my side. Please [comment on it here](http://getsatisfaction.com/binaryage/topics/asepsis_not_working_if_glims_is_installed).
 
+#### Xcode 4.2, iOS 5.0 Simulator
+
+  * Some developers reported that Asepsis breaks iOS 5.0 Simulator and causes Xcode 4.2 fail in loading XIB files
+
+
 Please [report any issues](mailto:support@binaryage.com). A similar technical approach was used in TotalFinder for more than 2 years without significant troubles. I'm aware that it is not a perfect solution but still it improves my situation because I don't care about .DS_Store files that much and can afford losing them from time to time.
 
 ## FAQ
