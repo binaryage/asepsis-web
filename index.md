@@ -7,7 +7,7 @@ product_subtitle: smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
 download: http://downloads.binaryage.com/Asepsis-1.1.dmg
 downloadtitle: Download v1.1
-downloadsubtitle: Requires OS X 10.7 (Lion)
+downloadsubtitle: Requires OS X 10.7 (Lion)<br><span style="color:#f33">Conflicts with Xcode 4.2 and Glims!</span>
 repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
@@ -33,6 +33,10 @@ shots: [{
 ---
 
 ## About
+
+### What it does for me?
+
+It prevents creation of .DS_Store files. It redirects their creation into a special folder.
 
 ### What is .DS_Store?
 
