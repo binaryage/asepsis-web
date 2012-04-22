@@ -1,5 +1,5 @@
 ---
-layout: product2
+layout: product
 title: Asepsis is a system utility for prevention of .DS_Store files
 product: asepsis
 product_title: Asepsis
