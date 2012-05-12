@@ -7,7 +7,7 @@ product_subtitle: smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
 download: http://downloads.binaryage.com/Asepsis-1.1.dmg
 downloadtitle: Download v1.1
-downloadsubtitle: Requires OS X 10.7 (Lion)<br><span style="color:#f33">Conflicts with Xcode 4.2 and Glims!</span>
+downloadsubtitle: Requires OS X 10.7 (Lion)<br><span style="color:#f33">Conflicts with Xcode 4.2 and Glims!</span><br><span style="color:#f33">Broken under 10.7.4 update - expect a fix soon!</span>
 repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
@@ -140,6 +140,10 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
 #### Xcode 4.2, iOS 5.0 Simulator
 
   * Some developers reported that Asepsis breaks iOS 5.0 Simulator and causes Xcode 4.2 fail in loading XIB files
+
+#### OS X 10.7.4
+
+  * Something changed and Asepsis does not work as advertised. Will investigate and release a fix soon.
 
 
 Please [report any issues](mailto:support@binaryage.com). A similar technical approach was used in TotalFinder for more than 2 years without significant troubles. I'm aware that it is not a perfect solution but still it improves my situation because I don't care about .DS_Store files that much and can afford losing them from time to time.
