@@ -34,7 +34,7 @@ shots: [{
 
 ## About
 
-### What it does for me?
+### What does it do for me?
 
 It prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store) files. It redirects their creation into a special folder.
 
