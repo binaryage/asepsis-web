@@ -42,7 +42,7 @@ It prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store) file
 
 Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in the Finder.
 
-But I'm a developer and I run Finder with [TotalFinder](http://totalfinder.binaryage.com) and I have enabled dispaling of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.
+But I'm a developer and I run Finder with [TotalFinder](http://totalfinder.binaryage.com) and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.
 
 That is why I decided to solve this for myself and I'm sharing my solution with other Mac geeks out there to help them protect their egos :-)
 
