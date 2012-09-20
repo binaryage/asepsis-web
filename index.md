@@ -160,6 +160,7 @@ Here is the script source: [https://github.com/binaryage/asepsis/blob/master/ctl
 
 To reinstall DesktopServicesPriv wrapper run:
 
+    asepsisctl uninstall_wrapper
     asepsisctl install_wrapper
 
 Here is the script source: [https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb](https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb)
