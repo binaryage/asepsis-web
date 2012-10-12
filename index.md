@@ -12,7 +12,7 @@ repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
 meta_description: Asepsis is a system utility for prevention of .DS_Store files created by Finder and other applications
-meta_image: http://www.binaryage.com/shared/img/icons/asepsis-256.png
+meta_image: http://www.binaryage.com/base/img/icons/asepsis-256.png
 facebook: 1
 retweet: 1
 buzz: 0
@@ -24,11 +24,11 @@ ogmeta: {
     type: "product",
     title: "Asepsis",
     url: "http://asepsis.binaryage.com",
-    image: "http://www.binaryage.com/shared/img/icons/asepsis-256.png"
+    image: "http://www.binaryage.com/base/img/icons/asepsis-256.png"
 }
 shots: [{
     title: ".DS_Store files are like ghost chasing you in every folder you visit",
-    thumb: "/shared/img/asepsis-mainshot.png"
+    thumb: "/base/img/asepsis-mainshot.png"
 }]
 ---
 
