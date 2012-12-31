@@ -812,8 +812,10 @@ html.support #main *{width:100%;height:100%}
 #main-about .about-blog{font-weight:bold;margin-bottom:26px;margin-top:4px}
 #main-about .about-blog img{vertical-align:middle;border:0;position:relative;top:-1px}
 #main-about .about-side{text-align:right;position:relative}
-#main-about .about-side-photo{position:relative;height:480px}
-#main-about .about-side-photo img{display:block;position:absolute;right:0}
+#main-about .about-side-photo{position:relative;height:280px}
+#main-about .about-side-photo-stephen{position:relative;top:0}
+#main-about .about-side-photo img{display:block;position:absolute;right:0;height:280px}
+#main-about .about-side-photo-stephen img{height:240px}
 #page-store-template .topbar-testimonials{display:none !important}
 #store-variation-selection-body{width:300px !important}
 #main-store .container{text-align:center}
