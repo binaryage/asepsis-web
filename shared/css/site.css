@@ -461,7 +461,7 @@ div#gsfn_list_widget span.time{color:#999;margin-left:3px}
 .changelogx div.infobox h3{font-size:8pt;border-bottom:1px solid #c0c0c0;background-color:#e2ecfe;padding:3px 5px;color:#000}
 .changelogx div.infobox p{padding:5px;font-size:8pt}
 .changelogx div.infobox img.left{float:left}
-.changelogx ul.changes{margin:0;padding-left:30px;list-style-type:none;padding-right:0}
+.changelogx ul.changes{margin:0 !important;padding-left:30px;list-style-type:none;padding-right:0}
 .changelogx ul.changes li{margin-bottom:1px;clear:both}
 .changelogx .titlebox{line-height:20px}
 .changelogx h4{margin:0;-webkit-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;display:inline-block;text-decoration:none;position:relative;cursor:pointer;font:bold 20px 'Play',arial,serif;color:#8d9198;border:1px solid #ccc;padding:2px 0 2px 0;text-shadow:#fff 0 1px 1px;-webkit-border-radius:8px;-moz-border-radius:8px;-o-border-radius:8px;border-radius:8px;min-height:38px;line-height:38px;margin-bottom:12px;-webkit-box-shadow:0 1px 4px #ccc;-moz-box-shadow:0 1px 4px #ccc;-o-box-shadow:0 1px 4px #ccc;box-shadow:0 1px 4px #ccc;background-color:#fff;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f4f4f4));background:-moz-linear-gradient(top, #fff 0%, #f4f4f4 100%);background:linear-gradient(top, #fff 0%, #f4f4f4 100%);-webkit-transition:all .5s ease 0;-moz-transition:all .5s ease 0;-o-transition:all .5s ease 0;transition:all .5s ease 0;font:bold 16px 'Play',arial,serif;color:minor-button-color;line-height:26px;float:left;min-height:26px;min-width:110px;}
