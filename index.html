@@ -27,7 +27,7 @@
     <style type="text/css">
       .js .wf{opacity:0!important;filter:alpha(opacity=0)!important;-webkit-transition:opacity .5s ease 0s;-moz-transition:opacity .5s ease 0s;-o-transition:opacity .5s ease 0s;transition:opacity .5s ease 0s;font-smoothing:antialiased;-webkit-font-smoothing:antialiased}.wf-active .wf,.wf-fake-active .wf{opacity:1!important;filter:alpha(opacity=100)!important}
     </style>
-    <link rel="stylesheet" href="http://static.binaryage.com/6dcedaad_shared_css_site.css" type="text/css"/>
+    <link rel="stylesheet" href="http://static.binaryage.com/785148f9_shared_css_site.css" type="text/css"/>
     <script type="text/javascript" charset="utf-8">
       /*
       CSS Browser Selector v0.4.0 (Nov 02, 2010)
@@ -107,7 +107,7 @@
               <div class="product-buttons-box">
                 <div class="product-buttons">
                   <a id="o-download" href="http://downloads.binaryage.com/Asepsis-1.3.dmg" class="button product-button-download">
-                    <div><div>Download v1.3<div class="product-specs">Requires OS X 10.7 or higher</div></div></div>
+                    <div><div>Download v1.3<div class="product-specs">Requires OS X 10.7 or 10.8<br/><span style="color:red">Do not install it on beta 10.9 (Mavericks)!</span></div></div></div>
                   </a>
                   <div class="clear"></div>
                 </div>
@@ -249,6 +249,8 @@ asepsisctl install_wrapper
           <h2>FAQ</h2>
           <h4>Sounds scary. Is this safe?</h4>
           <blockquote><p>Well uhmmm, use it at your own risk :-) It sounds scary but it should be a pretty lightweight solution. You should <a href="http://github.com/binaryage/asepsis">review the code</a> to see what it does.</p></blockquote>
+          <h4>Does it work with OS X 10.9 (Mavericks) ?</h4>
+          <blockquote><p>Asepsis 1.3 does not work with 10.9. and prevents it from booting. Do not install it! I will update you on Asepsis progress in some future blog post.</p></blockquote>
           <h4>Could this be ported to Snow Leopard?</h4>
           <blockquote><p>Probably yes. Pre-Lion DesktopServicesPriv calls File Manager APIs from CoreServices. Technically the same approach could be done to File Manager. Actually this is what TotalFinder (prior to version 1.3) did under Snow Leopard using mach_override. I'm not going to implement it for Snow Leopard because I've already switched to Lion personally.</p></blockquote>
           <h4>What if .DS_Store file is already present in a folder?</h4>
@@ -265,102 +267,111 @@ asepsisctl install_wrapper
           <blockquote><p>Previously Asepsis used DYLD_INSERT_LIBRARIES to modify DesktopServicesPriv during load time. Unfortunately Flashback malware used the same mechanism and Apple decided to block system-wide usage of DYLD_INSERT_LIBRARIES in 10.7.4 update. As a workaround Asepsis 1.2 modifies DesktopServicesPriv on the disk during installation. This is more dirty solution. At least I have implemented post-login check which will inform you that someone reverted Asepsis changes back. For example after you do a system update and Apple may rewrite DesktopServicesPriv framework with new version. In this case <code>asepsisctl install_wrapper</code> should patch it again but better wait for my update.</p></blockquote>
           <h4>Does Asepsis install some kernel extension?</h4>
           <blockquote><p>Since version 1.3 Asepsis does not use kernel extension anymore.</p></blockquote>
-          <h2>Changelog</h2>
-          <div class="changelogx"></div>
-          <script type="text/javascript" charset="utf-8">
-            function showBetaHint(){$(".betahint").toggle()}$(function(){$(".changelogx").load("changelog.html?x="+(Math.random()+"").substring(2)+" #page")})
+          <h2>Panic mode!</h2>
+          <h3>My system doesn't boot up. What now?</h3>
+          <ol>
+            <li>restart computer into <a href="http://support.apple.com/kb/ht1492">single-user mode</a></li>
+            <li>follow instructions on the screen to mount your filesystem for writing (something like <code>mount -uw /</code>)</li>
+            <li>execute <code>HOME=/ /Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper</code></li>
+            <li><code>reboot</code></li>
+          </ol>
+          <p>Note: in step 3, the path might be different if you boot from external disk, for example /Volumes/<YourStartupVolume>/Library/Application\ Support/Asepsis/ctl/asepsisctl</p>
+            <h2>Changelog</h2>
+            <div class="changelogx"></div>
+            <script type="text/javascript" charset="utf-8">
+              $(function(){$(".changelogx").load("changelog.html?x="+(Math.random()+"").substring(2)+" #page")});function showBetaHint(){$(".betahint").toggle()}
+            </script>
+          </div>
+          <script>
+            $(function(){var a=$(".panes");var e=$(".tabs");var t;var s=$(".main-content-here > *");s.each(function(s){var r=$(this);var n=r.attr("tagName");if(n=="SCRIPT")return;if(n=="NOSCRIPT")return;if(n=="STYLE")return;if(r.hasClass("panes")||r.hasClass("tabs"))return;if(r.attr("tagName")=="H2"){var i=r.html();var d=i.toLowerCase().replace(/[^a-z0-9]/g,"-");var p=$("<li>");var v=$('<a class="tbx">').attr("href","#"+d).html(i);p.append(v);v.append('<div class="shadow"></div>');e.append(p);t=$("<div>").addClass("wikistyle").addClass(d);a.append(t);r.remove();t.append($("<h2>").html(i))}else{if(t){t.append(r)}}});$("ul.tabs").tabs("div.panes > div");$("ul.tabs a").history()})
+          </script>
+          <script>
+            $(function(){$(".product-thumbs-scrollable").scrollable({size:5});$(".product-thumbs-items img").click(function(){var e=$(this);var t=$(".screenshot-box:visible");var n=$(e.attr("rel"));if(n[0]===t[0])return;t.fadeOut();n.fadeIn()}).filter(":first").click()})
+          </script>
+          <div class="simple_overlay" id="overlay-gallery" style="display:none">
+            <a class="overlay-prev">prev</a>
+            <a class="overlay-next">next</a>
+            <div class="overlay-info"></div>
+            <img class="overlay-progress" src="http://static.binaryage.com/32e8f83d_shared_img_twitter-loader.gif"/>
+          </div>
+          <script>
+            !function(){$(".overlayable").overlay({expose:"#f1f1f1",target:"#overlay-gallery"}).gallery({disabledClass:"disabled-overlay",prev:".overlay-prev",next:".overlay-next",info:".overlay-info",progress:".overlay-progress",opacity:1,speed:200,template:"[${index}/${total}] ${title}"})}()
           </script>
         </div>
-        <script>
-          $(function(){var a=$(".panes");var e=$(".tabs");var t;var s=$(".main-content-here > *");s.each(function(s){var r=$(this);var n=r.attr("tagName");if(n=="SCRIPT")return;if(n=="NOSCRIPT")return;if(n=="STYLE")return;if(r.hasClass("panes")||r.hasClass("tabs"))return;if(r.attr("tagName")=="H2"){var i=r.html();var d=i.toLowerCase().replace(/[^a-z0-9]/g,"-");var p=$("<li>");var v=$('<a class="tbx">').attr("href","#"+d).html(i);p.append(v);v.append('<div class="shadow"></div>');e.append(p);t=$("<div>").addClass("wikistyle").addClass(d);a.append(t);r.remove();t.append($("<h2>").html(i))}else{if(t){t.append(r)}}});$("ul.tabs").tabs("div.panes > div");$("ul.tabs a").history()})
-        </script>
-        <script>
-          $(function(){$(".product-thumbs-scrollable").scrollable({size:5});$(".product-thumbs-items img").click(function(){var e=$(this);var t=$(".screenshot-box:visible");var n=$(e.attr("rel"));if(n[0]===t[0])return;t.fadeOut();n.fadeIn()}).filter(":first").click()})
-        </script>
-        <div class="simple_overlay" id="overlay-gallery" style="display:none">
-          <a class="overlay-prev">prev</a>
-          <a class="overlay-next">next</a>
-          <div class="overlay-info"></div>
-          <img class="overlay-progress" src="http://static.binaryage.com/32e8f83d_shared_img_twitter-loader.gif"/>
+        <div class="clear"></div>
+      </div>
+      <div id="tweets-section">
+        <div class="container" style="position: relative">
+          <ol id="tweets" class="statuses"></ol>
         </div>
-        <script>
-          !function(){$(".overlayable").overlay({expose:"#f1f1f1",target:"#overlay-gallery"}).gallery({disabledClass:"disabled-overlay",prev:".overlay-prev",next:".overlay-next",info:".overlay-info",progress:".overlay-progress",opacity:1,speed:200,template:"[${index}/${total}] ${title}"})}()
-        </script>
       </div>
-      <div class="clear"></div>
-    </div>
-    <div id="tweets-section">
-      <div class="container" style="position: relative">
-        <ol id="tweets" class="statuses"></ol>
-      </div>
-    </div>
-    <div id="footer">
-      <div class="container">
-        <div class="footer-separator"></div>
-        <div class="footerbox">
-          <div class="facebook-like-button-wrapper">
-            <fb:like width="650" href="http://asepsis.binaryage.com" layout="standard" show_faces="false" font="arial"></fb:like>
-          </div>
-          <div class="footer-links wf">
-            <a href="javascript:GSFNFeedbackWidget.show()">feedback</a> |
-            <a href="http://github.com/binaryage/asepsis">source code</a> |
-            <a href="http://www.binaryage.com/about.html">contact</a>
+      <div id="footer">
+        <div class="container">
+          <div class="footer-separator"></div>
+          <div class="footerbox">
+            <div class="facebook-like-button-wrapper">
+              <fb:like width="650" href="http://asepsis.binaryage.com" layout="standard" show_faces="false" font="arial"></fb:like>
+            </div>
+            <div class="footer-links wf">
+              <a href="javascript:GSFNFeedbackWidget.show()">feedback</a> |
+              <a href="http://github.com/binaryage/asepsis">source code</a> |
+              <a href="http://www.binaryage.com/about.html">contact</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div id="fb-root"></div>
-    <script type="text/javascript">
-      window.fbAsyncInit=function(){FB.init({appId:"332451499524",status:true,cookie:true,xfbml:true})};(function(){var e=document.createElement("script");e.async=true;e.src=document.location.protocol+"//connect.facebook.net/en_US/all.js";document.getElementById("fb-root").appendChild(e)})()
-    </script>
-    <script type="text/javascript" charset="utf-8">
-      $(function(){var e;$(".topbar-testimonials").bind("click",function(){if(window.SSTracker){SSTracker.pushState("praise")}if(!e){$("#tweets").tweet({user:"binaryage"});e=true}})})
-    </script>
-    <script type="text/javascript" charset="utf-8">
-      $(function(){setTimeout(function(){var e=location.hash.substring(1);if(e.substring(0,2)=="o-"){$("#"+e).trigger("click")}},500)})
-    </script>
-    <script type="text/javascript" charset="utf-8">
-      $(function(){var t=document.location.host;if(t.substring(t.length-3)=="org"){$("a").each(function(){var a=$(this);var i=a.attr("href");if(i){if(i.match("binaryage.com")){i=i.replace("binaryage.com","binaryage.org")}var n=document.location+"";if(i.substring(0,4)!="http"&&i.match(/\/[^.]+$/i)){if(t.substring(n.length-1)=="2"){i+="2"}if(n.substring(n.length-6)=="2.html"){i+="2"}i+=".html"}a.attr("href",i)}})}})
-    </script>
-    <script type="text/javascript" charset="utf-8">
-      !function(){var r=parseUri(document.location+"");var e=r.queryKey["referrer"];if(e){bacookie("bareferrer",e,{path:"/",expires:14})}}();$("a").live("click",function(){var r=$(this).attr("href")+"";var e=bacookie("bareferrer");if(e){r+=(r.indexOf("?")==-1?"?":"&")+"referrer="+encodeURIComponent(e)}var a=document.location+"";if(a.match(/fastspring\.com/)&&r.match(/binaryage\.com/)||a.match(/binaryage\.com/)&&r.match(/fastspring\.com/)){_gaq.push(["_link",r]);return false}})
-    </script>
-    <div id="getsatifucktion"></div>
-    <div id="getsatifucktion2"></div>
-    <script type="text/javascript" charset="utf-8">
-      $("#getsatifucktion").html(writeCapture.sanitize("<scr"+'ipt type="text/javascript" src="http://s3.amazonaws.com/getsatisfaction.com/javascripts/feedback-v2.js"></scr'+"ipt>",{done:function(){if(typeof window.GSFN=="object"){window.GSFNFeedbackWidget=new GSFN.feedback_widget({container:"getsatifucktion2",display:"overlay",company:"binaryage",placement:"hidden",color:"#656565",style:"idea"})}}}))
-    </script>
-    <script type="text/javascript">
-      var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.id="gauges-tracker";e.setAttribute("data-site-id","4f10d65d844d52139500000b");e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
-    </script>
-    <div class="suck-area">
-      <div class="container">
-        <div class="fixed-wrapper">
-          <div class="suck-dialog suck-ie5" style="display:none">
-            This page is using the latest HTML5 techniques. You are using old Internet Explorer 5. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
-            <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
-            <div class="suck-icon"></div>
-          </div>
-          <div class="suck-dialog suck-ie6" style="display:none">
-            This page is using the latest HTML5 techniques. You are using old Internet Explorer 6. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
-            <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
-            <div class="suck-icon"></div>
-          </div>
-          <div class="suck-dialog suck-ie7" style="display:none">
-            This page is using the latest HTML5 techniques. You are using old Internet Explorer 7. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
-            <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
-            <div class="suck-icon"></div>
-          </div>
-          <div class="suck-dialog suck-ie8" style="display:none">
-            This page is using the latest HTML5 techniques. You are using old Internet Explorer 8. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
-            <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
-            <div class="suck-icon"></div>
+      <div id="fb-root"></div>
+      <script type="text/javascript">
+        window.fbAsyncInit=function(){FB.init({appId:"332451499524",status:true,cookie:true,xfbml:true})};(function(){var e=document.createElement("script");e.async=true;e.src=document.location.protocol+"//connect.facebook.net/en_US/all.js";document.getElementById("fb-root").appendChild(e)})()
+      </script>
+      <script type="text/javascript" charset="utf-8">
+        $(function(){var e;$(".topbar-testimonials").bind("click",function(){if(window.SSTracker){SSTracker.pushState("praise")}if(!e){$("#tweets").tweet({user:"binaryage"});e=true}})})
+      </script>
+      <script type="text/javascript" charset="utf-8">
+        $(function(){setTimeout(function(){var e=location.hash.substring(1);if(e.substring(0,2)=="o-"){$("#"+e).trigger("click")}},500)})
+      </script>
+      <script type="text/javascript" charset="utf-8">
+        $(function(){var t=document.location.host;if(t.substring(t.length-3)=="org"){$("a").each(function(){var a=$(this);var i=a.attr("href");if(i){if(i.match("binaryage.com")){i=i.replace("binaryage.com","binaryage.org")}var n=document.location+"";if(i.substring(0,4)!="http"&&i.match(/\/[^.]+$/i)){if(t.substring(n.length-1)=="2"){i+="2"}if(n.substring(n.length-6)=="2.html"){i+="2"}i+=".html"}a.attr("href",i)}})}})
+      </script>
+      <script type="text/javascript" charset="utf-8">
+        !function(){var r=parseUri(document.location+"");var e=r.queryKey["referrer"];if(e){bacookie("bareferrer",e,{path:"/",expires:14})}}();$("a").live("click",function(){var r=$(this).attr("href")+"";var e=bacookie("bareferrer");if(e){r+=(r.indexOf("?")==-1?"?":"&")+"referrer="+encodeURIComponent(e)}var a=document.location+"";if(a.match(/fastspring\.com/)&&r.match(/binaryage\.com/)||a.match(/binaryage\.com/)&&r.match(/fastspring\.com/)){_gaq.push(["_link",r]);return false}})
+      </script>
+      <div id="getsatifucktion"></div>
+      <div id="getsatifucktion2"></div>
+      <script type="text/javascript" charset="utf-8">
+        $("#getsatifucktion").html(writeCapture.sanitize("<scr"+'ipt type="text/javascript" src="http://s3.amazonaws.com/getsatisfaction.com/javascripts/feedback-v2.js"></scr'+"ipt>",{done:function(){if(typeof window.GSFN=="object"){window.GSFNFeedbackWidget=new GSFN.feedback_widget({container:"getsatifucktion2",display:"overlay",company:"binaryage",placement:"hidden",color:"#656565",style:"idea"})}}}))
+      </script>
+      <script type="text/javascript">
+        var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.id="gauges-tracker";e.setAttribute("data-site-id","4f10d65d844d52139500000b");e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
+      </script>
+      <div class="suck-area">
+        <div class="container">
+          <div class="fixed-wrapper">
+            <div class="suck-dialog suck-ie5" style="display:none">
+              This page is using the latest HTML5 techniques. You are using old Internet Explorer 5. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
+              <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
+              <div class="suck-icon"></div>
+            </div>
+            <div class="suck-dialog suck-ie6" style="display:none">
+              This page is using the latest HTML5 techniques. You are using old Internet Explorer 6. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
+              <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
+              <div class="suck-icon"></div>
+            </div>
+            <div class="suck-dialog suck-ie7" style="display:none">
+              This page is using the latest HTML5 techniques. You are using old Internet Explorer 7. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
+              <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
+              <div class="suck-icon"></div>
+            </div>
+            <div class="suck-dialog suck-ie8" style="display:none">
+              This page is using the latest HTML5 techniques. You are using old Internet Explorer 8. Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">upgrade to Internet Explorer 9</a> for pixel-perfect experience. Thanks!
+              <div class="suck-close" onclick="$(this).parent().addClass('suck-closed'); bacookie('suck-closed', '1', {path: '/'})"></div>
+              <div class="suck-icon"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <script type="text/javascript" charset="utf-8">
-      if(bacookie("suck-closed")){$(".suck-dialog").addClass("suck-closed")}
-    </script>
-  </body>
-</html>
+      <script type="text/javascript" charset="utf-8">
+        if(bacookie("suck-closed")){$(".suck-dialog").addClass("suck-closed")}
+      </script>
+    </body>
+  </html>
