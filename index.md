@@ -224,7 +224,7 @@ Please [report any issues](mailto:support@binaryage.com).
 3. execute `HOME=/ /Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper`
 4. `reboot`
 
-Note: in step 3, the path might be different if you boot from external disk, for example /Volumes/<YourStartupVolume>/Library/Application\ Support/Asepsis/ctl/asepsisctl
+Note: in step 3, the path might be different if you boot from external disk, for example /Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl
 
 ## Changelog
 
