@@ -7,7 +7,7 @@ product_subtitle: a smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
 download: http://downloads.binaryage.com/Asepsis-1.3.dmg
 downloadtitle: Download v1.3
-downloadsubtitle: Requires OS X 10.7 or higher
+downloadsubtitle: Requires OS X 10.7 or 10.8<br><span style="color:red">Do not install it on beta 10.9 (Mavericks)!</span>
 repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
@@ -81,16 +81,16 @@ Asepsis checks for update after every reboot using Sparkle framework. It also ch
 
 ### Uninstallation
 
-Just run provided uninstaller from the DMG archive or in Terminal execute: 
-    
+Just run provided uninstaller from the DMG archive or in Terminal execute:
+
     asepsisctl uninstall
     sudo reboot
-    
+
 Alternatively you may use uinstaller which comes with the DMG archive. It launches `asepsisctl uninstall` for you.
 
 ### Installing from sources
 
-You may want to review the source code and install it by compiling it from sources. Please follow instructions in [GitHub repository](http://github.com/binaryage/asepsis). 
+You may want to review the source code and install it by compiling it from sources. Please follow instructions in [GitHub repository](http://github.com/binaryage/asepsis).
 
 ## Control
 
@@ -103,7 +103,7 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
 
     Usage:
         asepsisctl [command] [options]
-   
+
     Commands:
         disable                          Disables asepsis.
         enable                           Enables asepsis.
@@ -137,18 +137,18 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
     Backward compatibility:
         uninstall_dylib                  Removes libAsepsis.dylib from /etc/launchd.conf.
         uninstall_kext                   Removes /System/Library/Asepsis.kext during next boot.
-   
+
     Where options are:
         -r, --root /Users/darwin         Root folder for migration
         -d, --[no-]dry                   Run migration in dry mode
         -v, --[no-]verbose               Be more verbose
         -f, --[no-]force                 Force operation
         -h, --help                       Show this message
-        -V, --version                    Print version        
-        
+        -V, --version                    Print version
+
 ## Diagnose
 
-Asepsis modifies system files in `/System/Library/PrivateFrameworks/DesktopServicesPriv.framework`. 
+Asepsis modifies system files in `/System/Library/PrivateFrameworks/DesktopServicesPriv.framework`.
 
 As you can guess there is a clear risk that during system update Apple reverts files to the originals. This should be no big deal. Asepsis checks for this at every reboot and reports it. Reinstalling asepsis should patch it back. In the worst case you will notice that you have .DS_Store files creeping back in the house.
 
@@ -178,6 +178,10 @@ Please [report any issues](mailto:support@binaryage.com).
 #### Sounds scary. Is this safe?
 
 > Well uhmmm, use it at your own risk :-) It sounds scary but it should be a pretty lightweight solution. You should [review the code](http://github.com/binaryage/asepsis) to see what it does.
+
+#### Does it work with OS X 10.9 (Mavericks) ?
+
+> Asepsis 1.3 does not work with 10.9. and prevents it from booting. Do not install it! I will update you on Asepsis progress in some future blog post.
 
 #### Could this be ported to Snow Leopard?
 
@@ -211,6 +215,17 @@ Please [report any issues](mailto:support@binaryage.com).
 
 > Since version 1.3 Asepsis does not use kernel extension anymore.
 
+## Panic mode!
+
+### My system doesn't boot up. What now?
+
+1. restart computer into [single-user mode](http://support.apple.com/kb/ht1492)
+2. follow instructions on the screen to mount your filesystem for writing (something like `mount -uw /`)
+3. execute `HOME=/ /Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper`
+4. `reboot`
+
+Note: in step 3, the path might be different if you boot from external disk, for example /Volumes/<YourStartupVolume>/Library/Application\ Support/Asepsis/ctl/asepsisctl
+
 ## Changelog
 
 <div class="changelogx"></div>
@@ -219,7 +234,7 @@ Please [report any issues](mailto:support@binaryage.com).
     $(function() {
         $('.changelogx').load('changelog.html?x='+((Math.random()+"").substring(2))+' #page');
     });
-    
+
     function showBetaHint() {
         $('.betahint').toggle();
     }
