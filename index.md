@@ -5,8 +5,8 @@ product: asepsis
 product_title: Asepsis
 product_subtitle: a smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
-download: http://downloads.binaryage.com/Asepsis-1.3.dmg
-downloadtitle: Download v1.3
+download: http://downloads.binaryage.com/Asepsis-1.3.1.dmg
+downloadtitle: Download v1.3.1
 downloadsubtitle: Requires OS X 10.7 or 10.8<br><span style="color:red">Do not install it on 10.9 (Mavericks)!</span>
 repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
