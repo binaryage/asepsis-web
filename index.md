@@ -181,7 +181,7 @@ Please [report any issues](mailto:support@binaryage.com).
 
 #### Does it work with OS X 10.9 (Mavericks) ?
 
-> Asepsis 1.3 does not work with 10.9. and prevents it from booting. Do not install it! I will update you on Asepsis progress in some future blog post.
+> Asepsis 1.3 does not work with 10.9. (the installer refuses to install). I'm looking for some solution and I will update you on Asepsis progress in some future blog post.
 
 #### Could this be ported to Snow Leopard?
 
@@ -209,7 +209,7 @@ Please [report any issues](mailto:support@binaryage.com).
 
 #### What happened in 10.7.4 update?
 
-> Previously Asepsis used DYLD_INSERT_LIBRARIES to modify DesktopServicesPriv during load time. Unfortunately Flashback malware used the same mechanism and Apple decided to block system-wide usage of DYLD_INSERT_LIBRARIES in 10.7.4 update. As a workaround Asepsis 1.2 modifies DesktopServicesPriv on the disk during installation. This is more dirty solution. At least I have implemented post-login check which will inform you that someone reverted Asepsis changes back. For example after you do a system update and Apple may rewrite DesktopServicesPriv framework with new version. In this case `asepsisctl install_wrapper` should patch it again but better wait for my update.
+> Previously Asepsis used DYLD_INSERT_LIBRARIES to modify DesktopServicesPriv during load time. Unfortunately Flashback malware used the same mechanism and Apple decided to block system-wide usage of DYLD_INSERT_LIBRARIES in 10.7.4 update. As a workaround Asepsis 1.2 modifies DesktopServicesPriv on the disk during installation. This is more dirty solution. At least I have implemented post-login check which will inform you that someone reverted Asepsis changes back. For example after you do a system update and Apple rewrote DesktopServicesPriv framework with new version. If you get the warning, `asepsisctl install_wrapper` should patch DesktopServicesPriv again but better wait for my update.
 
 #### Does Asepsis install some kernel extension?
 
