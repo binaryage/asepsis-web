@@ -118,7 +118,7 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
         clean                            Deletes all content from /usr/local/.dscage.
 
     Installation commands:
-        install                          Performs reinstallation (using "/Users/darwin/code/asepsis/bin/Asepsis").
+        install                          Performs reinstallation (using "/Library/Application Support/Asepsis").
         uninstall                        Performs complete uninstallation.
         install_wrapper                  Installs DesktopServicesPriv.framework wrapper.
         uninstall_wrapper                Uninstalls DesktopServicesPriv.framework wrapper.
@@ -143,6 +143,8 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
         -d, --[no-]dry                   Run migration in dry mode
         -v, --[no-]verbose               Be more verbose
         -f, --[no-]force                 Force operation
+        -n, --[no-]nosudo                Don't apply sudo
+        -p, --[no-]panic                 Panic mode
         -h, --help                       Show this message
         -V, --version                    Print version
 
@@ -181,7 +183,8 @@ Please [report any issues](mailto:support@binaryage.com).
 
 #### Does it work with OS X 10.9 (Mavericks) ?
 
-> Asepsis 1.3 does not work with 10.9. (the installer refuses to install). I'm looking for some solution and I will update you on Asepsis progress in some future blog post.
+> Yes, since Asepsis 1.4.
+> Asepsis 1.3.2 does not work with OS X 10.9 and the installer refuses to install.
 
 #### Could this be ported to Snow Leopard?
 
@@ -220,11 +223,11 @@ Please [report any issues](mailto:support@binaryage.com).
 ### My system doesn't boot up. What now?
 
 1. restart computer into [single-user mode](http://support.apple.com/kb/ht1492)
-2. follow instructions on the screen to mount your filesystem for writing (something like `mount -uw /`)
-3. execute `HOME=/ /Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper`
+2. follow instructions on the screen to mount your filesystem for writing (something like `/sbin/mount -uw /`)
+3. execute `/Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper --nosudo`
 4. `reboot`
 
-Note: in step 3, the path might be different if you boot from external disk, for example /Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl
+Note: in step 3, the path might be different if you boot from external disk, for example `/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl`
 
 ## Changelog
 
