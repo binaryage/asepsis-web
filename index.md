@@ -229,6 +229,8 @@ Please [report any issues](mailto:support@binaryage.com).
 
 Note: in step 3, the path might be different if you boot from external disk, for example `/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl`
 
+It this didn't work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.
+
 ## Changelog
 
 <div class="changelogx"></div>
