@@ -184,11 +184,7 @@ Please [report any issues](mailto:support@binaryage.com).
 #### Does it work with OS X 10.9 (Mavericks) ?
 
 > Yes, since Asepsis 1.4.
-> Asepsis 1.3.2 does not work with OS X 10.9 and the installer refuses to install.
-
-#### Could this be ported to Snow Leopard?
-
-> Probably yes. Pre-Lion DesktopServicesPriv calls File Manager APIs from CoreServices. Technically the same approach could be done to File Manager. Actually this is what TotalFinder (prior to version 1.3) did under Snow Leopard using mach_override. I'm not going to implement it for Snow Leopard because I've already switched to Lion personally.
+> Asepsis 1.3.2 does not work with OS X 10.9 and the installer will refuse to install.
 
 #### What if .DS_Store file is already present in a folder?
 
@@ -217,6 +213,10 @@ Please [report any issues](mailto:support@binaryage.com).
 #### Does Asepsis install some kernel extension?
 
 > Since version 1.3 Asepsis does not use kernel extension anymore.
+
+#### Could this be ported to Snow Leopard?
+
+> Probably yes. Pre-Lion DesktopServicesPriv calls File Manager APIs from CoreServices. Technically the same approach could be done to File Manager. Actually this is what TotalFinder (prior to version 1.3) did under Snow Leopard using mach_override. I'm not going to implement it for Snow Leopard because I've already switched to Lion personally.
 
 ## Panic mode!
 
