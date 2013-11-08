@@ -167,7 +167,7 @@ To reinstall DesktopServicesPriv wrapper run:
 
 Here is the script source: [https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb](https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb)
 
-### The list of known issues
+### List of known issues
 
 #### General
 
