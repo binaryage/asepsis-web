@@ -99,15 +99,15 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
 
     > asepsisctl --help
     The control script for asepsis operations.
-
+    
     Usage:
         asepsisctl [command] [options]
-
+    
     Commands:
         disable                          Disables asepsis.
         enable                           Enables asepsis.
         diagnose                         Diagnoses asepsis setup.
-
+    
     Helper commands:
         neton                            Enables DS_Store files on network volumes.
         netoff                           Disables ... (http://support.apple.com/kb/ht1629).
@@ -115,7 +115,7 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
         migrateout                       Migrates .DS_Store files from /usr/local/.dscage.
         prune                            Removes empty directories from /usr/local/.dscage.
         clean                            Deletes all content from /usr/local/.dscage.
-
+    
     Installation commands:
         install                          Performs reinstallation (using "/Library/Application Support/Asepsis").
         uninstall                        Performs complete uninstallation.
@@ -132,11 +132,11 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
         disable_warnings                 Disables warnings caused by mach_override (vm.shared_region_unnest_logging)
         uninstall_updater                Uninstalls asepsis updater.
         install_updater                  Installs asepsis updater.
-
+    
     Backward compatibility:
         uninstall_dylib                  Removes libAsepsis.dylib from /etc/launchd.conf.
         uninstall_kext                   Removes /System/Library/Asepsis.kext during next boot.
-
+    
     Where options are:
         -r, --root /Users/darwin         Root folder for migration
         -d, --[no-]dry                   Run migration in dry mode
