@@ -139,15 +139,14 @@
           <p>But I'm a developer and I run Finder with <a href="http://totalfinder.binaryage.com">TotalFinder</a> and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.</p>
           <p>That is why I decided to solve this for myself and I'm sharing my solution with other Mac geeks out there to help them protect their egos :-)</p>
           <h3>Asepsis does .DS_Store redirection. How does it work technically?</h3>
-          <p>Apple implemented a private system framework <code>DesktopServicesPrivWrapper</code> which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I'm looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files.</p>
-          <p>At core Asepsis provides a dynamic library <code>asepsisd</code> which gets loaded into every process linking against DesktopServicesPriv.framework. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.</p>
-          <p>Additionally Asepsis implements a system-wide daemon <code>/usr/local/.dscage</code> whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on a folder structure in the prefix directory.</p>
-          <h3>The prefix folder is <strong><code>DesktopServicesPrivWrapper</code></strong></h3>
+          <p>Apple implemented a private system framework <code>DesktopServicesPriv</code> which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I'm looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files.</p>
+          <p>At core Asepsis provides a dynamic library <code>DesktopServicesPrivWrapper</code> which gets loaded into every process linking against DesktopServicesPriv.framework. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.</p>
+          <p>Additionally Asepsis implements a system-wide daemon <code>asepsisd</code> whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on a folder structure in the prefix directory.</p>
+          <h3>The prefix folder is <strong><code>/usr/local/.dscage</code></strong></h3>
           <ol>
-            <li> <code>asepsisd</code> - a proxy library for interposing file manipulation calls in DesktopServicesPriv</li>
-            <li> <code>asepsisctl</code> - a system-wide daemon for mirroring folder renames and deletes in the prefix folder</li>
-            <li> <code>asepsisctl diagnose
-</code> - a command-line utility for controlling Asepsis operation</li>
+            <li> <code>DesktopServicesPrivWrapper</code> - a proxy library for interposing file manipulation calls in DesktopServicesPriv</li>
+            <li> <code>asepsisd</code> - a system-wide daemon for mirroring folder renames and deletes in the prefix folder</li>
+            <li> <code>asepsisctl</code> - a command-line utility for controlling Asepsis operation</li>
           </ol>
           <h2>Installation</h2>
           <p>To install the software:</p>
@@ -158,20 +157,22 @@
           <p>After reboot .DS_Store files are no longer created when you open Finder and browse folders (in case .DS_Store files are not already present there).</p>
           <h3>Troubleshooting</h3>
           <p>In Terminal.app run:</p>
-          <pre><code>asepsisctl uninstall
-sudo reboot
+          <pre><code>asepsisctl diagnose
 </code></pre>
           <h3>Updates</h3>
           <p>Asepsis checks for update after every reboot using Sparkle framework. It also checks its consistencty at that point.</p>
           <h3>Uninstallation</h3>
           <p>Just run provided uninstaller from the DMG archive or in Terminal execute:</p>
-          <pre><code>asepsisctl uninstall</code></pre>
-          <p>Alternatively you may use uinstaller which comes with the DMG archive. It launches <code>/usr/local/bin</code> for you.</p>
+          <pre><code>asepsisctl uninstall
+sudo reboot
+</code></pre>
+          <p>Alternatively you may use uinstaller which comes with the DMG archive. It launches <code>asepsisctl uninstall</code> for you.</p>
           <h3>Installing from sources</h3>
           <p>You may want to review the source code and install it by compiling it from sources. Please follow instructions in <a href="http://github.com/binaryage/asepsis">GitHub repository</a>.</p>
           <h2>Control</h2>
           <h3>You may control asepsis operation via asepsisctl</h3>
-          <p>During the installation asepsisctl tool is symlinked into <code>&gt; asepsisctl --help
+          <p>During the installation asepsisctl tool is symlinked into <code>/usr/local/bin</code>, so it should be visible from the command-line.</p>
+          <pre><code>&gt; asepsisctl --help
 The control script for asepsis operations.
 
 Usage:
@@ -220,19 +221,18 @@ Where options are:
     -p, --[no-]panic                 Panic mode
     -h, --help                       Show this message
     -V, --version                    Print version
-</code>, so it should be visible from the command-line.</p>
-          <pre><code>/System/Library/PrivateFrameworks/DesktopServicesPriv.framework</code></pre>
+</code></pre>
           <h2>Diagnose</h2>
-          <p>Asepsis modifies system files in <code>asepsisctl diagnose
-</code>.</p>
+          <p>Asepsis modifies system files in <code>/System/Library/PrivateFrameworks/DesktopServicesPriv.framework</code>.</p>
           <p>As you can guess there is a clear risk that during system update Apple reverts files to the originals. This should be no big deal. Asepsis checks for this at every reboot and reports it. Reinstalling asepsis should patch it back. In the worst case you will notice that you have .DS_Store files creeping back in the house.</p>
           <p>To diagnose asepsis run:</p>
-          <pre><code>asepsisctl uninstall_wrapper
-asepsisctl install_wrapper
+          <pre><code>asepsisctl diagnose
 </code></pre>
           <p>Here is the script source: <a href="https://github.com/binaryage/asepsis/blob/master/ctl/cmd/diagnose.rb">https://github.com/binaryage/asepsis/blob/master/ctl/cmd/diagnose.rb</a></p>
           <p>To reinstall DesktopServicesPriv wrapper run:</p>
-          <pre><code>asepsisctl migratein</code></pre>
+          <pre><code>asepsisctl uninstall_wrapper
+asepsisctl install_wrapper
+</code></pre>
           <p>Here is the script source: <a href="https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb">https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb</a></p>
           <h3>List of known issues</h3>
           <h4>General</h4>
@@ -249,7 +249,7 @@ asepsisctl install_wrapper
           <h4>What if .DS_Store file is already present in a folder?</h4>
           <blockquote><p>Asepsis will use it. It won't redirect it in this case. This way Asepsis works seamlessly with DMG archives or folders you browse on a network. If you delete the .DS_Store file, next time it will be created in the prefix folder. This is pretty simple approach how to adopt Asepsis incrementally on folder-by-folder basis.</p></blockquote>
           <h4>How could I migrate existing .DS_Store files?</h4>
-          <blockquote><p>Please see <code>asepsisctl install_wrapper</code> command</p></blockquote>
+          <blockquote><p>Please see <code>asepsisctl migratein</code> command</p></blockquote>
           <h4>Are there any processes which don't work well with Asepsis?</h4>
           <blockquote><p>Asepsis has white-list of processes known to manipulate with .DS_Store files. Right now it is effective for Finder.app and mdwrite process.</p></blockquote>
           <h4>What about using resource forks for hiding .DS_Store files?</h4>
@@ -257,7 +257,7 @@ asepsisctl install_wrapper
           <h4>How can I keep Asepsis up-to-date?</h4>
           <blockquote><p>Asepsis is using Sparkle updater. You should be prompted when a new version comes out. Asepsis checks for new version after every reboot.</p></blockquote>
           <h4>What happened in 10.7.4 update?</h4>
-          <blockquote><p>Previously Asepsis used DYLD_INSERT_LIBRARIES to modify DesktopServicesPriv during load time. Unfortunately Flashback malware used the same mechanism and Apple decided to block system-wide usage of DYLD_INSERT_LIBRARIES in 10.7.4 update. As a workaround Asepsis 1.2 modifies DesktopServicesPriv on the disk during installation. This is more dirty solution. At least I have implemented post-login check which will inform you that someone reverted Asepsis changes back. For example after you do a system update and Apple rewrote DesktopServicesPriv framework with new version. If you get the warning, <code>/sbin/mount -uw /</code> should patch DesktopServicesPriv again but better wait for my update.</p></blockquote>
+          <blockquote><p>Previously Asepsis used DYLD_INSERT_LIBRARIES to modify DesktopServicesPriv during load time. Unfortunately Flashback malware used the same mechanism and Apple decided to block system-wide usage of DYLD_INSERT_LIBRARIES in 10.7.4 update. As a workaround Asepsis 1.2 modifies DesktopServicesPriv on the disk during installation. This is more dirty solution. At least I have implemented post-login check which will inform you that someone reverted Asepsis changes back. For example after you do a system update and Apple rewrote DesktopServicesPriv framework with new version. If you get the warning, <code>asepsisctl install_wrapper</code> should patch DesktopServicesPriv again but better wait for my update.</p></blockquote>
           <h4>Does Asepsis install some kernel extension?</h4>
           <blockquote><p>Since version 1.3 Asepsis does not use kernel extension anymore.</p></blockquote>
           <h4>Could this be ported to Snow Leopard?</h4>
@@ -266,11 +266,11 @@ asepsisctl install_wrapper
           <h3>My system doesn't boot up. What now?</h3>
           <ol>
             <li>restart computer into <a href="http://support.apple.com/kb/ht1492">single-user mode</a></li>
-            <li>follow instructions on the screen to mount your filesystem for writing (something like <code>/Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper --nosudo</code>)</li>
-            <li>execute <code>reboot</code></li>
-            <li><code>/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl</code></li>
+            <li>follow instructions on the screen to mount your filesystem for writing (something like <code>/sbin/mount -uw /</code>)</li>
+            <li>execute <code>/Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper --nosudo</code></li>
+            <li><code>reboot</code></li>
           </ol>
-          <p>Note: in step 3, the path might be different if you boot from external disk, for example <code></code></p>
+          <p>Note: in step 3, the path might be different if you boot from external disk, for example <code>/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl</code></p>
           <p>It this didn't work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.</p>
           <h2>Changelog</h2>
           <div class="changelogx"></div>
