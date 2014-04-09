@@ -166,6 +166,8 @@ To reinstall DesktopServicesPriv wrapper run:
 
 Here is the script source: [https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb](https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb)
 
+Under Mavericks [some users reported](https://github.com/binaryage/asepsis/issues/9) that system restart is required after successfully running `install_wrapper`. You should do that to be sure all processes link against patched DesktopServicesPriv.
+
 ### List of known issues
 
 #### General
