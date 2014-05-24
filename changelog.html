@@ -48,6 +48,26 @@
         <div id="page" class="changelog" style="padding: 5px 12px">
             <div class="release">
                 <div class="titlebox">
+                    <h4><a href="http://downloads.binaryage.com/Asepsis-1.4.1.dmg">1.4.1</a></h4>
+                    <h5>released on May 24, 2014</h5>
+                </div>
+                <div class="infobox">
+                    <div style="margin: 10px 0px; padding: 2px 6px; border: 1px solid #eee; background-color: #fffde6; -moz-border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;">
+                      For those who already updated system to 10.9.3: If you want to uninstall previous Asepsis 1.4 at this point, we strongly recommend first updating to 1.4.1 and then using uninstaller from 1.4.1. Better to follow this well-tested path.
+                    </div>
+                    <ul class="changes">
+                        <li><span class="sticker new"><b>NEW</b></span> <span class="info">Asepsis installer requires installation of <a href="http://j.mp/cmdtools">Xcode command-line tools</a> as a pre-requisity (under OS X 10.9) - we need codesign command to be available, we don't bundle it anymore.</span></li>
+                        <li><span class="sticker fixed"><b>FIXED</b></span> <span class="info">In 10.9.3 system update, the kernel started doing additional security checks involving last modification times of binaries. This could <a href="https://github.com/binaryage/asepsis/issues/13">break Asepsis installation randomly</a>.</span></li>
+                        <li><span class="sticker fixed"><b>FIXED</b></span> <span class="info">Since next update, Sparkle updater will stop randomly asking for admin password (just enter an empty password if it asks again this time).</span></li>
+                        <li><span class="sticker improved"><b>IMPROVED</b></span> <span class="info">asepsisctl is more robust in situations when DesktopServicesPriv framework was replaced by system update</span></li>
+                        <li><span class="sticker improved"><b>IMPROVED</b></span> <span class="info">Whole installer package is newly code-signed by BinaryAge. You don't have to change the default Security &amp; Privacy settings anymore.</span></li>
+                        <li><span class="sticker improved"><b>IMPROVED</b></span> <span class="info">Replaced the old uninstaller with a <a href="https://github.com/binaryage/uninstaller">custom Cocoa app</a> (the same we use with TotalFinder and TotalTerminal).</span></li>
+                        <li><span class="sticker improved"><b>IMPROVED</b></span> <span class="info">When invoking codesign command for signing our local DesktopServicesPriv wrapper, we instruct codesign to not contact time-stamping servers (the whole process should be off-line)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="release">
+                <div class="titlebox">
                     <h4><a href="http://downloads.binaryage.com/Asepsis-1.4.dmg">1.4</a></h4>
                     <h5>released on November 07, 2013</h5>
                 </div>
@@ -102,7 +122,9 @@
                     <h5>released on June 1, 2012</h5>
                 </div>
                 <div class="infobox">
-                    <div style="color:red">Installing this version without uninstalling Asepsis 1.1 first will prevent your system from booting (shame on me).</div><div style="height:30px">You can fix it by booting into <a href="http://support.apple.com/kb/HT1492">single-user mode</a>. For more information please <a href="https://getsatisfaction.com/binaryage/topics/asepsis_1_2_doesnt_want_me_to_boot">visit this topic</a>.</div>
+                    <div style="margin: 10px 0px; padding: 2px 6px; border: 1px solid #eee; background-color: #fffde6; -moz-border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;">
+                      Installing this version without uninstalling Asepsis 1.1 first will prevent your system from booting (shame on me).<br>You can fix it by booting into <a href="http://support.apple.com/kb/HT1492">single-user mode</a>. For more information please <a href="https://getsatisfaction.com/binaryage/topics/asepsis_1_2_doesnt_want_me_to_boot">visit this topic</a>.
+                    </div>
                     <ul class="changes">
                         <li><span class="sticker new"><b>NEW</b></span> <span class="info">Compatibility with OS X 10.7.4 and 10.8.</span></li>
                         <li><span class="sticker new"><b>NEW</b></span> <span class="info">Integrated Sparkle updater.</span></li>
