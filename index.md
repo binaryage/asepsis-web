@@ -5,9 +5,9 @@ product: asepsis
 product_title: Asepsis
 product_subtitle: a smart solution for .DS_Store pollution
 note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
-download: http://downloads.binaryage.com/Asepsis-1.4.1.dmg
-downloadtitle: Download v1.4.1
-downloadsubtitle: Requires OS X 10.7, 10.8 or 10.9
+download: http://downloads.binaryage.com/Asepsis-1.5.dmg
+downloadtitle: Download v1.5
+downloadsubtitle: Requires OS X 10.8, 10.9 or 10.10
 repo: http://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
@@ -180,16 +180,31 @@ Please [report any issues](mailto:support@binaryage.com).
 
 #### Sounds scary. Is this safe?
 
-> Well uhmmm, use it at your own risk :-) It sounds scary but it should be a pretty lightweight solution. You should [review the code](http://github.com/binaryage/asepsis) to see what it does.
+> Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should [review the code](http://github.com/binaryage/asepsis) to understand what it does.
+
+#### Does it work with OS X 10.10 (Yosemite) ?
+
+> Yes, since Asepsis 1.5.
 
 #### Does it work with OS X 10.9 (Mavericks) ?
 
 > Yes, since Asepsis 1.4.
-> Asepsis 1.3.2 does not work with OS X 10.9 and the installer will refuse to install.
+
+#### Does it work with OS X 10.8 (Mountain Lion) ?
+
+> Yes, since Asepsis 1.3.
+
+#### Does it work with OS X 10.7 (Lion) ?
+
+> No. Last version supporting Lion is Asepsis 1.4.1.
+
+#### Does it work with OS X 10.6 (Snow Leopard) ?
+
+> No.
 
 #### What if .DS_Store file is already present in a folder?
 
-> Asepsis will use it. It won't redirect it in this case. This way Asepsis works seamlessly with DMG archives or folders you browse on a network. If you delete the .DS_Store file,  next time it will be created in the prefix folder. This is pretty simple approach how to adopt Asepsis incrementally on folder-by-folder basis.
+> Asepsis will use it. It won't redirect it in this case. This way Asepsis works seamlessly with DMG archives or folders you browse on a network. If you delete the .DS_Store file, next time it will be created in the prefix folder. This is pretty simple approach how to adopt Asepsis incrementally on folder-by-folder basis.
 
 #### How could I migrate existing .DS_Store files?
 
@@ -197,7 +212,7 @@ Please [report any issues](mailto:support@binaryage.com).
 
 #### Are there any processes which don't work well with Asepsis?
 
-> Asepsis has white-list of processes known to manipulate with .DS_Store files. Right now it is effective for Finder.app and mdwrite process.
+> Asepsis has white-list of processes known to manipulate with .DS_Store files. Right now it is effective for <a href="https://github.com/binaryage/asepsis/blob/master/wrapper/init.c#L22-L23">Finder.app and mdwrite process</a>.
 
 #### What about using resource forks for hiding .DS_Store files?
 
@@ -207,17 +222,9 @@ Please [report any issues](mailto:support@binaryage.com).
 
 > Asepsis is using Sparkle updater. You should be prompted when a new version comes out. Asepsis checks for new version after every reboot.
 
-#### What happened in 10.7.4 update?
-
-> Previously Asepsis used DYLD_INSERT_LIBRARIES to modify DesktopServicesPriv during load time. Unfortunately Flashback malware used the same mechanism and Apple decided to block system-wide usage of DYLD_INSERT_LIBRARIES in 10.7.4 update. As a workaround Asepsis 1.2 modifies DesktopServicesPriv on the disk during installation. This is more dirty solution. At least I have implemented post-login check which will inform you that someone reverted Asepsis changes back. For example after you do a system update and Apple rewrote DesktopServicesPriv framework with new version. If you get the warning, `asepsisctl install_wrapper` should patch DesktopServicesPriv again but better wait for my update.
-
 #### Does Asepsis install some kernel extension?
 
 > Since version 1.3 Asepsis does not use kernel extension anymore.
-
-#### Could this be ported to Snow Leopard?
-
-> Probably yes. Pre-Lion DesktopServicesPriv calls File Manager APIs from CoreServices. Technically the same approach could be done to File Manager. Actually this is what TotalFinder (prior to version 1.3) did under Snow Leopard using mach_override. I'm not going to implement it for Snow Leopard because I've already switched to Lion personally.
 
 ## Panic mode!
 
