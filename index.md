@@ -1,21 +1,24 @@
 ---
-layout: product
+layout: product-home
+download: http://downloads.binaryage.com/Asepsis-1.5.dmg
+downloadtitle: Download v1.5
+latest: 1.5
 title: Asepsis is a system utility for prevention of .DS_Store files
 product: asepsis
 product_title: Asepsis
 product_subtitle: a smart solution for .DS_Store pollution
-note: Asepsis was originally a feature of <a href="http://totalfinder.binaryage.com">TotalFinder</a>.
-download: http://downloads.binaryage.com/Asepsis-1.5.dmg
-downloadtitle: Download v1.5
-downloadsubtitle: Requires OS X 10.8, 10.9 or 10.10
+product_icon: /shared/img/icons/asepsis-256.png
 repo: http://github.com/binaryage/asepsis
+fbsdk: 1
+plusone: 1
+product-fblike: 1
+product-plusone: 1
+product-tweet: 1
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
 meta_description: Asepsis is a system utility for prevention of .DS_Store files created by Finder and other applications
-meta_image: http://www.binaryage.com/shared/img/icons/asepsis-256.png
-facebook: 1
-buzz: 0
-fbsdk: 1
+meta_image: http://www.binaryage.com/shared/img/icons/asepsis-128.png
+build_tabs: 1
 ogmeta: {
     site_name: "BinaryAge website",
     description: "Asepsis is a system utility for prevention of .DS_Store files",
@@ -25,17 +28,32 @@ ogmeta: {
     url: "http://asepsis.binaryage.com",
     image: "http://www.binaryage.com/shared/img/icons/asepsis-256.png"
 }
-shots: [{
-    title: ".DS_Store files are like ghost chasing you in every folder you visit",
-    thumb: "/shared/img/asepsis-mainshot.png"
-}]
 ---
+
+{% contentfor product-buttons %}
+<div class="product-buttons">
+  <div class="button-container">
+    <div class="cross-promo">
+      <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br>a feature of <a href="http://totalfinder.binaryage.com"> TotalFinder</div></a>.
+    </div>
+  </div>
+  <div class="button-container">
+    <a href="{{page.download}}" id="o-download-button" class="button product-button-download">
+      <span><i class="fa fa-download fa-lg"></i>{{page.downloadtitle}}</span>
+    </a>
+    <div class="button-note">
+      <i class="fa fa-laptop"></i> Compatible with OS X 10.8, 10.9 and 10.10<br>
+      <a href="#changelog">What's new?</a><br>
+    </div>
+  </div>
+</div>
+{% endcontentfor %}
 
 ## About
 
-### What does it do for me?
+Asepsis prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store) files. It redirects their creation into a special folder.
 
-It prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store) files. It redirects their creation into a special folder.
+<img src="/shared/img/asepsis-mainshot.png" class="doc-main-image">
 
 ### Why is .DS_Store a problem?
 
@@ -168,9 +186,7 @@ Here is the script source: [https://github.com/binaryage/asepsis/blob/master/ctl
 
 Under Mavericks [some users reported](https://github.com/binaryage/asepsis/issues/9) that system restart is required after successfully running `install_wrapper`. You should do that to be sure all processes link against patched DesktopServicesPriv.
 
-### List of known issues
-
-#### General
+### Known issues
 
   * when copying folders, DS_Store settings are not copied over (daemon is unable to distinguish this class of file operations)
 
@@ -178,25 +194,26 @@ Please [report any issues](mailto:support@binaryage.com).
 
 ## FAQ
 
+
 #### Sounds scary. Is this safe?
 
 > Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should [review the code](http://github.com/binaryage/asepsis) to understand what it does.
 
 #### Does it work with OS X 10.10 (Yosemite) ?
 
-> Yes, since Asepsis 1.5.
+> Yes, use the [latest version](#latest).
 
 #### Does it work with OS X 10.9 (Mavericks) ?
 
-> Yes, since Asepsis 1.4.
+> Yes, use the [latest version](#latest).
 
 #### Does it work with OS X 10.8 (Mountain Lion) ?
 
-> Yes, since Asepsis 1.3.
+> Yes, use the [latest version](#latest).
 
 #### Does it work with OS X 10.7 (Lion) ?
 
-> No. Last version supporting Lion is Asepsis 1.4.1.
+> No. Last version supporting Lion is [Asepsis 1.4.1](#1.4.1).
 
 #### Does it work with OS X 10.6 (Snow Leopard) ?
 
@@ -241,14 +258,21 @@ It this didn't work for you for some reason. You have a <a href="" title="/Syste
 
 ## Changelog
 
-<div class="changelogx"></div>
+<script src="shared/js/changelog.js" type="text/javascript" charset="utf-8"></script>
 
-<script type="text/javascript" charset="utf-8">
-    $(function() {
-        $('.changelogx').load('changelog.html?x='+((Math.random()+"").substring(2))+' #page');
-    });
+<div class="changelogx">
+  <div id="changelog-content" class="changelog"></div>
+</div>
 
-    function showBetaHint() {
-        $('.betahint').toggle();
-    }
+<script type="text/coffeescript" charset="utf-8">
+  nonce = -> (Math.random() + "").substring(2)
+  source = "changelog.txt"
+  
+  $.get "#{source}?x=#{nonce()}", (data) ->
+    changelog = parsePlaintextChangelog(data)
+
+    getDownloadLinkForVersion = (version) -> "http://downloads.binaryage.com/Asepsis-#{version}.dmg"
+    getReleaseDateText = (date) -> "released on " + date
+    generateChangelogHTML "#changelog-content", changelog, getDownloadLinkForVersion, getReleaseDateText
+    $(window).trigger "changelog-rendered"
 </script>

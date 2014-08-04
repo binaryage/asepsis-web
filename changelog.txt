@@ -1,0 +1,54 @@
+1.5 - July 27, 2014
+  + Compatibility with OS X 10.10. [Yosemite]
+  * Asepsis updater reports errors via notification instead of alert box (<a href="https://github.com/binaryage/asepsis/issues/14">issue #14</a>).
+  * asepsisctl migratein preserves file attributed (<a href="https://github.com/binaryage/asepsis/issues/12">issue #12</a>).
+  * Better method of detecting and installing codesign command (<a href="https://github.com/binaryage/asepsis/issues/15">issue #15</a>).
+  * After system reboot, Asepsis updater waits 3 minutes before doing update check.
+  * Asepsis updater waits 2 hours if network was not reachable 3 minutes after reboot.
+  - OS X 10.7 is no longer supported. [Lion]
+
+1.4.1 - May 24, 2014
+  $ For those who already updated system to 10.9.3: If you want to uninstall previous Asepsis 1.4 at this point, we strongly recommend first updating to 1.4.1 and then using uninstaller from 1.4.1. Better to follow this well-tested path.
+  + Asepsis installer requires installation of <a href="http://j.mp/cmdtools">Xcode command-line tools</a> as a pre-requisity (under OS X 10.9) - we need codesign command to be available, we don't bundle it anymore.
+  ! In 10.9.3 system update, the kernel started doing additional security checks involving last modification times of binaries. This could <a href="https://github.com/binaryage/asepsis/issues/13">break Asepsis installation randomly</a>.
+  ! Since next update, Sparkle updater will stop randomly asking for admin password (just enter an empty password if it asks again this time).
+  * asepsisctl is more robust in situations when DesktopServicesPriv framework was replaced by system update.
+  * Whole installer package is newly code-signed by BinaryAge. You don't have to change the default Security &amp; Privacy settings anymore.
+  * Replaced the old uninstaller with a <a href="https://github.com/binaryage/uninstaller">custom Cocoa app</a> (the same we use with TotalFinder and TotalTerminal).
+  * When invoking codesign command for signing our local DesktopServicesPriv wrapper, we instruct codesign to not contact time-stamping servers (the whole process should be off-line).
+
+1.4 - November 07, 2013
+  + Compatibility with OS X 10.9 (Mavericks). Discussion <a href="https://github.com/binaryage/asepsis/issues/9">here</a>.
+
+1.3.2 - October 25, 2013
+  ! Fixed broken uninstallation on some machines (<a href="https://github.com/binaryage/asepsis/issues/10">broken 'asepsisctl uninstall_wrapper' command</a>).
+
+1.3.1 - October 11, 2013
+  + Asepsis installation is prevented on unsupported systems (it is supported only on 10.7 and 10.8).
+  ! Fixed broken 'asepsisctl clean' command.
+  * 'asepsisctl' works under single-user mode.
+  * Asepsis should not check for updates when network is not available (caused annoying "update error" dialog).
+
+1.3 - June 13, 2012
+  + Tested under almost final WWDC Mountain Lion developer preview.
+  + The daemon does not listen to kernel extension anymore - it uses <a href="http://osxbook.com/software/fslogger">/dev/fsevents</a> instead.
+  * Asepsis update checker has some delay and waits for network to become available.
+  - Removed kernel extension =&gt; s/scary face/happy face/
+
+1.2 - June 1, 2012
+  $ Installing this version without uninstalling Asepsis 1.1 first will prevent your system from booting (shame on me).<br>You can fix it by booting into <a href="http://support.apple.com/kb/HT1492">single-user mode</a>. For more information please <a href="https://getsatisfaction.com/binaryage/topics/asepsis_1_2_doesnt_want_me_to_boot">visit this topic</a>.
+  + Compatibility with OS X 10.7.4 and 10.8.
+  + Integrated Sparkle updater.
+  + Asepsis ignores .DS_Store files in Trash folders.
+  * KEXT reports only folder operations.
+  * KEXT does not spam Console.app log anymore.
+  * Improved asepsisctl.
+
+1.1. - October 4, 2011
+  + Migration commands in asepsisctl.
+  + Diagnostics command in asepsisctl.
+  * Improved robustness.
+
+1.0 - August 25, 2011
+  + Initial release as a standalone utility.
+  * Extracted the code from TotalFinder and implemented the new solution using interposing via DYLD_INSERT_LIBRARIES.
