@@ -1,3 +1,8 @@
+1.5.1 - May 24, 2015
+  * Better sanity checks prior to installation (<a href="https://github.com/binaryage/asepsis/issues/25">issue #25</a>).
+  ! More robust manipulation of /etc/sysctl.conf (<a href="https://github.com/binaryage/asepsis/issues/19">issue #19</a>).
+  * 'clean' task renamed to 'reset' task to prevent confusion.
+
 1.5 - July 27, 2014
   + Compatibility with OS X 10.10. [Yosemite]
   * Asepsis updater reports errors via notification instead of alert box (<a href="https://github.com/binaryage/asepsis/issues/14">issue #14</a>).
