@@ -1,8 +1,8 @@
 ---
 layout: product-home
-download: http://downloads.binaryage.com/Asepsis-1.5.dmg
-downloadtitle: Download v1.5
-latest: 1.5
+download: http://downloads.binaryage.com/Asepsis-1.5.1.dmg
+downloadtitle: Download v1.5.1
+latest: 1.5.1
 title: Asepsis is a system utility for prevention of .DS_Store files
 product: asepsis
 product_title: Asepsis
@@ -53,11 +53,9 @@ ogmeta: {
 
 Asepsis prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store) files. It redirects their creation into a special folder.
 
-<img src="/shared/img/asepsis-mainshot.png" class="doc-main-image">
-
 ### Why is .DS_Store a problem?
 
-Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in the Finder.
+Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in Finder.
 
 But I'm a developer and I run Finder with [TotalFinder](http://totalfinder.binaryage.com) and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.
 
@@ -69,7 +67,7 @@ Apple implemented a private system framework `DesktopServicesPriv` which is resp
 
 At core Asepsis provides a dynamic library `DesktopServicesPrivWrapper` which gets loaded into every process linking against DesktopServicesPriv.framework. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.
 
-Additionally Asepsis implements a system-wide daemon `asepsisd` whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on a folder structure in the prefix directory.
+Additionally Asepsis implements a system-wide daemon `asepsisd` whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on folder structure in the prefix directory.
 
 ### The prefix folder is **`/usr/local/.dscage`**
 
@@ -117,25 +115,25 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
 
     > asepsisctl --help
     The control script for asepsis operations.
-    
+
     Usage:
         asepsisctl [command] [options]
-    
+
     Commands:
         disable                          Disables asepsis.
         enable                           Enables asepsis.
         diagnose                         Diagnoses asepsis setup.
-    
+
     Helper commands:
         neton                            Enables DS_Store files on network volumes.
         netoff                           Disables ... (http://support.apple.com/kb/ht1629).
-        migratein                        Migrates .DS_Store files in /usr/local/.dscage.
-        migrateout                       Migrates .DS_Store files from /usr/local/.dscage.
+        migratein [root]                 Migrates .DS_Store files located within [root] into -> /usr/local/.dscage. (Cleanup)
+        migrateout [root]                Migrates .DS_Store files originally within [root] back from <- /usr/local/.dscage. (Restore)
         prune                            Removes empty directories from /usr/local/.dscage.
-        clean                            Deletes all content from /usr/local/.dscage.
-    
+        reset                            Deletes all content from /usr/local/.dscage.
+
     Installation commands:
-        install                          Performs reinstallation (using "/Library/Application Support/Asepsis").
+        install                          Performs reinstallation (using "/Users/darwin/root/asepsis").
         uninstall                        Performs complete uninstallation.
         install_wrapper                  Installs DesktopServicesPriv.framework wrapper.
         uninstall_wrapper                Uninstalls DesktopServicesPriv.framework wrapper.
@@ -150,11 +148,11 @@ During the installation asepsisctl tool is symlinked into `/usr/local/bin`, so i
         disable_warnings                 Disables warnings caused by mach_override (vm.shared_region_unnest_logging)
         uninstall_updater                Uninstalls asepsis updater.
         install_updater                  Installs asepsis updater.
-    
+
     Backward compatibility:
         uninstall_dylib                  Removes libAsepsis.dylib from /etc/launchd.conf.
         uninstall_kext                   Removes /System/Library/Asepsis.kext during next boot.
-    
+
     Where options are:
         -r, --root /Users/darwin         Root folder for migration
         -d, --[no-]dry                   Run migration in dry mode
@@ -190,7 +188,7 @@ Under Mavericks [some users reported](https://github.com/binaryage/asepsis/issue
 
   * when copying folders, DS_Store settings are not copied over (daemon is unable to distinguish this class of file operations)
 
-Please [report any issues](mailto:support@binaryage.com).
+Please [report any issues](https://github.com/binaryage/asepsis/issues).
 
 ## FAQ
 
