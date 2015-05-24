@@ -5,7 +5,7 @@
     <link rel="canonical" href="http://asepsis.binaryage.com"/>
     <link rel="shortcut icon" href="http://static.binaryage.com/5604bda0_favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="http://static.binaryage.com/5604bda0_favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="http://static.binaryage.com/2e5cf78a_shared_css_site.css" type="text/css"/>
+    <link rel="stylesheet" href="http://static.binaryage.com/bf7e3824_shared_css_site.css" type="text/css"/>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="title" content="Asepsis is a system utility for prevention of .DS_Store files"/>
@@ -25,7 +25,7 @@
     <script type="text/javascript" charset="utf-8">function parseUri(r){var e=parseUri.options,o=e.parser[e.strictMode?"strict":"loose"].exec(r),s={},t=14;while(t--)s[e.key[t]]=o[t]||"";s[e.q.name]={};s[e.key[12]].replace(e.q.parser,function(r,o,t){if(o)s[e.q.name][o]=t});return s}parseUri.options={strictMode:false,key:["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],q:{name:"queryKey",parser:/(?:^|&)([^&=]*)=?([^&]*)/g},parser:{strict:/^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,loose:/^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/}}</script>
     <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <script>WebFont.load({google:{families:["Play:400,700:latin"]}})</script>
-    <script src="http://static.binaryage.com/683a3962_shared_js_code.js"></script>
+    <script src="http://static.binaryage.com/cd89ca2f_shared_js_code.js"></script>
     <script type="text/javascript">window["ga"]=function(){}</script>
     <script>window["ga"]=undefined;(function(e,n,a,t,i,o,r){e["GoogleAnalyticsObject"]=i;e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date;o=n.createElement(a),r=n.getElementsByTagName(a)[0];o.async=1;o.src=t;r.parentNode.insertBefore(o,r)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-8404259-1","auto",{allowLinker:true});ga("send","pageview");ga("require","linker");ga("linker:autoLink",["fastspring.com"],true)</script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
@@ -110,8 +110,8 @@
                   </div>
                 </div>
                 <div class="button-container">
-                  <a href="http://downloads.binaryage.com/Asepsis-1.5.dmg" id="o-download-button" class="button product-button-download">
-                    <span><i class="fa fa-download fa-lg"></i>Download v1.5</span>
+                  <a href="http://downloads.binaryage.com/Asepsis-1.5.1.dmg" id="o-download-button" class="button product-button-download">
+                    <span><i class="fa fa-download fa-lg"></i>Download v1.5.1</span>
                   </a>
                   <div class="button-note">
                     <i class="fa fa-laptop"></i> Compatible with OS X 10.8, 10.9 and 10.10<br/>
@@ -134,15 +134,14 @@
         <div class="container">
           <h2>About</h2>
           <p>Asepsis prevents creation of <a href="http://en.wikipedia.org/wiki/.DS_Store">.DS_Store</a> files. It redirects their creation into a special folder.</p>
-          <p><img src="http://static.binaryage.com/987f66b0_shared_img_asepsis-mainshot.png" class="doc-main-image"/></p>
           <h3>Why is .DS_Store a problem?</h3>
-          <p>Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in the Finder.</p>
+          <p>Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in Finder.</p>
           <p>But I'm a developer and I run Finder with <a href="http://totalfinder.binaryage.com">TotalFinder</a> and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.</p>
           <p>That is why I decided to solve this for myself and I'm sharing my solution with other Mac geeks out there to help them protect their egos :-)</p>
           <h3>Asepsis does .DS_Store redirection. How does it work technically?</h3>
           <p>Apple implemented a private system framework <code>DesktopServicesPriv</code> which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I'm looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files.</p>
           <p>At core Asepsis provides a dynamic library <code>DesktopServicesPrivWrapper</code> which gets loaded into every process linking against DesktopServicesPriv.framework. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.</p>
-          <p>Additionally Asepsis implements a system-wide daemon <code>asepsisd</code> whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on a folder structure in the prefix directory.</p>
+          <p>Additionally Asepsis implements a system-wide daemon <code>asepsisd</code> whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on folder structure in the prefix directory.</p>
           <h3>The prefix folder is <strong><code>/usr/local/.dscage</code></strong></h3>
           <ol>
             <li> <code>DesktopServicesPrivWrapper</code> - a proxy library for interposing file manipulation calls in DesktopServicesPriv</li>
@@ -152,7 +151,7 @@
           <h2>Installation</h2>
           <p>To install the software:</p>
           <ol>
-            <li> Run the <a href="http://downloads.binaryage.com/Asepsis-1.5.dmg">installer</a></li>
+            <li> Run the <a href="http://downloads.binaryage.com/Asepsis-1.5.1.dmg">installer</a></li>
             <li> Restart your computer</li>
           </ol>
           <p>After reboot .DS_Store files are no longer created when you open Finder and browse folders (in case .DS_Store files are not already present there).</p>
@@ -187,13 +186,13 @@ Commands:
 Helper commands:
     neton                            Enables DS_Store files on network volumes.
     netoff                           Disables ... (http://support.apple.com/kb/ht1629).
-    migratein                        Migrates .DS_Store files in /usr/local/.dscage.
-    migrateout                       Migrates .DS_Store files from /usr/local/.dscage.
+    migratein [root]                 Migrates .DS_Store files located within [root] into -&gt; /usr/local/.dscage. (Cleanup)
+    migrateout [root]                Migrates .DS_Store files originally within [root] back from &lt;- /usr/local/.dscage. (Restore)
     prune                            Removes empty directories from /usr/local/.dscage.
-    clean                            Deletes all content from /usr/local/.dscage.
+    reset                            Deletes all content from /usr/local/.dscage.
 
 Installation commands:
-    install                          Performs reinstallation (using "/Library/Application Support/Asepsis").
+    install                          Performs reinstallation (using "/Users/darwin/root/asepsis").
     uninstall                        Performs complete uninstallation.
     install_wrapper                  Installs DesktopServicesPriv.framework wrapper.
     uninstall_wrapper                Uninstalls DesktopServicesPriv.framework wrapper.
@@ -240,7 +239,7 @@ asepsisctl install_wrapper
           <ul>
             <li>when copying folders, DS_Store settings are not copied over (daemon is unable to distinguish this class of file operations)</li>
           </ul>
-          <p>Please <a href="mailto:support@binaryage.com">report any issues</a>.</p>
+          <p>Please <a href="https://github.com/binaryage/asepsis/issues">report any issues</a>.</p>
           <h2>FAQ</h2>
           <h4>Sounds scary. Is this safe?</h4>
           <blockquote><p>Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should <a href="http://github.com/binaryage/asepsis">review the code</a> to understand what it does.</p></blockquote>
@@ -277,7 +276,7 @@ asepsisctl install_wrapper
           <p>Note: in step 3, the path might be different if you boot from external disk, for example <code>/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl</code></p>
           <p>It this didn't work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.</p>
           <h2>Changelog</h2>
-          <script src="http://static.binaryage.com/942c6462_shared_js_changelog.js" type="text/javascript" charset="utf-8"></script>
+          <script src="http://static.binaryage.com/54a8f89a_shared_js_changelog.js" type="text/javascript" charset="utf-8"></script>
           <div class="changelogx">
             <div id="changelog-content" class="changelog"></div>
           </div>
@@ -305,7 +304,6 @@ asepsisctl install_wrapper
     </div>
     <div id="fb-root"></div>
     <script>(function(e,t,n){var a,c=e.getElementsByTagName(t)[0];if(e.getElementById(n))return;a=e.createElement(t);a.id=n;a.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=332451499524";c.parentNode.insertBefore(a,c)})(document,"script","facebook-jssdk")</script>
-    <script type="text/javascript" charset="utf-8">$(function(){var t;$(".topbar-testimonials").bind("click",function(){if(!t){$("#tweets").tweet({user:"binaryage"});t=true}})})</script>
     <script type="text/javascript" charset="utf-8">$(function(){setTimeout(function(){var i=location.hash.substring(1);if(i.substring(0,2)=="o-"){$("#"+i).trigger("click")}},500)})</script>
     <script type="text/javascript" charset="utf-8">$(function(){var a=document.location.host;if(a.substring(a.length-3)=="org"){$("a").each(function(){var a=$(this);var r=a.attr("href");if(r){if(r.match("binaryage.com")){r=r.replace("binaryage.com","binaryage.org")}var t=document.location+"";a.attr("href",r)}})}})</script>
     <script type="text/javascript">var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.id="gauges-tracker";e.setAttribute("data-site-id","4f10d65d844d52139500000b");e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script>

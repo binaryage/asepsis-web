@@ -7428,16 +7428,8 @@ blockquote{font-size:13px;margin-left:10px}
 .binaryage-logo .logo .logo-label .logo-word-age{fill:#f9a538}
 .binaryage-logo:hover{opacity:1;-ms-filter:none;filter:none}
 @media (min-width: 620px){.binaryage-logo{margin-top:32px}
-}#topbar{height:5px;background-color:#61656f;}
-#topbar .relativizer{position:relative;}
-#topbar .topbar-buttons{position:absolute;right:0;z-index:100;}
-#topbar .topbar-buttons div{margin:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:inline-block;text-decoration:none;float:right;background-color:#61656f;color:#aaa;font:bold 11px 'Play',arial,serif;height:22px;line-height:22px;-webkit-border-bottom-left-radius:6px;border-bottom-left-radius:6px;-webkit-border-bottom-right-radius:6px;border-bottom-right-radius:6px;padding:0 8px;margin-left:5px;text-shadow:0 1px 0 #44474e;cursor:pointer;-webkit-transition:all 0.5s ease 0s;-moz-transition:all 0.5s ease 0s;-o-transition:all 0.5s ease 0s;-ms-transition:all 0.5s ease 0s;transition:all 0.5s ease 0s}
-#topbar .topbar-buttons div a{color:#aaa}
-#topbar .topbar-buttons div:hover{color:#ccc !important}
-#topbar .topbar-buttons div a:hover{color:#ccc !important;text-decoration:none}
-#topbar .topbar-buttons div i{margin-right:4px}
-#header{height:90px;background-color:#f7f7f7;background:-webkit-linear-gradient(top, #fff, #f7f7f7);background:-moz-linear-gradient(top, #fff, #f7f7f7);background:-o-linear-gradient(top, #fff, #f7f7f7);background:-ms-linear-gradient(top, #fff, #f7f7f7);background:linear-gradient(to bottom, #fff, #f7f7f7);border-bottom:1px solid #e1e1e1;-webkit-box-shadow:0 1px 5px #dadada;box-shadow:0 1px 5px #dadada;}
-#header .header-menu{position:absolute;right:0;margin-top:41px;list-style-type:none;white-space:nowrap;}
+}#header{height:90px;background-color:#f7f7f7;background:-webkit-linear-gradient(top, #fff, #f7f7f7);background:-moz-linear-gradient(top, #fff, #f7f7f7);background:-o-linear-gradient(top, #fff, #f7f7f7);background:-ms-linear-gradient(top, #fff, #f7f7f7);background:linear-gradient(to bottom, #fff, #f7f7f7);border-bottom:1px solid #e1e1e1;-webkit-box-shadow:0 1px 3px #dadada;box-shadow:0 1px 3px #dadada;}
+#header .header-menu{padding:0;margin:0;position:absolute;right:0;margin-top:41px;margin-bottom:10px;list-style-type:none;white-space:nowrap;display:block;}
 #header .header-menu li{border:1px solid transparent;-webkit-border-radius:2px;border-radius:2px;margin:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:inline-block;text-decoration:none;margin-left:20px;position:relative;top:10px;}
 #header .header-menu li a{text-shadow:0 1px 0 #fff;display:inline-block;padding:0 4px;cursor:pointer;font:bold 14px 'Play',arial,serif;line-height:20px !important;text-decoration:none}
 @media (min-width: 620px){#header .header-menu li{position:relative;top:0}
@@ -7471,11 +7463,12 @@ blockquote{font-size:13px;margin-left:10px}
 .doc-content .sidebar .header-sidebar .back-button .price-note{padding:3px 29px;background-color:#a2393c;text-shadow:none;font-weight:normal;color:#fff;font-size:9px;line-height:8px;text-align:center;position:absolute;top:11px;right:-20px;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
 .doc-content .sidebar .header-sidebar .back-button > div{padding:0 4px;margin-left:22px}
 .doc-content .sidebar .header-sidebar .back-button > div{background:none}
-.doc-content .sidebar h2{margin-top:20px;font:bold 18px 'Play',arial,serif;color:#4a4c53;text-shadow:#fff 0 1px 1px;line-height:14px}
-.doc-content .sidebar ul,.doc-content .sidebar ol{list-style-type:none}
-.doc-content .sidebar li{font:bold 12px 'Play',arial,serif;line-height:15px}
-.doc-content .sidebar li.selected i:before{content:"\f192"}
-.doc-content .sidebar li.selected a{color:#0f56b3}
+.doc-content .sidebar h2{margin-top:20px;margin-bottom:8px;font:bold 18px 'Play',arial,serif;color:#4a4c53;text-shadow:#fff 0 1px 1px;line-height:14px}
+.doc-content .sidebar ul,.doc-content .sidebar ol{list-style-type:none;margin-left:6px}
+.doc-content .sidebar li{font:bold 12px 'Play',arial,serif;line-height:18px;margin-bottom:2px;}
+.doc-content .sidebar li a{padding:1px 6px;-webkit-transition:none;-moz-transition:none;-o-transition:none;-ms-transition:none;transition:none;border:1px solid transparent;text-decoration:none !important;white-space:nowrap}
+.doc-content .sidebar li a:hover{border-color:#4f6393 !important}
+.doc-content .sidebar li.selected a{background-color:#4f6393;color:#fff !important;-webkit-border-radius:2px;border-radius:2px}
 .doc-page .header-content{height:40px;}
 .doc-page .header-content .title{margin-top:0;font:bold 30px 'Play',arial,serif;color:#393d44;text-shadow:#fff 0 2px 1px;line-height:30px;font-weight:bold}
 .doc-page .page-content{position:relative;margin:20px}
@@ -7635,7 +7628,9 @@ blockquote{font-size:13px;margin-left:10px}
 .more-wrapper{text-align:center;text-shadow:#fff 0 2px 1px;font-size:14px;}
 .more-wrapper .more-box{padding:0 40px;display:inline-block;}
 .more-wrapper .more-box .generic-separator{margin-bottom:10px}
-.more-wrapper .more-box .more-extension{padding:0 20px}
+.more-wrapper .more-box .more-extension{padding:2px 20px;}
+.more-wrapper .more-box .more-extension i{padding-right:6px}
+.more-wrapper .more-box .more-extension a{color:#999}
 #blog-welcome .page-icon{position:absolute}
 #blog{margin-top:30px;}
 #blog code{font-style:normal;background-color:#fcffdd;padding:0 2px;border:1px solid #ccc;color:#999;-webkit-border-radius:2px;border-radius:2px}
@@ -7706,7 +7701,6 @@ blockquote{font-size:13px;margin-left:10px}
 .person .name{font-size:18px;display:block}
 .person .role{display:block;color:#999}
 .person .contact{display:block;margin-top:10px}
-#page-store-template .topbar-testimonials{display:none !important}
 #store-variation-selection-body{width:300px !important}
 .store-box{background-color:#fff;-webkit-border-radius:12px;border-radius:12px;border:1px solid #ddd7d7;-webkit-box-shadow:1px 1px 8px #ddd;box-shadow:1px 1px 8px #ddd;margin:auto;margin-top:58px;margin-bottom:30px;width:660px;text-align:left;position:relative;}
 .store-box .store-header{-webkit-border-top-left-radius:12px;border-top-left-radius:12px;-webkit-border-top-right-radius:12px;border-top-right-radius:12px;height:50px;border-bottom:1px solid #e9e9e9;background-color:#f7f7f7;background:-webkit-linear-gradient(top, #fff, #f7f7f7);background:-moz-linear-gradient(top, #fff, #f7f7f7);background:-o-linear-gradient(top, #fff, #f7f7f7);background:-ms-linear-gradient(top, #fff, #f7f7f7);background:linear-gradient(to bottom, #fff, #f7f7f7);position:relative;}
@@ -7818,6 +7812,7 @@ blockquote{font-size:13px;margin-left:10px}
 #page-totalfinder-index #totalfinder-buy.overlay .buy-single{margin-right:14px;}
 #page-totalfinder-index #totalfinder-buy.overlay .buy-single .button{width:174px}
 #page-totalfinder-index #totalfinder-buy.overlay .buy-pack .button{width:190px}
+#page-totalfinder-index .product-icon{top:0}
 #page-totalfinder-index .product-button-buy i{color:#b34d4d}
 #page-totalfinder-index .product-button-buy:hover i{color:#f00}
 #page-totalfinder-index .product-button-download i{color:#658bbb}

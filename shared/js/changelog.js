@@ -103,10 +103,10 @@
           continue;
         }
         $li = $("<li/>");
-        change.text = change.text.replace(/\(.*?\)/, function(m) {
+        change.text = change.text.replace(/\(.*?\)/g, function(m) {
           return "<i>" + m + "</i>";
         });
-        change.text = change.text.replace(/\[(.*?)\]/, function(m, $1) {
+        change.text = change.text.replace(/\[(.*?)\]/g, function(m, $1) {
           return "<em>" + $1 + "</em>";
         });
         $b = $("<b/>").text(change.kind);
