@@ -1,6 +1,6 @@
 1.5.1 - May 24, 2015
-  * Better sanity checks prior to installation (<a href="https://github.com/binaryage/asepsis/issues/25">issue #25</a>).
   ! More robust manipulation of /etc/sysctl.conf (<a href="https://github.com/binaryage/asepsis/issues/19">issue #19</a>).
+  * Better sanity checks prior to installation (<a href="https://github.com/binaryage/asepsis/issues/25">issue #25</a>).
   * 'clean' task renamed to 'reset' task to prevent confusion.
 
 1.5 - July 27, 2014
