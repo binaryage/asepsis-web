@@ -1,8 +1,8 @@
 ---
 layout: product-home
-download: http://downloads.binaryage.com/Asepsis-1.5.1.dmg
-downloadtitle: Download v1.5.1
-latest: 1.5.1
+download: http://downloads.binaryage.com/Asepsis-1.5.2.dmg
+downloadtitle: Download v1.5.2
+latest: 1.5.2
 title: Asepsis is a system utility for prevention of .DS_Store files
 product: asepsis
 product_title: Asepsis
@@ -50,6 +50,11 @@ ogmeta: {
 {% endcontentfor %}
 
 ## About
+
+<div class="license-desk exclamation" style="display:inline-block">
+Warning: Asepsis is no longer under active development and supported under OS X 10.11 (El Capitan) and later.
+</div>
+
 
 Asepsis prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store) files. It redirects their creation into a special folder.
 
@@ -196,6 +201,14 @@ Please [report any issues](https://github.com/binaryage/asepsis/issues).
 #### Sounds scary. Is this safe?
 
 > Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should [review the code](http://github.com/binaryage/asepsis) to understand what it does.
+
+#### Does it work with OS X 10.11 (El Capitan) ?
+
+> No with default configuration where <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a> is enabled.
+> You have to <a href="http://totalfinder.binaryage.com/system-integrity-protection">disable SIP</a> and create this file `~/.no-asepsis-os-restriction` prior installing the [latest version](#latest).
+>
+    touch ~/.no-asepsis-os-restriction
+
 
 #### Does it work with OS X 10.10 (Yosemite) ?
 

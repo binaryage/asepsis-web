@@ -1,3 +1,7 @@
+1.5.2 - August 12, 2015
+  $ Asepsis is reported to work under El Capitan with <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">Systen Integrity Protection</a> disabled, but I decided to stop developing Asepsis and supporting it under El Capitan and later.
+  * Asepsis won't install under OS X 10.11, but  <a href="https://github.com/binaryage/asepsis/issues/30#issuecomment-130244079">you can relax this check</a> if you really need to. [El Capitan]
+
 1.5.1 - May 24, 2015
   ! More robust manipulation of /etc/sysctl.conf (<a href="https://github.com/binaryage/asepsis/issues/19">issue #19</a>).
   * Better sanity checks prior to installation (<a href="https://github.com/binaryage/asepsis/issues/25">issue #25</a>).
