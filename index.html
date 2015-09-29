@@ -114,7 +114,9 @@
                     <span><i class="fa fa-download fa-lg"></i>Download v1.5.2</span>
                   </a>
                   <div class="button-note">
-                    <i class="fa fa-laptop"></i> Compatible with OS X 10.8, 10.9 and 10.10<br/>
+                    <i class="fa fa-check-circle"></i> Compatible with OS X 10.8, 10.9 and 10.10<br/>
+                    <div class="exclamation"><i class="fa fa-exclamation-circle"></i> <a href="/#sip">Not compatible with OS X 10.11</a></div><br/>
+                    <br/>
                     <a href="#changelog">What's new?</a><br/>
                   </div>
                 </div>
@@ -247,10 +249,7 @@ asepsisctl install_wrapper
           <h4>Sounds scary. Is this safe?</h4>
           <blockquote><p>Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should <a href="http://github.com/binaryage/asepsis">review the code</a> to understand what it does.</p></blockquote>
           <h4>Does it work with OS X 10.11 (El Capitan) ?</h4>
-          <blockquote><p>No with default configuration where <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a> is enabled.
-            You have to <a href="http://totalfinder.binaryage.com/system-integrity-protection">disable SIP</a> and create this file <code>~/.no-asepsis-os-restriction</code> prior installing the <a href="#latest">latest version</a>.</p>
-          <pre><code>touch ~/.no-asepsis-os-restriction
-</code></pre></blockquote>
+          <blockquote><p>No with default configuration, see <a href="/#sip">this page for more info</a>.</p></blockquote>
           <h4>Does it work with OS X 10.10 (Yosemite) ?</h4>
           <blockquote><p>Yes, use the <a href="#latest">latest version</a>.</p></blockquote>
           <h4>Does it work with OS X 10.9 (Mavericks) ?</h4>
@@ -283,6 +282,34 @@ asepsisctl install_wrapper
           </ol>
           <p>Note: in step 3, the path might be different if you boot from external disk, for example <code>/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl</code></p>
           <p>It this didn't work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.</p>
+          <h2>SIP</h2>
+          <h3>System Integrity Protection</h3>
+          <p>Under OS X 10.11 (El Capitan), Asepsis cannot run on a normally configured machine due to <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a>.</p>
+          <p>System Integrity Protection (SIP) is a new security feature introduced by Apple. That's good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">what System Integrity Protection is, and what it means to turn it off</a>. Apple also provided <a href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html">some information here</a>.</p>
+          <div class="license-desk">
+            <a href="http://binaryage.com/about">
+              <img width="20" height="20" src="http://www.gravatar.com/avatar/79322c2ed80c2d722de8c9d0475198a0?s=40" style="float: left; position: relative; top: 2px; margin-right: 6px; display:block; border: 1px solid #ccc" title="Who is Antonin?"/>
+            </a>
+            Do you really depend on Asepsis so much that you want to possibly lower your system security?
+            Frankly, I'm going to stop Asepsis development and won't support Asepsis users anymore under El Capitan and later.
+          </div>
+          <p>Anyways, if you decide to modify the setting under El Capitan, you will be able to install and run Asepsis as before. Just to be clear...</p>
+          <div class="license-desk exclamation">
+            I'm not encouraging you to turn System Integrity Protection off. Your machine may be less secure with it off. It is entirely your decision.
+          </div>
+          <p><br/></p>
+          <h3>How to modify System Integrity Protection</h3>
+          <p>You must boot into the Recovery OS. You do this by restarting your machine, and holding <code>COMMAND + R</code> until the Apple logo appears.</p>
+          <p>Then select Terminal from the Utilities menu. It looks like this:</p>
+          <p><img src="http://static.binaryage.com/d50fc915_images_recovery-1.png"/></p>
+          <p>In the window that opens, type <code>csrutil disable</code> and press return.</p>
+          <p>This turns off the part of SIP that Asepsis needs to run, and OS X complains that it is an unsupported configuration.</p>
+          <p>Now type <code>reboot</code> and press return to restart your machine.</p>
+          <p>After restart create file in your home directory to allow installer to ignore system version checks:</p>
+          <pre><code>touch ~/.no-asepsis-os-restriction
+</code></pre>
+          <p>Then you may install the <a href="/#changelog">latest version of Asepsis</a>.</p>
+          <p>You can find some further information <a href="http://blog.binaryage.com/el-capitan-update">in our blog</a>.</p>
           <h2>Changelog</h2>
           <script src="http://static.binaryage.com/54a8f89a_shared_js_changelog.js" type="text/javascript" charset="utf-8"></script>
           <div class="changelogx">
