@@ -5,7 +5,7 @@
     <link rel="canonical" href="http://asepsis.binaryage.com"/>
     <link rel="shortcut icon" href="http://static.binaryage.com/5604bda0_favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="http://static.binaryage.com/5604bda0_favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="http://static.binaryage.com/bf7e3824_shared_css_site.css" type="text/css"/>
+    <link rel="stylesheet" href="http://static.binaryage.com/419caa43_shared_css_site.css" type="text/css"/>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="title" content="Asepsis is a system utility for prevention of .DS_Store files"/>
@@ -110,8 +110,8 @@
                   </div>
                 </div>
                 <div class="button-container">
-                  <a href="http://downloads.binaryage.com/Asepsis-1.5.1.dmg" id="o-download-button" class="button product-button-download">
-                    <span><i class="fa fa-download fa-lg"></i>Download v1.5.1</span>
+                  <a href="http://downloads.binaryage.com/Asepsis-1.5.2.dmg" id="o-download-button" class="button product-button-download">
+                    <span><i class="fa fa-download fa-lg"></i>Download v1.5.2</span>
                   </a>
                   <div class="button-note">
                     <i class="fa fa-laptop"></i> Compatible with OS X 10.8, 10.9 and 10.10<br/>
@@ -133,6 +133,9 @@
       <div id="asepsis-content" class="product-content" style="display:none">
         <div class="container">
           <h2>About</h2>
+          <div class="license-desk exclamation" style="display:inline-block">
+            Warning: Asepsis is no longer under active development and supported under OS X 10.11 (El Capitan) and later.
+          </div>
           <p>Asepsis prevents creation of <a href="http://en.wikipedia.org/wiki/.DS_Store">.DS_Store</a> files. It redirects their creation into a special folder.</p>
           <h3>Why is .DS_Store a problem?</h3>
           <p>Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in Finder.</p>
@@ -151,7 +154,7 @@
           <h2>Installation</h2>
           <p>To install the software:</p>
           <ol>
-            <li> Run the <a href="http://downloads.binaryage.com/Asepsis-1.5.1.dmg">installer</a></li>
+            <li> Run the <a href="http://downloads.binaryage.com/Asepsis-1.5.2.dmg">installer</a></li>
             <li> Restart your computer</li>
           </ol>
           <p>After reboot .DS_Store files are no longer created when you open Finder and browse folders (in case .DS_Store files are not already present there).</p>
@@ -243,6 +246,11 @@ asepsisctl install_wrapper
           <h2>FAQ</h2>
           <h4>Sounds scary. Is this safe?</h4>
           <blockquote><p>Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should <a href="http://github.com/binaryage/asepsis">review the code</a> to understand what it does.</p></blockquote>
+          <h4>Does it work with OS X 10.11 (El Capitan) ?</h4>
+          <blockquote><p>No with default configuration where <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a> is enabled.
+            You have to <a href="http://totalfinder.binaryage.com/system-integrity-protection">disable SIP</a> and create this file <code>~/.no-asepsis-os-restriction</code> prior installing the <a href="#latest">latest version</a>.</p>
+          <pre><code>touch ~/.no-asepsis-os-restriction
+</code></pre></blockquote>
           <h4>Does it work with OS X 10.10 (Yosemite) ?</h4>
           <blockquote><p>Yes, use the <a href="#latest">latest version</a>.</p></blockquote>
           <h4>Does it work with OS X 10.9 (Mavericks) ?</h4>
@@ -304,8 +312,7 @@ asepsisctl install_wrapper
     </div>
     <div id="fb-root"></div>
     <script>(function(e,t,n){var a,c=e.getElementsByTagName(t)[0];if(e.getElementById(n))return;a=e.createElement(t);a.id=n;a.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=332451499524";c.parentNode.insertBefore(a,c)})(document,"script","facebook-jssdk")</script>
-    <script type="text/javascript" charset="utf-8">$(function(){setTimeout(function(){var i=location.hash.substring(1);if(i.substring(0,2)=="o-"){$("#"+i).trigger("click")}},500)})</script>
-    <script type="text/javascript" charset="utf-8">$(function(){var a=document.location.host;if(a.substring(a.length-3)=="org"){$("a").each(function(){var a=$(this);var r=a.attr("href");if(r){if(r.match("binaryage.com")){r=r.replace("binaryage.com","binaryage.org")}var t=document.location+"";a.attr("href",r)}})}})</script>
+    <script type="text/javascript" charset="utf-8">if(window.jQuery){$(function(){setTimeout(function(){var i=location.hash.substring(1);if(i.substring(0,2)=="o-"){$("#"+i).trigger("click")}},500)})}</script>
     <script type="text/javascript">var _gauges=_gauges||[];(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.id="gauges-tracker";e.setAttribute("data-site-id","4f10d65d844d52139500000b");e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()</script>
   </body>
 </html>
