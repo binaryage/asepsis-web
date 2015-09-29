@@ -42,7 +42,9 @@ ogmeta: {
       <span><i class="fa fa-download fa-lg"></i>{{page.downloadtitle}}</span>
     </a>
     <div class="button-note">
-      <i class="fa fa-laptop"></i> Compatible with OS X 10.8, 10.9 and 10.10<br>
+      <i class="fa fa-check-circle"></i> Compatible with OS X 10.8, 10.9 and 10.10<br>
+      <div class="exclamation"><i class="fa fa-exclamation-circle"></i> <a href="/#sip">Not compatible with OS X 10.11</a></div><br>
+      <br>
       <a href="#changelog">What's new?</a><br>
     </div>
   </div>
@@ -204,11 +206,7 @@ Please [report any issues](https://github.com/binaryage/asepsis/issues).
 
 #### Does it work with OS X 10.11 (El Capitan) ?
 
-> No with default configuration where <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a> is enabled.
-> You have to <a href="http://totalfinder.binaryage.com/system-integrity-protection">disable SIP</a> and create this file `~/.no-asepsis-os-restriction` prior installing the [latest version](#latest).
->
-    touch ~/.no-asepsis-os-restriction
-
+> No with default configuration, see [this page for more info](/#sip).
 
 #### Does it work with OS X 10.10 (Yosemite) ?
 
@@ -266,6 +264,52 @@ Please [report any issues](https://github.com/binaryage/asepsis/issues).
 Note: in step 3, the path might be different if you boot from external disk, for example `/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl`
 
 It this didn't work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.
+
+## SIP
+
+### System Integrity Protection
+
+Under OS X 10.11 (El Capitan), Asepsis cannot run on a normally configured machine due to [System Integrity Protection](https://en.wikipedia.org/wiki/System_Integrity_Protection).
+
+System Integrity Protection (SIP) is a new security feature introduced by Apple. That's good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about [what System Integrity Protection is, and what it means to turn it off](https://en.wikipedia.org/wiki/System_Integrity_Protection). Apple also provided [some information here](https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html).
+
+<div class="license-desk">
+<a href="http://binaryage.com/about">
+<img width="20" height="20" src="http://www.gravatar.com/avatar/79322c2ed80c2d722de8c9d0475198a0?s=40" style="float: left; position: relative; top: 2px; margin-right: 6px; display:block; border: 1px solid #ccc" title="Who is Antonin?">
+</a>
+Do you really depend on Asepsis so much that you want to possibly lower your system security?
+Frankly, I'm going to stop Asepsis development and won't support Asepsis users anymore under El Capitan and later.
+</div>
+
+Anyways, if you decide to modify the setting under El Capitan, you will be able to install and run Asepsis as before. Just to be clear...
+
+<div class="license-desk exclamation">
+I'm not encouraging you to turn System Integrity Protection off. Your machine may be less secure with it off. It is entirely your decision.
+</div>
+
+<br>
+
+### How to modify System Integrity Protection
+
+You must boot into the Recovery OS. You do this by restarting your machine, and holding `COMMAND + R` until the Apple logo appears.
+
+Then select Terminal from the Utilities menu. It looks like this:
+
+<img src="/images/recovery-1.png">
+
+In the window that opens, type `csrutil disable` and press return. 
+
+This turns off the part of SIP that Asepsis needs to run, and OS X complains that it is an unsupported configuration.
+
+Now type `reboot` and press return to restart your machine. 
+
+After restart create file in your home directory to allow installer to ignore system version checks:
+
+    touch ~/.no-asepsis-os-restriction
+
+Then you may install the [latest version of Asepsis](/#changelog).
+
+You can find some further information [in our blog](http://blog.binaryage.com/el-capitan-update).
 
 ## Changelog
 
