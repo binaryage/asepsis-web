@@ -295,7 +295,7 @@ You must boot into the Recovery OS. You do this by restarting your machine, and 
 
 Then select Terminal from the Utilities menu. It looks like this:
 
-<img src="/images/recovery-1.png">
+<img src="/shared/img/recovery-utilities-terminal.png">
 
 In the window that opens, type `csrutil disable` and press return. 
 
