@@ -1,5 +1,5 @@
 ---
-layout: product-home
+layout: product
 download: http://downloads.binaryage.com/Asepsis-1.5.2.dmg
 downloadtitle: Download v1.5.2
 latest: 1.5.2
