@@ -9,11 +9,6 @@ product_title: Asepsis
 product_subtitle: a smart solution for .DS_Store pollution
 product_icon: /shared/img/icons/asepsis-256.png
 repo: http://github.com/binaryage/asepsis
-fbsdk: 1
-plusone: 1
-product-fblike: 1
-product-plusone: 1
-product-tweet: 1
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
 meta_description: Asepsis is a system utility for prevention of .DS_Store files created by Finder and other applications
@@ -42,10 +37,8 @@ ogmeta: {
       <span><i class="fa fa-download fa-lg"></i>{{page.downloadtitle}}</span>
     </a>
     <div class="button-note">
-      <i class="fa fa-check-circle"></i> Compatible with OS X 10.8, 10.9 and 10.10<br>
-      <div class="exclamation"><i class="fa fa-exclamation-circle"></i> <a href="/#sip">Not compatible with OS X 10.11</a></div><br>
-      <br>
-      <a href="#changelog">What's new?</a><br>
+      <i class="fa fa-check-circle"></i> Compatible with macOS 10.8 - 10.10<br>
+      <div class="exclamation"><i class="fa fa-exclamation-circle"></i> <a href="/#sip">Not compatible with macOS 10.11 and 10.12</a></div><br>
     </div>
   </div>
 </div>
@@ -269,7 +262,7 @@ It this didn't work for you for some reason. You have a <a href="" title="/Syste
 
 ### System Integrity Protection
 
-Under OS X 10.11 (El Capitan), Asepsis cannot run on a normally configured machine due to [System Integrity Protection](https://en.wikipedia.org/wiki/System_Integrity_Protection).
+Starting with macOS 10.11 (El Capitan), Asepsis cannot run on a normally configured machine due to [System Integrity Protection](https://en.wikipedia.org/wiki/System_Integrity_Protection).
 
 System Integrity Protection (SIP) is a new security feature introduced by Apple. That's good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about [what System Integrity Protection is, and what it means to turn it off](https://en.wikipedia.org/wiki/System_Integrity_Protection). Technical details are well covered in [SIP review on Ars Technica](http://arstechnica.com/apple/2015/09/os-x-10-11-el-capitan-the-ars-technica-review/8). Apple also provided [some information here](https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html).
 
