@@ -1,6 +1,6 @@
 ---
 layout: product
-download: http://downloads.binaryage.com/Asepsis-1.5.2.dmg
+download: https://downloads.binaryage.com/Asepsis-1.5.2.dmg
 downloadtitle: Download v1.5.2
 latest: 1.5.2
 title: Asepsis is a system utility for prevention of .DS_Store files
@@ -8,11 +8,11 @@ product: asepsis
 product_title: Asepsis
 product_subtitle: a smart solution for .DS_Store pollution
 product_icon: /shared/img/icons/asepsis-256.png
-repo: http://github.com/binaryage/asepsis
+repo: https://github.com/binaryage/asepsis
 meta_title: Asepsis is a system utility for prevention of .DS_Store files
 meta_keywords: totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility
 meta_description: Asepsis is a system utility for prevention of .DS_Store files created by Finder and other applications
-meta_image: http://www.binaryage.com/shared/img/icons/asepsis-128.png
+meta_image: https://www.binaryage.com/shared/img/icons/asepsis-128.png
 build_tabs: 1
 ogmeta: {
     site_name: "BinaryAge website",
@@ -20,8 +20,8 @@ ogmeta: {
     email: "support@binaryage.com",
     type: "product",
     title: "Asepsis",
-    url: "http://asepsis.binaryage.com",
-    image: "http://www.binaryage.com/shared/img/icons/asepsis-256.png"
+    url: "https://asepsis.binaryage.com",
+    image: "https://www.binaryage.com/shared/img/icons/asepsis-256.png"
 }
 ---
 
@@ -29,7 +29,7 @@ ogmeta: {
 <div class="product-buttons">
   <div class="button-container">
     <div class="cross-promo">
-      <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br>a feature of <a href="http://totalfinder.binaryage.com"> TotalFinder</div></a>.
+      <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br>a feature of <a href="https://totalfinder.binaryage.com"> TotalFinder</div></a>.
     </div>
   </div>
   <div class="button-container">
@@ -57,7 +57,7 @@ Asepsis prevents creation of [.DS_Store](http://en.wikipedia.org/wiki/.DS_Store)
 
 Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in Finder.
 
-But I'm a developer and I run Finder with [TotalFinder](http://totalfinder.binaryage.com) and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.
+But I'm a developer and I run Finder with [TotalFinder](https://totalfinder.binaryage.com) and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.
 
 That is why I decided to solve this for myself and I'm sharing my solution with other Mac geeks out there to help them protect their egos :-)
 
@@ -267,7 +267,7 @@ Starting with macOS 10.11 (El Capitan), Asepsis cannot run on a normally configu
 System Integrity Protection (SIP) is a new security feature introduced by Apple. That's good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about [what System Integrity Protection is, and what it means to turn it off](https://en.wikipedia.org/wiki/System_Integrity_Protection). Technical details are well covered in [SIP review on Ars Technica](http://arstechnica.com/apple/2015/09/os-x-10-11-el-capitan-the-ars-technica-review/8). Apple also provided [some information here](https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html).
 
 <div class="license-desk">
-<a href="http://binaryage.com/about">
+<a href="https://binaryage.com/about">
 <img width="20" height="20" src="//www.gravatar.com/avatar/79322c2ed80c2d722de8c9d0475198a0?s=40" style="float: left; position: relative; top: 2px; margin-right: 6px; display:block; border: 1px solid #ccc" title="Who is Antonin?">
 </a>
 Do you really depend on Asepsis so much that you want to possibly lower your system security?
@@ -302,7 +302,7 @@ After restart create file in your home directory to allow installer to ignore sy
 
 Then you may install the [latest version of Asepsis](/#changelog).
 
-You can find some further information [in our blog](http://blog.binaryage.com/el-capitan-update).
+You can find some further information [in our blog](https://blog.binaryage.com/el-capitan-update).
 
 ## Changelog
 
@@ -320,7 +320,7 @@ You can find some further information [in our blog](http://blog.binaryage.com/el
     $.get "#{source}?x=#{nonce()}", (data) ->
       changelog = parsePlaintextChangelog(data)
 
-      getDownloadLinkForVersion = (version) -> "http://downloads.binaryage.com/Asepsis-#{version}.dmg"
+      getDownloadLinkForVersion = (version) -> "https://downloads.binaryage.com/Asepsis-#{version}.dmg"
       getReleaseDateText = (date) -> "released on " + date
       generateChangelogHTML "#changelog-content", changelog, getDownloadLinkForVersion, getReleaseDateText
       $(window).trigger "changelog-rendered"
