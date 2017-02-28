@@ -74,7 +74,7 @@
       $.get('changelog.txt?x='+((Math.random()+"").substring(2)), function(data) {
         var changelog = parsePlaintextChangelog(data);
         var getDownloadLinkForVersion = function(version) {
-          return "http://downloads.binaryage.com/Asepsis-"+version+".dmg"
+          return "https://downloads.binaryage.com/Asepsis-"+version+".dmg"
         };
         var getReleaseDateText = function(date) {
           return "released on " + date;

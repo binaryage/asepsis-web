@@ -14,15 +14,15 @@
     <meta name="title" content="Asepsis is a system utility for prevention of .DS_Store files"/>
     <meta name="description" content="Asepsis is a system utility for prevention of .DS_Store files created by Finder and other applications"/>
     <meta name="keywords" content="totalfinder,asepsis,osx,simbl,binaryage,productivity,software,system,utility"/>
-    <link rel="image_src" href="http://www.binaryage.com/shared/img/icons/asepsis-128.png"/>
+    <link rel="image_src" href="https://www.binaryage.com/shared/img/icons/asepsis-128.png"/>
     <meta property="fb:admins" content="antonin.hildebrand"/>
     <meta property="og:email" content="support@binaryage.com"/>
     <meta property="og:description" content="Asepsis is a system utility for prevention of .DS_Store files"/>
     <meta property="og:site_name" content="BinaryAge website"/>
     <meta property="og:type" content="product"/>
     <meta property="og:title" content="Asepsis"/>
-    <meta property="og:url" content="http://asepsis.binaryage.com"/>
-    <meta property="og:image" content="http://www.binaryage.com/shared/img/icons/asepsis-256.png"/>
+    <meta property="og:url" content="https://asepsis.binaryage.com"/>
+    <meta property="og:image" content="https://www.binaryage.com/shared/img/icons/asepsis-256.png"/>
     <link href="https://feeds.feedburner.com/binaryage-blog" type="application/atom+xml" rel="alternate" title="Ideas from BinaryAge"/>
     <script>function defer$(e){if(window.jQuery){e()}else{setTimeout(function(){defer$(e)},50)}}</script>
   </head>
@@ -92,11 +92,11 @@
               <div class="product-buttons">
                 <div class="button-container">
                   <div class="cross-promo">
-                    <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br/>a feature of <a href="http://totalfinder.binaryage.com"> TotalFinder</div></a>.
+                    <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br/>a feature of <a href="https://totalfinder.binaryage.com"> TotalFinder</div></a>.
                   </div>
                 </div>
                 <div class="button-container">
-                  <a href="http://downloads.binaryage.com/Asepsis-1.5.2.dmg" id="o-download-button" class="button product-button-download">
+                  <a href="https://downloads.binaryage.com/Asepsis-1.5.2.dmg" id="o-download-button" class="button product-button-download">
                     <span><i class="fa fa-download fa-lg"></i>Download v1.5.2</span>
                   </a>
                   <div class="button-note">
@@ -125,7 +125,7 @@
           <p>Asepsis prevents creation of <a href="http://en.wikipedia.org/wiki/.DS_Store">.DS_Store</a> files. It redirects their creation into a special folder.</p>
           <h3>Why is .DS_Store a problem?</h3>
           <p>Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in Finder.</p>
-          <p>But I'm a developer and I run Finder with <a href="http://totalfinder.binaryage.com">TotalFinder</a> and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.</p>
+          <p>But I'm a developer and I run Finder with <a href="https://totalfinder.binaryage.com">TotalFinder</a> and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.</p>
           <p>That is why I decided to solve this for myself and I'm sharing my solution with other Mac geeks out there to help them protect their egos :-)</p>
           <h3>Asepsis does .DS_Store redirection. How does it work technically?</h3>
           <p>Apple implemented a private system framework <code>DesktopServicesPriv</code> which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I'm looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files.</p>
@@ -140,7 +140,7 @@
           <h2>Installation</h2>
           <p>To install the software:</p>
           <ol>
-            <li>Run the <a href="http://downloads.binaryage.com/Asepsis-1.5.2.dmg">installer</a></li>
+            <li>Run the <a href="https://downloads.binaryage.com/Asepsis-1.5.2.dmg">installer</a></li>
             <li>Restart your computer</li>
           </ol>
           <p>After reboot .DS_Store files are no longer created when you open Finder and browse folders (in case .DS_Store files are not already present there).</p>
@@ -271,7 +271,7 @@ asepsisctl install_wrapper
           <p>Starting with macOS 10.11 (El Capitan), Asepsis cannot run on a normally configured machine due to <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a>.</p>
           <p>System Integrity Protection (SIP) is a new security feature introduced by Apple. That's good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">what System Integrity Protection is, and what it means to turn it off</a>. Technical details are well covered in <a href="http://arstechnica.com/apple/2015/09/os-x-10-11-el-capitan-the-ars-technica-review/8">SIP review on Ars Technica</a>. Apple also provided <a href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html">some information here</a>.</p>
           <div class="license-desk">
-            <a href="http://binaryage.com/about">
+            <a href="https://binaryage.com/about">
               <img width="20" height="20" src="//www.gravatar.com/avatar/79322c2ed80c2d722de8c9d0475198a0?s=40" style="float: left; position: relative; top: 2px; margin-right: 6px; display:block; border: 1px solid #ccc" title="Who is Antonin?"/>
             </a>
             Do you really depend on Asepsis so much that you want to possibly lower your system security?
@@ -293,13 +293,13 @@ asepsisctl install_wrapper
           <pre><code>touch ~/.no-asepsis-os-restriction
 </code></pre>
           <p>Then you may install the <a href="/#changelog">latest version of Asepsis</a>.</p>
-          <p>You can find some further information <a href="http://blog.binaryage.com/el-capitan-update">in our blog</a>.</p>
+          <p>You can find some further information <a href="https://blog.binaryage.com/el-capitan-update">in our blog</a>.</p>
           <h2>Changelog</h2>
           <script src="https://static.binaryage.com/5a951547_shared_js_changelog.js" type="text/javascript" charset="utf-8"></script>
           <div class="changelogx">
             <div id="changelog-content" class="changelog"></div>
           </div>
-          <script type="text/javascript" charset="utf-8">(function(){defer$(function(){var n,e;n=function(){return(Math.random()+"").substring(2)};e="changelog.txt";return $.get(e+"?x="+n(),function(n){var e,t,r;e=parsePlaintextChangelog(n);t=function(n){return"http://downloads.binaryage.com/Asepsis-"+n+".dmg"};r=function(n){return"released on "+n};generateChangelogHTML("#changelog-content",e,t,r);return $(window).trigger("changelog-rendered")})})}).call(this)</script>
+          <script type="text/javascript" charset="utf-8">(function(){defer$(function(){var n,e;n=function(){return(Math.random()+"").substring(2)};e="changelog.txt";return $.get(e+"?x="+n(),function(n){var e,t,r;e=parsePlaintextChangelog(n);t=function(n){return"https://downloads.binaryage.com/Asepsis-"+n+".dmg"};r=function(n){return"released on "+n};generateChangelogHTML("#changelog-content",e,t,r);return $(window).trigger("changelog-rendered")})})}).call(this)</script>
         </div>
       </div>
     </div>
