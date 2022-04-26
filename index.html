@@ -5,7 +5,7 @@
     <link rel="canonical" href="https://asepsis.binaryage.com/"/>
     <link rel="shortcut icon" href="https://static.binaryage.com/5604bda0_favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="https://static.binaryage.com/5604bda0_favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://static.binaryage.com/26f8d85b_shared_css_site.css" type="text/css"/>
+    <link rel="stylesheet" href="https://static.binaryage.com/493de12c_shared_css_site.css" type="text/css"/>
     <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
     <script>WebFont.load({google:{families:["Play:400,700:latin"]}})</script>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
@@ -24,9 +24,9 @@
     <meta property="og:url" content="https://asepsis.binaryage.com"/>
     <meta property="og:image" content="https://www.binaryage.com/shared/img/icons/asepsis-256.png"/>
     <link href="https://feeds.feedburner.com/binaryage-blog" type="application/atom+xml" rel="alternate" title="Ideas from BinaryAge"/>
-    <script>function defer$(e){if(window.jQuery){e()}else{setTimeout(function(){defer$(e)},50)}}</script>
+    <script>function defer$(e){window.jQuery?e():setTimeout(function(){defer$(e)},50)}</script>
   </head>
-  <body id="page-asepsis-index">
+  <body id="page-asepsis-index" class="site-asepsis">
     <div id="header">
       <div class="container">
         <div class="row">
@@ -61,7 +61,6 @@
             </div>
             <div class="relativize">
               <ul class="header-menu menu-selected-products">
-                <li class="menu-item-store"><a href="https://sites.fastspring.com/binaryage/product/store"><i class="fa fa-shopping-cart"></i><span>store</span></a></li>
                 <li class="menu-item-products"><a href="//www.binaryage.com"><i class="fa fa-star"></i><span>products</span></a></li>
                 <li class="menu-item-blog"><a href="//blog.binaryage.com"><i class="fa fa-bullhorn"></i><span>blog</span></a></li>
                 <li class="menu-item-support"><a href="//discuss.binaryage.com"><i class="fa fa-comments"></i><span>support</span></a></li>
@@ -92,16 +91,17 @@
               <div class="product-buttons">
                 <div class="button-container">
                   <div class="cross-promo">
-                    <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br/>a feature of <a href="https://totalfinder.binaryage.com"> TotalFinder</div></a>.
+                    <i class="fa fa-info-circle fa-lg"></i><div>Asepsis was originally<br/>a feature of <a href="https://totalfinder.binaryage.com"> TotalFinder&lt;/div&gt;</a>.
+                    </div>
                   </div>
-                </div>
-                <div class="button-container">
-                  <a href="https://downloads.binaryage.com/Asepsis-1.5.2.dmg" id="o-download-button" class="button product-button-download">
-                    <span><i class="fa fa-download fa-lg"></i>Download v1.5.2</span>
-                  </a>
-                  <div class="button-note">
-                    <i class="fa fa-check-circle"></i> Compatible with macOS 10.8 - 10.10<br/>
-                    <div class="exclamation"><i class="fa fa-exclamation-circle"></i> <a href="/#sip">Not compatible with macOS 10.11 and 10.12</a></div><br/>
+                  <div class="button-container">
+                    <a href="https://downloads.binaryage.com/Asepsis-1.5.2.dmg" id="o-download-button" class="button product-button-download">
+                      <span><i class="fa fa-download fa-lg"></i>Download v1.5.2</span>
+                    </a>
+                    <div class="button-note">
+                      <i class="fa fa-check-circle"></i> Compatible with macOS 10.8 - 10.10<br/>
+                      <div class="exclamation"><i class="fa fa-exclamation-circle"></i> <a href="/#sip">Not compatible with macOS 10.11 and 10.12</a></div><br/>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -118,50 +118,50 @@
       </div>
       <div id="asepsis-content" class="product-content" style="display:none">
         <div class="container">
-          <h2>About</h2>
+          <h2 id="about">About</h2>
           <div class="license-desk exclamation" style="display:inline-block">
             Warning: Asepsis is no longer under active development and supported under OS X 10.11 (El Capitan) and later.
           </div>
           <p>Asepsis prevents creation of <a href="http://en.wikipedia.org/wiki/.DS_Store">.DS_Store</a> files. It redirects their creation into a special folder.</p>
-          <h3>Why is .DS_Store a problem?</h3>
+          <h3 id="why-is-ds_store-a-problem">Why is .DS_Store a problem?</h3>
           <p>Well, it is not really a problem for most Mac users because .DS_Store files are normally hidden in Finder.</p>
-          <p>But I'm a developer and I run Finder with <a href="https://totalfinder.binaryage.com">TotalFinder</a> and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don't want my geeky Windows friends to laugh at me because this makes me look incompetent.</p>
-          <p>That is why I decided to solve this for myself and I'm sharing my solution with other Mac geeks out there to help them protect their egos :-)</p>
-          <h3>Asepsis does .DS_Store redirection. How does it work technically?</h3>
-          <p>Apple implemented a private system framework <code>DesktopServicesPriv</code> which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I'm looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files.</p>
-          <p>At core Asepsis provides a dynamic library <code>DesktopServicesPrivWrapper</code> which gets loaded into every process linking against DesktopServicesPriv.framework. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.</p>
-          <p>Additionally Asepsis implements a system-wide daemon <code>asepsisd</code> whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don't lose your settings after renaming folders because rename is also executed on folder structure in the prefix directory.</p>
-          <h3>The prefix folder is <strong><code>/usr/local/.dscage</code></strong></h3>
+          <p>But I’m a developer and I run Finder with <a href="https://totalfinder.binaryage.com">TotalFinder</a> and I have enabled display of hidden files. Also I run a lot of command-line tools via terminal. The problem is that sometimes .DS_Store files get into a way. I hate when my clean new folders get polluted by those small tiny files holding unimportant garbage. I hate when I zip a folder using some unix command and it includes .DS_Store files in the archive. I hate when I visit a network volume and that pollutes its content with those nasty files. To put it simply I don’t want my geeky Windows friends to laugh at me because this makes me look incompetent.</p>
+          <p>That is why I decided to solve this for myself and I’m sharing my solution with other Mac geeks out there to help them protect their egos :-)</p>
+          <h3 id="asepsis-does-ds_store-redirection-how-does-it-work-technically">Asepsis does .DS_Store redirection. How does it work technically?</h3>
+          <p>Apple implemented a private system framework <code class="language-plaintext highlighter-rouge">DesktopServicesPriv</code> which is responsible for creating and manipulating .DS_Store files. This framework is used mainly by Finder, but there are also other system apps which link against it and may use it (yes mdworker I’m looking at you!). DesktopServicesPriv uses standard libc calls to manipulate .DS_Store files.</p>
+          <p>At core Asepsis provides a dynamic library <code class="language-plaintext highlighter-rouge">DesktopServicesPrivWrapper</code> which gets loaded into every process linking against DesktopServicesPriv.framework. It interposes some libc calls used by DesktopServicesPriv to access .DS_Store files. Interposed functions detect paths talking about .DS_Store files and redirect them into a special prefix folder. This seems to be transparent to DesktopServicesPriv.</p>
+          <p>Additionally Asepsis implements a system-wide daemon <code class="language-plaintext highlighter-rouge">asepsisd</code> whose purpose is to monitor system-wide folder renames (or deletes) and mirror those operations in the prefix folder. This is probably the best we can do. This way you don’t lose your settings after renaming folders because rename is also executed on folder structure in the prefix directory.</p>
+          <h3 id="the-prefix-folder-is-usrlocaldscage">The prefix folder is <strong><code class="language-plaintext highlighter-rouge">/usr/local/.dscage</code></strong></h3>
           <ol>
-            <li><code>DesktopServicesPrivWrapper</code> - a proxy library for interposing file manipulation calls in DesktopServicesPriv</li>
-            <li><code>asepsisd</code> - a system-wide daemon for mirroring folder renames and deletes in the prefix folder</li>
-            <li><code>asepsisctl</code> - a command-line utility for controlling Asepsis operation</li>
+            <li><code class="language-plaintext highlighter-rouge">DesktopServicesPrivWrapper</code> - a proxy library for interposing file manipulation calls in DesktopServicesPriv</li>
+            <li><code class="language-plaintext highlighter-rouge">asepsisd</code> - a system-wide daemon for mirroring folder renames and deletes in the prefix folder</li>
+            <li><code class="language-plaintext highlighter-rouge">asepsisctl</code> - a command-line utility for controlling Asepsis operation</li>
           </ol>
-          <h2>Installation</h2>
+          <h2 id="installation">Installation</h2>
           <p>To install the software:</p>
           <ol>
             <li>Run the <a href="https://downloads.binaryage.com/Asepsis-1.5.2.dmg">installer</a></li>
             <li>Restart your computer</li>
           </ol>
           <p>After reboot .DS_Store files are no longer created when you open Finder and browse folders (in case .DS_Store files are not already present there).</p>
-          <h3>Troubleshooting</h3>
+          <h3 id="troubleshooting">Troubleshooting</h3>
           <p>In Terminal.app run:</p>
-          <pre><code>asepsisctl diagnose
-</code></pre>
-          <h3>Updates</h3>
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asepsisctl diagnose
+</code></pre></div></div>
+          <h3 id="updates">Updates</h3>
           <p>Asepsis checks for update after every reboot using Sparkle framework. It also checks its consistencty at that point.</p>
-          <h3>Uninstallation</h3>
+          <h3 id="uninstallation">Uninstallation</h3>
           <p>Just run provided uninstaller from the DMG archive or in Terminal execute:</p>
-          <pre><code>asepsisctl uninstall
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asepsisctl uninstall
 sudo reboot
-</code></pre>
-          <p>Alternatively you may use uinstaller which comes with the DMG archive. It launches <code>asepsisctl uninstall</code> for you.</p>
-          <h3>Installing from sources</h3>
+</code></pre></div></div>
+          <p>Alternatively you may use uinstaller which comes with the DMG archive. It launches <code class="language-plaintext highlighter-rouge">asepsisctl uninstall</code> for you.</p>
+          <h3 id="installing-from-sources">Installing from sources</h3>
           <p>You may want to review the source code and install it by compiling it from sources. Please follow instructions in <a href="http://github.com/binaryage/asepsis">GitHub repository</a>.</p>
-          <h2>Control</h2>
-          <h3>You may control asepsis operation via asepsisctl</h3>
-          <p>During the installation asepsisctl tool is symlinked into <code>/usr/local/bin</code>, so it should be visible from the command-line.</p>
-          <pre><code>&gt; asepsisctl --help
+          <h2 id="control">Control</h2>
+          <h3 id="you-may-control-asepsis-operation-via-asepsisctl">You may control asepsis operation via asepsisctl</h3>
+          <p>During the installation asepsisctl tool is symlinked into <code class="language-plaintext highlighter-rouge">/usr/local/bin</code>, so it should be visible from the command-line.</p>
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; asepsisctl --help
 The control script for asepsis operations.
 
 Usage:
@@ -210,66 +210,92 @@ Where options are:
     -p, --[no-]panic                 Panic mode
     -h, --help                       Show this message
     -V, --version                    Print version
-</code></pre>
-          <h2>Diagnose</h2>
-          <p>Asepsis modifies system files in <code>/System/Library/PrivateFrameworks/DesktopServicesPriv.framework</code>.</p>
+</code></pre></div></div>
+          <h2 id="diagnose">Diagnose</h2>
+          <p>Asepsis modifies system files in <code class="language-plaintext highlighter-rouge">/System/Library/PrivateFrameworks/DesktopServicesPriv.framework</code>.</p>
           <p>As you can guess there is a clear risk that during system update Apple reverts files to the originals. This should be no big deal. Asepsis checks for this at every reboot and reports it. Reinstalling asepsis should patch it back. In the worst case you will notice that you have .DS_Store files creeping back in the house.</p>
           <p>To diagnose asepsis run:</p>
-          <pre><code>asepsisctl diagnose
-</code></pre>
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asepsisctl diagnose
+</code></pre></div></div>
           <p>Here is the script source: <a href="https://github.com/binaryage/asepsis/blob/master/ctl/cmd/diagnose.rb">https://github.com/binaryage/asepsis/blob/master/ctl/cmd/diagnose.rb</a></p>
           <p>To reinstall DesktopServicesPriv wrapper run:</p>
-          <pre><code>asepsisctl uninstall_wrapper
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asepsisctl uninstall_wrapper
 asepsisctl install_wrapper
-</code></pre>
+</code></pre></div></div>
           <p>Here is the script source: <a href="https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb">https://github.com/binaryage/asepsis/blob/master/ctl/cmd/install_wrapper.rb</a></p>
-          <p>Under Mavericks <a href="https://github.com/binaryage/asepsis/issues/9">some users reported</a> that system restart is required after successfully running <code>install_wrapper</code>. You should do that to be sure all processes link against patched DesktopServicesPriv.</p>
-          <h3>Known issues</h3>
+          <p>Under Mavericks <a href="https://github.com/binaryage/asepsis/issues/9">some users reported</a> that system restart is required after successfully running <code class="language-plaintext highlighter-rouge">install_wrapper</code>. You should do that to be sure all processes link against patched DesktopServicesPriv.</p>
+          <h3 id="known-issues">Known issues</h3>
           <ul>
             <li>when copying folders, DS_Store settings are not copied over (daemon is unable to distinguish this class of file operations)</li>
           </ul>
           <p>Please <a href="https://github.com/binaryage/asepsis/issues">report any issues</a>.</p>
-          <h2>FAQ</h2>
-          <h4>Sounds scary. Is this safe?</h4>
-          <blockquote><p>Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should <a href="http://github.com/binaryage/asepsis">review the code</a> to understand what it does.</p></blockquote>
-          <h4>Does it work with OS X 10.11 (El Capitan) ?</h4>
-          <blockquote><p>No with default configuration, see <a href="/#sip">this page for more info</a>.</p></blockquote>
-          <h4>Does it work with OS X 10.10 (Yosemite) ?</h4>
-          <blockquote><p>Yes, use the <a href="#latest">latest version</a>.</p></blockquote>
-          <h4>Does it work with OS X 10.9 (Mavericks) ?</h4>
-          <blockquote><p>Yes, use the <a href="#latest">latest version</a>.</p></blockquote>
-          <h4>Does it work with OS X 10.8 (Mountain Lion) ?</h4>
-          <blockquote><p>Yes, use the <a href="#latest">latest version</a>.</p></blockquote>
-          <h4>Does it work with OS X 10.7 (Lion) ?</h4>
-          <blockquote><p>No. Last version supporting Lion is <a href="#1.4.1">Asepsis 1.4.1</a>.</p></blockquote>
-          <h4>Does it work with OS X 10.6 (Snow Leopard) ?</h4>
-          <blockquote><p>No.</p></blockquote>
-          <h4>What if .DS_Store file is already present in a folder?</h4>
-          <blockquote><p>Asepsis will use it. It won't redirect it in this case. This way Asepsis works seamlessly with DMG archives or folders you browse on a network. If you delete the .DS_Store file, next time it will be created in the prefix folder. This is pretty simple approach how to adopt Asepsis incrementally on folder-by-folder basis.</p></blockquote>
-          <h4>How could I migrate existing .DS_Store files?</h4>
-          <blockquote><p>Please see <code>asepsisctl migratein</code> command</p></blockquote>
-          <h4>Are there any processes which don't work well with Asepsis?</h4>
-          <blockquote><p>Asepsis has white-list of processes known to manipulate with .DS_Store files. Right now it is effective for <a href="https://github.com/binaryage/asepsis/blob/master/wrapper/init.c#L22-L23">Finder.app and mdwrite process</a>.</p></blockquote>
-          <h4>What about using resource forks for hiding .DS_Store files?</h4>
-          <blockquote><p>Nice idea! This would be probably a more elegant approach but it would work only for HFS+ volumes. I haven't tried to implement it via resource forks. I decided to run with this prefix-folder approach which seemed to me as a more predictable approach. Feel free to <a href="https://github.com/binaryage/asepsis">fork and experiment</a>.</p></blockquote>
-          <h4>How can I keep Asepsis up-to-date?</h4>
-          <blockquote><p>Asepsis is using Sparkle updater. You should be prompted when a new version comes out. Asepsis checks for new version after every reboot.</p></blockquote>
-          <h4>Does Asepsis install some kernel extension?</h4>
-          <blockquote><p>Since version 1.3 Asepsis does not use kernel extension anymore.</p></blockquote>
-          <h2>Panic mode!</h2>
-          <h3>My system doesn't boot up. What now?</h3>
+          <h2 id="faq">FAQ</h2>
+          <h4 id="sounds-scary-is-this-safe">Sounds scary. Is this safe?</h4>
+          <blockquote>
+            <p>Well uhmmm, <b>use it at your own risk</b> :-) It sounds scary but it should be pretty lightweight solution. You should <a href="http://github.com/binaryage/asepsis">review the code</a> to understand what it does.</p>
+          </blockquote>
+          <h4 id="does-it-work-with-os-x-1011-el-capitan-">Does it work with OS X 10.11 (El Capitan) ?</h4>
+          <blockquote>
+            <p>No with default configuration, see <a href="/#sip">this page for more info</a>.</p>
+          </blockquote>
+          <h4 id="does-it-work-with-os-x-1010-yosemite-">Does it work with OS X 10.10 (Yosemite) ?</h4>
+          <blockquote>
+            <p>Yes, use the <a href="#latest">latest version</a>.</p>
+          </blockquote>
+          <h4 id="does-it-work-with-os-x-109-mavericks-">Does it work with OS X 10.9 (Mavericks) ?</h4>
+          <blockquote>
+            <p>Yes, use the <a href="#latest">latest version</a>.</p>
+          </blockquote>
+          <h4 id="does-it-work-with-os-x-108-mountain-lion-">Does it work with OS X 10.8 (Mountain Lion) ?</h4>
+          <blockquote>
+            <p>Yes, use the <a href="#latest">latest version</a>.</p>
+          </blockquote>
+          <h4 id="does-it-work-with-os-x-107-lion-">Does it work with OS X 10.7 (Lion) ?</h4>
+          <blockquote>
+            <p>No. Last version supporting Lion is <a href="#1.4.1">Asepsis 1.4.1</a>.</p>
+          </blockquote>
+          <h4 id="does-it-work-with-os-x-106-snow-leopard-">Does it work with OS X 10.6 (Snow Leopard) ?</h4>
+          <blockquote>
+            <p>No.</p>
+          </blockquote>
+          <h4 id="what-if-ds_store-file-is-already-present-in-a-folder">What if .DS_Store file is already present in a folder?</h4>
+          <blockquote>
+            <p>Asepsis will use it. It won’t redirect it in this case. This way Asepsis works seamlessly with DMG archives or folders you browse on a network. If you delete the .DS_Store file, next time it will be created in the prefix folder. This is pretty simple approach how to adopt Asepsis incrementally on folder-by-folder basis.</p>
+          </blockquote>
+          <h4 id="how-could-i-migrate-existing-ds_store-files">How could I migrate existing .DS_Store files?</h4>
+          <blockquote>
+            <p>Please see <code class="language-plaintext highlighter-rouge">asepsisctl migratein</code> command</p>
+          </blockquote>
+          <h4 id="are-there-any-processes-which-dont-work-well-with-asepsis">Are there any processes which don’t work well with Asepsis?</h4>
+          <blockquote>
+            <p>Asepsis has white-list of processes known to manipulate with .DS_Store files. Right now it is effective for <a href="https://github.com/binaryage/asepsis/blob/master/wrapper/init.c#L22-L23">Finder.app and mdwrite process</a>.</p>
+          </blockquote>
+          <h4 id="what-about-using-resource-forks-for-hiding-ds_store-files">What about using resource forks for hiding .DS_Store files?</h4>
+          <blockquote>
+            <p>Nice idea! This would be probably a more elegant approach but it would work only for HFS+ volumes. I haven’t tried to implement it via resource forks. I decided to run with this prefix-folder approach which seemed to me as a more predictable approach. Feel free to <a href="https://github.com/binaryage/asepsis">fork and experiment</a>.</p>
+          </blockquote>
+          <h4 id="how-can-i-keep-asepsis-up-to-date">How can I keep Asepsis up-to-date?</h4>
+          <blockquote>
+            <p>Asepsis is using Sparkle updater. You should be prompted when a new version comes out. Asepsis checks for new version after every reboot.</p>
+          </blockquote>
+          <h4 id="does-asepsis-install-some-kernel-extension">Does Asepsis install some kernel extension?</h4>
+          <blockquote>
+            <p>Since version 1.3 Asepsis does not use kernel extension anymore.</p>
+          </blockquote>
+          <h2 id="panic-mode">Panic mode!</h2>
+          <h3 id="my-system-doesnt-boot-up-what-now">My system doesn’t boot up. What now?</h3>
           <ol>
             <li>restart computer into <a href="http://support.apple.com/kb/ht1492">single-user mode</a></li>
-            <li>follow instructions on the screen to mount your filesystem for writing (something like <code>/sbin/mount -uw /</code>)</li>
-            <li>execute <code>/Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper --nosudo</code></li>
-            <li><code>reboot</code></li>
+            <li>follow instructions on the screen to mount your filesystem for writing (something like <code class="language-plaintext highlighter-rouge">/sbin/mount -uw /</code>)</li>
+            <li>execute <code class="language-plaintext highlighter-rouge">/Library/Application\ Support/Asepsis/ctl/asepsisctl uninstall_wrapper --nosudo</code></li>
+            <li><code class="language-plaintext highlighter-rouge">reboot</code></li>
           </ol>
-          <p>Note: in step 3, the path might be different if you boot from external disk, for example <code>/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl</code></p>
-          <p>It this didn't work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.</p>
-          <h2>SIP</h2>
-          <h3>System Integrity Protection</h3>
+          <p>Note: in step 3, the path might be different if you boot from external disk, for example <code class="language-plaintext highlighter-rouge">/Volumes/YourStartupVolume/Library/Application\ Support/Asepsis/ctl/asepsisctl</code></p>
+          <p>It this didn’t work for you for some reason. You have a <a href="" title="/System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A_Backup_Panic">backup folder</a> with original DesktopServicesPriv.framework version on your disk. Contact me at <a href="mailto:support@binaryage.com">support@binaryage.com</a> and I will give you special instructions.</p>
+          <h2 id="sip">SIP</h2>
+          <h3 id="system-integrity-protection">System Integrity Protection</h3>
           <p>Starting with macOS 10.11 (El Capitan), Asepsis cannot run on a normally configured machine due to <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">System Integrity Protection</a>.</p>
-          <p>System Integrity Protection (SIP) is a new security feature introduced by Apple. That's good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">what System Integrity Protection is, and what it means to turn it off</a>. Technical details are well covered in <a href="http://arstechnica.com/apple/2015/09/os-x-10-11-el-capitan-the-ars-technica-review/8">SIP review on Ars Technica</a>. Apple also provided <a href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html">some information here</a>.</p>
+          <p>System Integrity Protection (SIP) is a new security feature introduced by Apple. That’s good, but unfortunately it prevents Asepsis from altering DesktopServicesPriv framework. This article will tell you how to configure your machine, so that you can use Asepsis. Before you do this, it is important to get informed about <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">what System Integrity Protection is, and what it means to turn it off</a>. Technical details are well covered in <a href="http://arstechnica.com/apple/2015/09/os-x-10-11-el-capitan-the-ars-technica-review/8">SIP review on Ars Technica</a>. Apple also provided <a href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html">some information here</a>.</p>
           <div class="license-desk">
             <a href="https://binaryage.com/about">
               <img width="20" height="20" src="//www.gravatar.com/avatar/79322c2ed80c2d722de8c9d0475198a0?s=40" style="float: left; position: relative; top: 2px; margin-right: 6px; display:block; border: 1px solid #ccc" title="Who is Antonin?"/>
@@ -277,29 +303,29 @@ asepsisctl install_wrapper
             Do you really depend on Asepsis so much that you want to possibly lower your system security?
             Frankly, I'm going to stop Asepsis development and won't support Asepsis users anymore under El Capitan and later.
           </div>
-          <p>Anyways, if you decide to modify the setting under El Capitan, you will be able to install and run Asepsis as before. Just to be clear...</p>
+          <p>Anyways, if you decide to modify the setting under El Capitan, you will be able to install and run Asepsis as before. Just to be clear…</p>
           <div class="license-desk exclamation">
             I'm not encouraging you to turn System Integrity Protection off. Your machine may be less secure with it off. It is entirely your decision.
           </div>
           <p><br/></p>
-          <h3>How to modify System Integrity Protection</h3>
-          <p>You must boot into the Recovery OS. You do this by restarting your machine, and holding <code>COMMAND + R</code> until the Apple logo appears.</p>
+          <h3 id="how-to-modify-system-integrity-protection">How to modify System Integrity Protection</h3>
+          <p>You must boot into the Recovery OS. You do this by restarting your machine, and holding <code class="language-plaintext highlighter-rouge">COMMAND + R</code> until the Apple logo appears.</p>
           <p>Then select Terminal from the Utilities menu. It looks like this:</p>
           <p><img src="https://static.binaryage.com/bdee89c2_shared_img_recovery-utilities-terminal.png"/></p>
-          <p>In the window that opens, type <code>csrutil disable</code> and press return.</p>
+          <p>In the window that opens, type <code class="language-plaintext highlighter-rouge">csrutil disable</code> and press return.</p>
           <p>This turns off the part of SIP that Asepsis needs to run, and OS X complains that it is an unsupported configuration.</p>
-          <p>Now type <code>reboot</code> and press return to restart your machine.</p>
+          <p>Now type <code class="language-plaintext highlighter-rouge">reboot</code> and press return to restart your machine.</p>
           <p>After restart create file in your home directory to allow installer to ignore system version checks:</p>
-          <pre><code>touch ~/.no-asepsis-os-restriction
-</code></pre>
+          <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch ~/.no-asepsis-os-restriction
+</code></pre></div></div>
           <p>Then you may install the <a href="/#changelog">latest version of Asepsis</a>.</p>
           <p>You can find some further information <a href="https://blog.binaryage.com/el-capitan-update">in our blog</a>.</p>
-          <h2>Changelog</h2>
-          <script src="https://static.binaryage.com/5a951547_shared_js_changelog.js" type="text/javascript" charset="utf-8"></script>
+          <h2 id="changelog">Changelog</h2>
+          <script src="https://static.binaryage.com/9ad4e809_shared_js_changelog.js" type="text/javascript" charset="utf-8"></script>
           <div class="changelogx">
             <div id="changelog-content" class="changelog"></div>
           </div>
-          <script type="text/javascript" charset="utf-8">(function(){defer$(function(){var n,e;n=function(){return(Math.random()+"").substring(2)};e="changelog.txt";return $.get(e+"?x="+n(),function(n){var e,t,r;e=parsePlaintextChangelog(n);t=function(n){return"https://downloads.binaryage.com/Asepsis-"+n+".dmg"};r=function(n){return"released on "+n};generateChangelogHTML("#changelog-content",e,t,r);return $(window).trigger("changelog-rendered")})})}).call(this)</script>
+          <script type="text/javascript" charset="utf-8">(function(){defer$(function(){var n,e;return n=function(){return(Math.random()+"").substring(2)},e="changelog.txt",$.get(e+"?x="+n(),function(n){var e;return e=parsePlaintextChangelog(n),generateChangelogHTML("#changelog-content",e,function(n){return"https://downloads.binaryage.com/Asepsis-"+n+".dmg"},function(n){return"released on "+n}),$(window).trigger("changelog-rendered")})})}).call(this)</script>
         </div>
       </div>
     </div>
@@ -321,9 +347,9 @@ asepsisctl install_wrapper
         </div>
       </div>
     </div>
-    <script src="https://static.binaryage.com/0518c6ed_shared_js_code.js"></script>
-    <script type="text/javascript">window["ga"]=function(){}</script>
-    <script>window["ga"]=undefined;(function(e,n,a,t,i,o,r){e["GoogleAnalyticsObject"]=i;e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date;o=n.createElement(a),r=n.getElementsByTagName(a)[0];o.async=1;o.src=t;r.parentNode.insertBefore(o,r)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-8404259-1","auto",{allowLinker:true});ga("send","pageview");ga("require","linker");ga("linker:autoLink",["fastspring.com"],true)</script>
-    <script type="text/javascript" charset="utf-8">defer$(function(){$(function(){setTimeout(function(){var i=location.hash.substring(1);if(i.substring(0,2)=="o-"){$("#"+i).trigger("click")}},500)})})</script>
+    <script src="https://static.binaryage.com/bb6250cd_shared_js_code.js"></script>
+    <script type="text/javascript">window.ga=function(){}</script>
+    <script>window.ga=undefined,function(e,n,a,t,i,o,c){e.GoogleAnalyticsObject=i,e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date,o=n.createElement(a),c=n.getElementsByTagName(a)[0],o.async=1,o.src=t,c.parentNode.insertBefore(o,c)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-8404259-1","auto",{allowLinker:!0}),ga("send","pageview"),ga("require","linker"),ga("linker:autoLink",["fastspring.com"],!0)</script>
+    <script type="text/javascript" charset="utf-8">defer$(function(){$(function(){setTimeout(function(){var i=location.hash.substring(1);"o-"==i.substring(0,2)&&$("#"+i).trigger("click")},500)})})</script>
   </body>
 </html>
