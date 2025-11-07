@@ -312,16 +312,27 @@ You can find some further information [in our blog](https://blog.binaryage.com/e
   <div id="changelog-content" class="changelog"></div>
 </div>
 
-<script type="text/coffeescript" charset="utf-8">
-  defer$ ->
-    nonce = -> (Math.random() + "").substring(2)
-    source = "changelog.txt"
+<script type="text/javascript" charset="utf-8">
+  (function() {
+    defer$(function() {
+      var nonce, source;
+      nonce = function() {
+        return (Math.random() + "").substring(2);
+      };
+      source = "changelog.txt";
+      return $.get(source + "?x=" + (nonce()), function(data) {
+        var changelog, getDownloadLinkForVersion, getReleaseDateText;
+        changelog = parsePlaintextChangelog(data);
+        getDownloadLinkForVersion = function(version) {
+          return "https://downloads.binaryage.com/Asepsis-" + version + ".dmg";
+        };
+        getReleaseDateText = function(date) {
+          return "released on " + date;
+        };
+        generateChangelogHTML("#changelog-content", changelog, getDownloadLinkForVersion, getReleaseDateText);
+        return $(window).trigger("changelog-rendered");
+      });
+    });
 
-    $.get "#{source}?x=#{nonce()}", (data) ->
-      changelog = parsePlaintextChangelog(data)
-
-      getDownloadLinkForVersion = (version) -> "https://downloads.binaryage.com/Asepsis-#{version}.dmg"
-      getReleaseDateText = (date) -> "released on " + date
-      generateChangelogHTML "#changelog-content", changelog, getDownloadLinkForVersion, getReleaseDateText
-      $(window).trigger "changelog-rendered"
+  }).call(this);
 </script>
